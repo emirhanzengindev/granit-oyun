@@ -28,6 +28,8 @@ Kısım II'den itibaren her kısım bir önceki kısmın özetiyle başlar. Her 
 - **Serum Kanı:** Öldürdükçe ve hasar aldıkça dolar; Boşluk tuşuyla her kısma özgü bir güç açığa çıkar. Granit'in kanından yapılmış düşmanlara iki kat etkilidir.
 - **Görsel stil:** Çizgi roman havası: üç tonlu gölgelendirme, mürekkep konturları, baskı noktası dokusu, ekrana patlayan ses yazıları ve her kısmın kendi imza rengi.
 - **Müzik:** Tarayıcıda anlık üretilir; her kısmın Türk makamlarına dayalı kendi ritmi vardır, boss gelince değişir.
+- **Yan karakterler:** Her kısmın iki yan karakteri marketten altınla alınır ve boss savaşlarında yanında savaşır; her birinin kendine özgü bir yeteneği vardır.
+- **Konuşmalar:** Bölüm başlarında, boss savaşlarında ve yan karakterlerle çizgi roman balonlarıyla konuşmalar geçer.
 - **Mini harita:** Düşmanları, bossu, engelleri, tehlikeleri ve toplanabilir nesneleri gösterir.
 - **Kayıt:** İlerleme her kısım için ayrı ayrı tarayıcıda kaydedilir (localStorage).
 
