@@ -23,6 +23,8 @@ Kısım II'den itibaren her kısım bir önceki kısmın özetiyle başlar.
 - **Silahlar:** Her boss sonrası 7 silah arasından seçim yapılır ve silah bir kademe güçlenir. Silahların adı ve görünüşü her kısımda değişir.
 - **Bosslar:** Canları, karşılaştığın anda karakterinin gücüne göre ayarlanır.
 - **Kısma özgü mekanikler:** Her kısmın kendine ait tehlikeleri vardır. Örneğin kum leviathanı, ayin totemleri, hurda presi, keskin nişancı, zaman yırtıkları, uyum, sürü koşusu, meteor yağmuru ve ince buz.
+- **Altın ve market:** Düşmanlar ve bosslar altın düşürür, her bölüm sonunda ödül verilir. Oyuna 5 temel eklentiyle başlanır; diğer 11 eklenti ve fazladan yuvalar marketten altınla alınır. Seviye atlayınca yalnızca takılı eklentiler kart olarak çıkar.
+- **Özgün saldırılar:** Her düşman tipinin kendine özgü bir saldırısı, her bossun ekranda adı görünen iki imza saldırısı vardır.
 - **Mini harita:** Düşmanları, bossu, engelleri, tehlikeleri ve toplanabilir nesneleri gösterir.
 - **Kayıt:** İlerleme her kısım için ayrı ayrı tarayıcıda kaydedilir (localStorage).
 
