@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Granit: Kaçış Destanı</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /* VOICE: sert, askeri, gergin — bir hapishane kaçışı
    IDEA: mahkûm sicil dosyası ve hapishane uyarı tabelaları; kartlar damgalı dosya sayfaları gibi
@@ -60,7 +60,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .file b{color:var(--ink)}
 .stamp{display:inline-block;border:3px solid var(--red);color:var(--red);font-family:"Black Ops One",Impact,sans-serif;padding:2px 10px;transform:rotate(-4deg);font-size:18px;margin-bottom:10px}
 .feat{display:flex;gap:10px;align-items:flex-start;background:#1c1d20;border-left:4px solid #ffd23f;padding:9px 12px;margin:0 0 8px;font-size:16px}
-.feat b{color:#ffd23f;white-space:nowrap}
+.feat b{color:#ffd23f;white-space:nowrap;flex:none}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .btn{min-height:48px;padding:0 22px;border:0;border-radius:4px;background:var(--org);color:#16130f;font-weight:700;font-size:19px}
 .btn.alt{background:#2a2c30;color:var(--ink);border:1px solid #44474c}
@@ -78,7 +78,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hint{font-size:14px;color:var(--mut);margin-top:12px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.chips span{font-size:14px;background:#26282b;border-radius:3px;padding:2px 8px}
 #mini{position:absolute;top:max(10px,env(safe-area-inset-top));left:12px;width:140px;height:140px;border-radius:8px;background:rgba(8,9,10,.62);border:1px solid rgba(255,255,255,.18);box-shadow:0 4px 14px rgba(0,0,0,.5)}
-@media(max-width:760px){#mini{top:auto;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 70px);left:10px;width:96px;height:96px}}
+@media(max-width:760px){#mini{top:auto;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 104px);left:10px;width:96px;height:96px}}
 #ov.lux{background:radial-gradient(ellipse at 50% 40%,rgba(10,12,16,.55),rgba(4,5,6,.9))}
 .lu{width:min(900px,100%);margin:auto;padding:4px}
 .lu-h{display:flex;align-items:center;gap:16px;margin-bottom:6px}.lu-h h2{font-size:clamp(28px,5vw,42px);margin:0;line-height:1.05}
@@ -125,13 +125,56 @@ button{font:inherit;color:inherit;cursor:pointer}
 .btn.sm{min-height:40px;padding:0 14px;font-size:16px}.btn:disabled{opacity:.4;cursor:not-allowed}
 .eqrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 0;font-size:14px;color:#a7a197}
 @media(max-width:600px){#gold{top:calc(max(10px,env(safe-area-inset-top)) + 54px);right:10px;height:34px;font-size:15px;padding:0 9px}.feat{flex-wrap:wrap}.feat b{white-space:normal}.mc{grid-template-columns:36px minmax(0,1fr);}.mc .btn{grid-column:1/-1}}
+#serumw{position:relative;margin-bottom:5px}#serumt{display:block;font-size:13px;font-weight:700;color:#ff8a9a;text-shadow:0 1px 2px #000;margin-bottom:2px}
+#serum{position:relative;height:9px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.18);border-radius:3px;overflow:hidden}#serum i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,#8a0f20,#ff3b5a)}
+#serum.rdy{box-shadow:0 0 10px #ff3b5a;animation:pulse 1s ease-in-out infinite}
+#serumBtn{position:absolute;right:16px;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 6px);width:72px;height:72px;border-radius:50%;pointer-events:auto;border:2px solid rgba(255,255,255,.3);color:#fff;background:conic-gradient(#ff3b5a var(--p,0%),rgba(0,0,0,.6) 0);box-shadow:0 4px 14px rgba(0,0,0,.6);display:grid;place-items:center}
+#serumBtn b{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#16171a;font-size:12px;letter-spacing:.02em}
+#serumBtn.rdy{border-color:#ff8a9a;animation:pulse 1s ease-in-out infinite}#serumBtn.rdy b{background:#5a0a18}
+@keyframes pulse{50%{transform:scale(1.06);box-shadow:0 0 22px #ff3b5a}}
+@media(max-width:600px){#serumBtn{bottom:calc(max(14px,env(safe-area-inset-bottom)) + 104px);right:12px}}
 #load{position:fixed;inset:0;display:grid;place-items:center;font-family:"Black Ops One",Impact,sans-serif;color:var(--org);font-size:22px}
 @media(max-width:600px){.picks{grid-template-columns:minmax(0,1fr)}.pick{min-height:0;flex-direction:row;align-items:center;flex-wrap:wrap}.pick em{margin-top:0;width:100%}.pick .ic{width:34px;height:34px}.card p{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.bar i,#warn,#vign,#flash{transition:none}}
+
+/* ===== çizgi roman stili ===== */
+#comic{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(0,0,0,.55) 1px,transparent 1.6px);background-size:5px 5px;mix-blend-mode:multiply;opacity:.22;box-shadow:inset 0 0 0 5px #0a090b,inset 0 0 120px rgba(0,0,0,.55)}
+#sfxl{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.sfx{position:absolute;font-family:Bangers,"Black Ops One",Impact,sans-serif;font-size:var(--fs,34px);letter-spacing:1px;color:var(--c,#ffd23a);-webkit-text-stroke:2px #0a090b;paint-order:stroke fill;text-shadow:3px 3px 0 #0a090b;white-space:nowrap;transform:translate(-50%,-50%) rotate(var(--r,0deg)) scale(.2);animation:sfxp .8s ease-out forwards}
+@keyframes sfxp{0%{transform:translate(-50%,-50%) rotate(var(--r)) scale(.2);opacity:1}18%{transform:translate(-50%,-60%) rotate(var(--r)) scale(1.18)}30%{transform:translate(-50%,-62%) rotate(var(--r)) scale(1)}75%{opacity:1}100%{transform:translate(-50%,-85%) rotate(var(--r)) scale(.95);opacity:0}}
+.card{border:3px solid #0a090b;border-top:7px solid var(--org);box-shadow:8px 8px 0 #0a090b,0 20px 60px rgba(0,0,0,.5)}
+.sk{border:3px solid #0a090b!important;border-top:6px solid var(--c)!important;box-shadow:6px 6px 0 #0a090b}
+.btn{border:3px solid #0a090b;box-shadow:3px 3px 0 #0a090b;font-family:Bangers,"Barlow Condensed",sans-serif;letter-spacing:1px;font-size:21px}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #0a090b}
+.card h1{font-family:Bangers,"Black Ops One",Impact,sans-serif;letter-spacing:2px;-webkit-text-stroke:1.5px #0a090b;text-shadow:4px 4px 0 #0a090b}
+#warn{font-family:Bangers,"Black Ops One",Impact,sans-serif;letter-spacing:3px;-webkit-text-stroke:2px #0a090b;text-shadow:5px 5px 0 #0a090b}
+@media(prefers-reduced-motion:reduce){.sfx{animation-duration:.01s}}
+
+/* ===== çizgi roman sayfası ===== */
+#ov.comicov{background:#efe4cc radial-gradient(rgba(0,0,0,.16) 1.2px,transparent 1.8px) 0 0/7px 7px}
+.cpage{width:min(880px,100%);display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:auto;transform:rotate(-.3deg)}
+.cpan{position:relative;border:4px solid #0a090b;background:#222;overflow:hidden;box-shadow:6px 6px 0 #0a090b;opacity:0;animation:cpin .45s cubic-bezier(.2,1.5,.4,1) forwards}
+.cpan::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(rgba(0,0,0,.35) 1px,transparent 1.5px) 0 0/5px 5px;mix-blend-mode:multiply;opacity:.35}
+.cp1{grid-column:1/3;height:clamp(160px,27vh,240px)}.cp2,.cp3{height:clamp(190px,34vh,300px)}
+.cp2{animation-delay:.45s;transform-origin:left}.cp3{animation-delay:1s;transform-origin:right}
+@keyframes cpin{0%{opacity:0;transform:scale(.85) rotate(-2deg)}100%{opacity:1;transform:none}}
+.cart,.cart svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ccap{position:absolute;left:10px;top:10px;max-width:min(64%,460px);background:#ffe14a;color:#111;border:3px solid #0a090b;padding:6px 10px 7px;font:600 15px/1.3 "Barlow Condensed",sans-serif;box-shadow:3px 3px 0 #0a090b;z-index:1}
+.ccap b{display:block;font:400 19px/1.1 Bangers,"Black Ops One",Impact,sans-serif;letter-spacing:1px;margin-bottom:2px}
+.cbal{position:absolute;top:12px;left:12px;right:20%;background:#fff;color:#111;border:3px solid #0a090b;border-radius:20px;padding:8px 13px;font:700 17px/1.25 "Barlow Condensed",sans-serif;z-index:1}
+.cbal::after{content:"";position:absolute;bottom:-17px;left:38%;border:9px solid transparent;border-top:14px solid #0a090b}
+.cbal::before{content:"";position:absolute;bottom:-11px;left:calc(38% + 3px);border:6px solid transparent;border-top:10px solid #fff;z-index:1}
+.cbr{left:20%;right:12px;border-radius:6px 22px 6px 22px}.cbr i{display:block;font:400 15px Bangers,Impact,sans-serif;letter-spacing:1px;color:var(--org);font-style:normal}
+.cname{position:absolute;bottom:8px;left:8px;background:#0a090b;color:#fff;font:400 18px Bangers,Impact,sans-serif;letter-spacing:1px;padding:2px 9px;z-index:1}
+.csfx{position:absolute;right:12px;bottom:8px;font:400 clamp(32px,6vw,54px)/1 Bangers,Impact,sans-serif;color:#ffd23a;-webkit-text-stroke:2px #0a090b;paint-order:stroke fill;text-shadow:4px 4px 0 #0a090b;transform:rotate(-9deg);z-index:1}
+.cbtn{grid-column:1/3;justify-content:flex-end;margin-top:4px;opacity:0;animation:cpin .3s 1.4s forwards}
+@media(max-width:620px){.cpage{grid-template-columns:1fr 1fr;gap:8px}.cp1{height:210px}.cp2,.cp3{height:220px}.ccap{max-width:none;right:10px;top:auto;bottom:10px;font-size:14px}.cbal,.cbr{left:8px;right:8px;font-size:14.5px;padding:6px 9px}.csfx{font-size:30px}}
+@media(prefers-reduced-motion:reduce){.cpan,.cbtn{animation:none;opacity:1}}
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
+<div id="comic"></div><div id="sfxl"></div>
 <div id="load">YÜKLENİYOR…</div>
 <div id="hud">
   <div class="top">
@@ -146,9 +189,10 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div id="gold"><span class="ci"></span><span id="goldv">0</span></div>
   <div class="bottom">
     <div class="badge" id="plvl">1</div>
-    <div><div class="bar hp" id="hpbar"><i></i><span></span></div><div class="bar xp" id="xpbar"><i></i></div></div>
+    <div><div id="serumw"><span id="serumt"></span><div id="serum"><i></i></div></div><div class="bar hp" id="hpbar"><i></i><span></span></div><div class="bar xp" id="xpbar"><i></i></div></div>
     <div id="wname"></div>
   </div>
+  <button id="serumBtn" aria-label="Serumu kullan"><b>SERUM</b></button>
   <button class="tbtn" id="muteBtn" aria-label="Sesi aç/kapat">♪</button>
   <button class="tbtn" id="pauseBtn" aria-label="Duraklat">II</button>
 </div>
@@ -266,69 +310,69 @@ const SK=[
 const SKI={dmg:'M8 30l10-22 10 22M12 22h12',rate:'M6 10h24M6 18h24M6 26h24',proj:'M8 12h20M8 24h20M24 8l6 4-6 4M24 20l6 4-6 4',pierce:'M4 18h28M24 12l8 6-8 6M14 10v16',bounce:'M4 28l10-18 10 18 8-14',crit:'M18 4v8M18 24v8M4 18h8M24 18h8M18 18m-5 0a5 5 0 1 0 10 0a5 5 0 1 0-10 0',hp:'M18 30L6 18a6 6 0 0 1 12-8 6 6 0 0 1 12 8z',leech:'M18 4c6 9 9 14 9 19a9 9 0 0 1-18 0c0-5 3-10 9-19z',regen:'M18 6v24M6 18h24',armor:'M18 4l12 5v9c0 7-5 12-12 14C11 30 6 25 6 18V9z',speed:'M6 26l10-8-10-8M18 26l10-8-10-8',magnet:'M8 6v12a10 10 0 0 0 20 0V6h-6v12a4 4 0 0 1-8 0V6z',drone:'M10 18h16M6 12h8M22 12h8M18 14v8',blade:'M18 4l4 10 10 4-10 4-4 10-4-10-10-4 10-4z',grenade:'M18 12a9 9 0 1 0 .1 0M16 12V7h4v5M20 7l5-3',bolt:'M20 4L8 20h9l-3 12 14-18h-9z'};
 
 
-/* ================= KISIM II: KUM ÇUKURU ================= */
+/* ================= KISIM II: CAM ÇÖLÜ ================= */
 const CHAP2=[null,
- {n:'Tutsak Gemisi',s:'Vael Hegemonyası\'nın av gemisi. Hücreler ışıktan, gardiyanlar insandan bir baş uzun. Gemi Kezhar adlı bir çöl gezegenine alçalıyor.'},
- {n:'Zerrin Madenleri',s:'Gemi çölün ortasına çakıldı. Enkazın altındaki madenlerde tutsaklar mavi parlayan zerrin tozunu kazıyor.'},
- {n:'Açık Çöl',s:'Ufka kadar kum. Kumun altında dağ büyüklüğünde bir şey yaşıyor ve her adımını duyuyor.'},
- {n:'Sessiz Manastır',s:'Kara taştan bir manastır. Yüzleri örtülü rahibeler tek bir sesle insanın kanını dondurabiliyor.'},
- {n:'Kara Güneş Arenası',s:'Hegemon\'un gladyatör arenası. Kara güneşin altında renkler yok olur; geriye yalnız ışık ve gölge kalır.'},
- {n:'Hegemon\'un Kalesi',s:'Kumdan yükselen dev bir kale. Hegemon tahtında bekliyor. Gezegenden çıkışın tek yolu buradan geçiyor.'}];
+ {n:'Numune Gemisi',s:'Mühürcülerin numune gemisi. Hücreler cam kavanoz, gardiyanlar yüzsüz. Gemi Serap adlı bir gezegene alçalıyor; kumları yıldırımların erittiği cam tanelerinden oluşuyor.'},
+ {n:'Zerrin Madenleri',s:'Gemi cam tepelerin arasına çakıldı. Enkazın altındaki madenlerde tutsaklar, yıldırım çarpmış camın mavi parlayan tozunu, zerrini kazıyor.'},
+ {n:'Cam Ovası',s:'Güneşte yanıp sönen cam tepeler ufka kadar uzanıyor. Altlarında dağ kadar büyük bir şey yaşıyor. Göçerler ona Uğultu diyor; hareket ettiğinde bütün ova şarkı söylüyor.'},
+ {n:'Akort Kulesi',s:'Ovanın ortasında yükselen kara bir kule. İçindeki rahipler asırlardır susmadan tek bir nota söylüyor. O nota kemikleri titretiyor.'},
+ {n:'Tutulma Sergisi',s:'Mühürcülerin canlı müzesi. En nadir numuneler ay tutulmasında koleksiyonerlerin önünde dövüştürülür. Tutulma başlayınca renkler kaybolur.'},
+ {n:'Küratör\'ün Kubbesi',s:'Müzenin kalbi, cam bir kubbe. Küratör her numunenin kanından bir damla saklıyor. Gezegenden çıkışın tek yolu buradan geçiyor.'}];
 Object.assign(MOD,{
- hounds:['Kum tazıları','Dört ayaklı, çok hızlı avcılar.'],
+ hounds:['Cam tazıları','Dört ayaklı, çok hızlı avcılar.'],
  shields:['Enerji kalkanları','Mavi kalkanı önce kırman gerekir. Vurmayı bırakırsan kalkan yeniden dolar.'],
  brutes:['Taş devler','Kaya zırhlı, yavaş ama çok dayanıklı.'],
  zerrin:['Zerrin alanları','Mavi tozun içinde daha hızlı ve güçlü ateş edersin ama canın erir.'],
- quicksand:['Bataklık kum','Koyu girdaplar seni de düşmanları da yavaşlatır.'],
- flyers:['Yusufçuk gemicikleri','Kanat çırpan uçan avcılar havadan ateş eder.'],
- worm:['Kum leviathanı','Hareket ettikçe titreşim artar. Yer sarsılınca turuncu halkadan kaç; içindeki düşmanları da yutar.'],
- storm:['Kum fırtınası','Görüş daralır, rüzgâr seni sürükler.'],
- thumpers:['Tokmaklar','Tokmak direklerine ateş et; leviathan oradan çıkıp düşmanları yutar.'],
- voice:['Sessiz rahibeler','Mor ses dalgaları seni yavaşlatır ve canını yakar.']});
-const MOD2={exploders:['Zerrin şişkinleri','Mavi tozla şişmiş tutsaklar. Ölünce ya da sana değince patlarlar.'],swarm:['Arena sürüsü','Kafesler açıldı; düşmanlar sürü halinde gelir.'],alarm:['Ayin çanları','Her çan sesinde büyük bir takviye dalgası gelir.'],turrets:['Arena kuleleri','Sabit kuleler ateş eder. Onları da yok etmen gerekir.'],lasers:['Enerji bariyeri','Dönen ışınlara değme.'],dark:['Karanlık','Görüş alanın dar. Düşman gözleri karanlıkta parlar.'],mines:['Gömülü tuzaklar','Yanıp sönen kırmızı ışıklara basma.']};
+ quicksand:['Kum girdapları','Koyu girdaplar seni de düşmanları da yavaşlatır.'],
+ flyers:['Cam sinekleri','Cam kanatlı uçan gözcüler havadan ateş eder.'],
+ worm:['Uğultu','Hareket ettikçe titreşim artar. Yer sarsılınca turuncu halkadan kaç; içindeki düşmanları da yutar.'],
+ storm:['Cam fırtınası','Görüş daralır, rüzgâr seni sürükler.'],
+ thumpers:['Çağrı direkleri','Direklere ateş et; Uğultu oradan çıkıp düşmanları yutar.'],
+ voice:['Akort rahipleri','Mor ses dalgaları seni yavaşlatır ve canını yakar.']});
+const MOD2={exploders:['Zerrin şişkinleri','Mavi tozla şişmiş tutsaklar. Ölünce ya da sana değince patlarlar.'],swarm:['Sergi sürüsü','Kafesler açıldı; düşmanlar sürü halinde gelir.'],alarm:['Akort çanları','Her çan sesinde büyük bir takviye dalgası gelir.'],turrets:['Sergi kuleleri','Sabit kuleler ateş eder. Onları da yok etmen gerekir.'],lasers:['Enerji bariyeri','Dönen ışınlara değme.'],dark:['Karanlık','Görüş alanın dar. Düşman gözleri karanlıkta parlar.'],mines:['Gömülü tuzaklar','Yanıp sönen kırmızı ışıklara basma.']};
 const LV2=[
- {t:'Işık Hücresi',m:[],k:20,s:'Işıktan parmaklıklar titreyip söndü. Düşen bir muhafızın iğne tabancasını kaptın. Küçük bir silah ama işini görür.'},
- {t:'Av Köpekleri',m:['hounds'],k:25,s:'Muhafızlar kafeslerdeki kum tazılarını üzerine saldı.'},
+ {t:'Kavanoz Hücre',m:[],k:20,s:'Kavanozun camı çatladı ve kapak açıldı. Düşen bir muhafızın iğne tabancasını kaptın. Küçük bir silah ama işini görür.'},
+ {t:'Av Köpekleri',m:['hounds'],k:25,s:'Muhafızlar kafeslerdeki cam tazılarını üzerine saldı. Pençeleri zeminde çizik bırakıyor.'},
  {t:'Kalkanlılar',m:['shields'],k:25,s:'Kalkanlı muhafızlar koridoru tuttu. Önce kalkanı kır.'},
- {t:'Kuluçka Ambarı',m:['eggs','brutes'],k:30,s:'Geminin ambarı yumurta keseleriyle dolu. Kum tazıları her an çıkabilir; keseleri açılmadan patlat.'},
- {t:'Varkh',b:1,m:[],s:'Geminin baş gardiyanı Varkh. O kadar şişman ki yürüyemiyor; havada süzülen halkaların üstünde taşınıyor.'},
- {t:'Mavi Toz',m:['zerrin'],k:30,s:'Zerrin tozu ciğerlerine doldu. Gözlerin maviye döndü ve dünya yavaşlamış gibi görünüyor.'},
- {t:'Kum Çukurları',m:['quicksand','hounds'],k:35,s:'Galerilerin zemini çökmüş. Kum seni aşağı çekmeye çalışıyor.'},
- {t:'Yusufçuklar',m:['flyers'],k:35,s:'Madenin tavanından kanat sesleri geliyor. Hegemon\'un devriye gemicikleri seni buldu.'},
+ {t:'Kuluçka Ambarı',m:['eggs','brutes'],k:30,s:'Ambar, Mühürcülerin topladığı yumurta keseleriyle dolu. Tazılar her an çıkabilir; keseleri açılmadan patlat.'},
+ {t:'Kavanozcu',b:1,m:[],s:'Geminin kavanoz bekçisi. O kadar şişmiş ki yürüyemiyor; havada süzülen halkalar onu taşıyor. Her numunenin etiketini o yazıyor.'},
+ {t:'Mavi Toz',m:['zerrin'],k:30,s:'Zerrin tenine değdiğinde tüylerin diken diken oluyor ve silahın çatırdıyor. Daha hızlı ateş ediyorsun ama canın eriyor.'},
+ {t:'Çöken Galeriler',m:['quicksand','hounds'],k:35,s:'Galerilerin zemini çökmüş. Cam kumu seni aşağı çekmeye çalışıyor.'},
+ {t:'Cam Sinekleri',m:['flyers'],k:35,s:'Madenin tavanından vızıltılar geliyor. Mühürcülerin cam kanatlı gözcüleri seni buldu.'},
  {t:'Grizu',m:['zerrin','exploders','shields'],k:40,s:'Zerrin yüklü tutsaklar şişip patlıyor. Maden her an çökebilir.'},
  {t:'Maden Çarkı',b:2,m:[],s:'Madenin hasat makinesi: içinde çürüyen bir pilot taşıyan dev bir yengeç.'},
- {t:'Ritmi Boz',m:['worm'],k:40,s:'Yüzeydesin. Göçebelerin kuralı: düzenli adım atma. Kumun altındaki şey ritmi duyar.'},
- {t:'Kum Fırtınası',m:['storm','hounds'],k:45,s:'Ufuktan bir duvar gibi fırtına geliyor. İçinde tazılar uluyor.'},
- {t:'Tokmaklar',m:['thumpers','worm','brutes'],k:45,s:'Göçebelerin bıraktığı tokmak direkleri. Onları vurursan leviathanı istediğin yere çağırırsın.'},
- {t:'Çöl Gecesi',m:['flyers','worm','quicksand'],k:50,s:'İki ay doğdu. Yusufçuklar alçaktan uçuyor, kum ayağının altında kayıyor.'},
- {t:'Kum Leviathanı',b:3,m:[],s:'Kumun altından yükselen, ağzı bir mağara kadar geniş bir canavar. Göçebeler ona "Derin Yutan" der.'},
- {t:'Fısıltılar',m:['voice'],k:50,s:'Manastırın kapısı açık. İçeriden insan diline benzemeyen fısıltılar geliyor.'},
- {t:'Kalkan Duvarı',m:['shields','voice'],k:55,s:'Rahibeler kalkanlı muhafızları koruyor. Önce sesi sustur.'},
- {t:'Enerji Kapıları',m:['pylons','voice'],k:55,s:'Kutsal salonun kapıları enerji ışınlarıyla kilitli. Işınlar aralıklarla yanıp sönüyor.'},
- {t:'Ayin',m:['totems','voice','brutes'],k:60,s:'Rahibeler ayin totemleri dikti. Totemler yaşadıkça yanındaki düşmanlar iyileşiyor ve daha az hasar alıyor.'},
- {t:'Ses Ana',b:4,m:[],s:'Rahibelerin anası. Peçesinin altında tek bir yüz değil, onlarca ağız var.'},
- {t:'Gladyatör Çukuru',m:['hounds','swarm'],k:60,s:'Rahibeler seni Hegemon\'a sattı. Kara güneşin altında arenaya atıldın; kalabalık kanını istiyor.'},
- {t:'Kalabalığın Önünde',m:['spikes','shields'],k:65,s:'Arenanın zemini dikenli karolarla dolu. Kalabalık her yaralanışında tezahürat yapıyor.'},
- {t:'Zincirli Dövüş',m:['chain','brutes'],k:65,s:'Boynuna zincir taktılar ve seni dönen bir direğe bağladılar. Kaçamazsın, sadece dövüşebilirsin.'},
- {t:'Çifte Dövüş',m:['flyers','shields','hounds'],k:70,s:'Hegemon eğleniyor. Aynı anda havadan ve yerden saldırıyorlar.'},
- {t:'Şampiyon Draven',b:5,m:[],s:'Arenanın yenilmez şampiyonu. Solgun, kel ve dişleri kapkara. Hiç kaybetmemiş.'},
- {t:'Kale Kapısı',m:['pylons','brutes','hounds'],k:70,s:'Draven\'ın ölümü kalabalığı ayaklandırdı. Kalenin enerji kapılarından geçmek zorundasın.'},
- {t:'Taht Yolu',m:['totems','shields','voice'],k:75,s:'Hegemon\'un rahibeleri son totemlerini dikti. Önce totemleri devir.'},
- {t:'Kum Yürüyüşü',m:['worm','thumpers','flyers'],k:75,s:'Kalenin avlusu çöle açılıyor. Leviathanlar kaleyi kuşatmış.'},
- {t:'Son Ayin',m:['eggs','zerrin','hounds'],k:80,s:'Hegemon zerrin depolarını ateşe verdi ve son kuluçkaları uyandırdı.'},
- {t:'Hegemon',b:6,m:[],s:'Vael Hegemonyası\'nın hükümdarı. Asırlardır zerrinle beslenen, tahtıyla kaynaşmış bir beden.'}];
+ {t:'Sessiz Adımlar',m:['worm'],k:40,s:'Yüzeydesin. Cam Göçerlerinin kuralı: düzenli adım atma. Ovanın altındaki Uğultu her ritmi duyar.'},
+ {t:'Cam Fırtınası',m:['storm','hounds'],k:45,s:'Ufuktan bir duvar gibi fırtına geliyor. Rüzgâr cam kumunu bıçak gibi savuruyor; içinde tazılar uluyor.'},
+ {t:'Çağrı Direkleri',m:['thumpers','worm','brutes'],k:45,s:'Göçerlerin diktiği çağrı direkleri. Onları vurursan Uğultu\'yu istediğin yere çağırırsın.'},
+ {t:'Şarkı Söyleyen Gece',m:['flyers','worm','quicksand'],k:50,s:'İki ay doğdu ve soğuyan ova inlemeye başladı. Sinekler alçaktan uçuyor, kum ayağının altında kayıyor.'},
+ {t:'Uğultu',b:3,m:[],s:'Ovanın altından yükselen, gövdesi camdan dev bir yaratık. Her hareketi bir şarkı, her şarkısı bir deprem.'},
+ {t:'Tek Nota',m:['voice'],k:50,s:'Kulenin kapısı açık. İçeriden asırlardır susmayan tek bir nota geliyor. Dişlerin titriyor.'},
+ {t:'Kalkan Duvarı',m:['shields','voice'],k:55,s:'Akort rahipleri kalkanlı muhafızları koruyor. Önce notayı sustur.'},
+ {t:'Enerji Kapıları',m:['pylons','voice'],k:55,s:'Kulenin salonları enerji ışınlarıyla kilitli. Işınlar aralıklarla yanıp sönüyor.'},
+ {t:'Akort Ayini',m:['totems','voice','brutes'],k:60,s:'Rahipler akort totemleri dikti. Totemler yaşadıkça yanındaki düşmanlar iyileşiyor ve daha az hasar alıyor.'},
+ {t:'Diapazon',b:4,m:[],s:'Rahiplerin başı. Başının yerinde çatal biçimli dev bir akort demiri var. Çaldığında hava kırılıyor.'},
+ {t:'Sergi Çukuru',m:['hounds','swarm'],k:60,s:'Rahipler seni Küratör\'e teslim etti. Tutulma başladığında sergi çukuruna atıldın; koleksiyonerler cam balkonlardan izliyor.'},
+ {t:'Koleksiyonerler',m:['spikes','shields'],k:65,s:'Çukurun zemini dikenli karolarla dolu. Her yaralanışında balkonlardan yeni fiyat teklifleri yükseliyor.'},
+ {t:'Zincirli Numune',m:['chain','brutes'],k:65,s:'Boynuna bir numune zinciri taktılar ve seni dönen bir direğe bağladılar. Kaçamazsın, sadece dövüşebilirsin.'},
+ {t:'Çifte Gösteri',m:['flyers','shields','hounds'],k:70,s:'Küratör eğleniyor. Aynı anda havadan ve yerden saldırıyorlar.'},
+ {t:'Tolgar',b:5,m:[],s:'Müzenin en eski numunesi. Üç yüz yıldır bir kavanozda yaşıyor. Artık kafesini seviyor ve kimsenin çıkmasına izin vermiyor.'},
+ {t:'Kubbe Kapısı',m:['pylons','brutes','hounds'],k:70,s:'Tolgar\'ın düşüşü bütün numuneleri ayaklandırdı. Kubbenin enerji kapılarından geçmek zorundasın.'},
+ {t:'Arşiv Yolu',m:['totems','shields','voice'],k:75,s:'Küratör\'ün rahipleri son totemlerini dikti. Önce totemleri devir.'},
+ {t:'Uğultu Kuşatması',m:['worm','thumpers','flyers'],k:75,s:'Kubbenin avlusu ovaya açılıyor. Uğultular kubbenin çevresinde şarkı söylüyor.'},
+ {t:'Son Katalog',m:['eggs','zerrin','hounds'],k:80,s:'Küratör zerrin depolarını ateşe verdi ve son kuluçkaları uyandırdı.'},
+ {t:'Küratör',b:6,m:[],s:'Mühürcülerin efendisi. Bedeni koleksiyon arşiviyle kaynaşmış; binlerce numunenin kanı damarlarında dolaşıyor. Sıradaki damla seninki.'}];
 const BOSS2=[null,
- {n:'VARKH',pat:['radial','homing','spawn'],spd:2,r:2.4,secs:22,min:700,fly:1,win:'Varkh düştü ve gemi denetimsiz kaldı. Çölün ortasına çakılan enkazdan sürünerek çıkıyorsun.'},
+ {n:'KAVANOZCU',pat:['radial','homing','spawn'],spd:2,r:2.4,secs:22,min:700,fly:1,win:'Kavanozcu düştü ve gemi denetimsiz kaldı. Cam tepelerin arasına çakılan enkazdan sürünerek çıkıyorsun.'},
  {n:'MADEN ÇARKI',pat:['charge','slam','acid','spawn'],spd:2.6,r:2.6,secs:27,min:2000,win:'Çark durdu. Pilot kapsülündeki harita yüzeye çıkan bir şaftı gösteriyor.'},
- {n:'KUM LEVİATHANI',pat:['burrow','burrow','radial','spiral'],spd:0,r:2.6,secs:31,min:4500,win:'Leviathan kumun derinliklerine çekildi. Ufukta kara taştan bir manastır görünüyor.'},
- {n:'SES ANA',pat:['voice','spiral','teleport','spawn'],spd:2.4,r:1.9,secs:36,min:8000,fly:1,win:'Ses Ana sustu. Ama rahibeler seni çoktan Hegemon\'a satmıştı. Uyandığında arenadasın.'},
- {n:'DRAVEN',pat:['charge','teleport','radial','slam','charge'],spd:4.6,r:1.4,secs:42,min:13000,win:'Draven kumların üstüne yığıldı. Kalabalık bir an sustu, sonra senin adını haykırmaya başladı.'},
- {n:'HEGEMON',pat:['voice','burrow2','spiral','homing','spawn','radial','slam'],spd:1.6,r:3,secs:52,min:20000,fly:1,win:''}];
+ {n:'UĞULTU',pat:['burrow','burrow','radial','spiral'],spd:0,r:2.6,secs:31,min:4500,win:'Uğultu ovanın derinliklerine çekildi ve şarkısı sustu. Ufukta tek bir notayla titreyen bir kule görünüyor.'},
+ {n:'DİAPAZON',pat:['voice','spiral','teleport','spawn'],spd:2.4,r:1.9,secs:36,min:8000,fly:1,win:'Diapazon çatladı ve kule sustu. Ama rahipler seni çoktan Küratör\'e satmıştı. Uyandığında sergi çukurundasın.'},
+ {n:'TOLGAR',pat:['charge','teleport','radial','slam','charge'],spd:4.6,r:1.4,secs:42,min:13000,win:'Tolgar cam kumunun üstüne yığıldı. Son sözü "Kapak açık kaldı" oldu. Balkonlar bir an sustu, sonra kavanozlar birer birer kırılmaya başladı.'},
+ {n:'KÜRATÖR',pat:['voice','burrow2','spiral','homing','spawn','radial','slam'],spd:1.6,r:3,secs:52,min:20000,fly:1,win:''}];
 const WN2={pistol:['İğne Tabancası','Muhafızdan alınan küçük silah',0x80e8ff],smg:['Sürü Atıcı','Kristal kıymık yağmuru',0x80d0ff],shotgun:['Saçma Topu','Yakında yıkıcı enerji saçması',0xa0b0ff],rifle:['Işın Tüfeği','Uzun menzil, yüksek hasar',0xc0f0ff],minigun:['Dönen Top','Kesintisiz enerji yağmuru',0x70c0ff],rocket:['Gravite Havanı','Çöken alan patlaması',0xb070ff],plasma:['Zerrin Kesici','Mavi ışın düşmanları deler',0x40c8ff]};
 const RECAP=[
  ['Önceki kısımda','Kara Sektör','Yüzbaşı Arda "Granit" Demir, Demirkalkan süper asker programının tek başarılı deneğiydi. Program iptal edilince Dr. Varga onu gizli yeraltı hapishanesi Kara Sektör\'e kapattı ve kanından bir mutant ordusu üretti.','Bir fırtına gecesi kilit kısa devre yaptı. Granit küçük bir tabancayla hücresinden çıktı. Sırayla Kasap\'ı, Lağım Ana\'yı, Çok Gözlü\'yü, Denek Sıfır\'ı ve Demir Leş\'i devirdi. Sonunda kendini Kimera\'ya dönüştüren Varga\'yı da yendi.'],
  ['Önceki kısımda','Gökyüzünden gelen ışık','Helikopter pistinde, üç yıl sonra ilk kez temiz havayı içine çekerken yıldızlar kıpırdadı. Sessiz, devasa bir disk tepesinde durdu ve yeşil bir ışık onu yerden kopardı.','Sinyal kesilmeden önce duyduğu son şey insan diline benzemeyen bir sesti: "Denek bulundu."'],
- ['Kısım II','Kum Çukuru','Granit bir ışık hücresinde uyandı. Boynuna takılan çevirmen gardiyanların sözlerini çözüyor. Vael Hegemonyası galaksinin en güçlü savaşçılarını toplayıp Kara Güneş Arenası\'nda dövüştürüyor. Hegemon ise Granit\'in kanını istiyor: onu zerrin tozuyla karıştırıp yenilmez bir ordu yaratacak.','Gemi, Kezhar adlı çöl gezegenine alçalıyor. Silahları alındı. Ama Granit\'in kendisi zaten bir silah.']];
+ ['Kısım II','Cam Çölü','Granit bir cam kavanozun içinde uyandı. Boynuna takılan çevirmen gardiyanların sözlerini çözüyor. Onu alan ışık Mühürcülere aitti: galaksinin en güçlü canlılarını toplayıp canlı bir müzede sergileyen bir tarikat. Küratör ise Granit\'i sergilemek değil, kanını damıtmak istiyor.','Gemi, kumları yıldırımla erimiş camdan oluşan Serap gezegenine alçalıyor. Silahları alındı. Ama Granit\'in kendisi zaten bir silah.']];
 let PART=1,CHAP,LV,BOSS,TH;
 function setPart(p){PART=p;CHAP=p===5?CHAP5:p===4?CHAP4:p===3?CHAP3:p===2?CHAP2:CHAP1;LV=p===5?LV5:p===4?LV4:p===3?LV3:p===2?LV2:LV1;BOSS=p===5?BOSS5:p===4?BOSS4:p===3?BOSS3:p===2?BOSS2:BOSS1;TH=p===5?TH5:p===4?TH4:p===3?TH3:p===2?TH2:TH1}
 const wn=k=>PART===5?WN5[k][0]:PART===4?WN4[k][0]:PART===3?WN3[k][0]:PART===2?WN2[k][0]:W[k].n, wd=k=>PART===5?WN5[k][1]:PART===4?WN4[k][1]:PART===3?WN3[k][1]:PART===2?WN2[k][1]:W[k].d, md=m=>(PART===3&&MOD3[m])||(PART===2&&MOD2[m])||MOD[m];
@@ -336,21 +380,21 @@ const wn=k=>PART===5?WN5[k][0]:PART===4?WN4[k][0]:PART===3?WN3[k][0]:PART===2?WN
 
 /* ================= KISIM III: DÖNÜŞ ================= */
 const CHAP3=[null,
- {n:'Kuşatılmış Gemi',s:'Göçebelerin yıldız gemisi Kum Kırlangıcı pusuya düştü. Koridorlarda Granit\'in kendi yüzünü taşıyan askerler var.'},
- {n:'Hurda Gezegeni',s:'İkiz güneşin altında, ölü gemilerin mezarlığı. Burada her şey satılık, Granit\'in başı da.'},
- {n:'Buz Gezegeni',s:'Kopya ordusunun ileri üssü dondurucu bir gezegende. Zemin cam gibi kaygan, rüzgâr bıçak gibi.'},
- {n:'Orman Ayı',s:'Dev ağaçların gölgesinde bir av başladı. Direktör, galaksinin en iyi ödül avcısını tuttu.'},
- {n:'Demir Ay',s:'Ay büyüklüğünde bir savaş istasyonu. Dünya\'ya doğru ilerliyor ve içi kopyalarla dolu.'},
- {n:'Kaynak Çekirdeği',s:'İstasyonun kalbi. Granit\'in kanı burada çoğaltılıyor. Direktör burada bekliyor.'}];
+ {n:'Kuşatılmış Gemi',s:'Cam Göçerlerinin gemisi Sırça Kuş pusuya düştü. Koridorlara çıkan askerlerin hepsi aynı yüzü taşıyor: Granit\'in yüzünü.'},
+ {n:'Pas Halkası',s:'Ölü gemilerden oluşan bir asteroit halkası. Burada her şey satılık, Granit\'in başı da.'},
+ {n:'Su Verme Dünyası',s:'Dökümhanenin soğutma gezegeni. Yeni dökülen askerler burada buza gömülüp sertleştiriliyor. Zemin cam gibi kaygan, rüzgâr bıçak gibi.'},
+ {n:'Spor Ormanı',s:'Dev mantarların ışıldadığı bir ay. Sporlar havayı sisle dolduruyor. Döküm Ustası galaksinin en pahalı avcısını tuttu.'},
+ {n:'Büyük Dökümhane',s:'Ay büyüklüğünde bir dökümhane. Dünya\'ya doğru ilerliyor ve ocaklarından her dakika yeni askerler dökülüyor.'},
+ {n:'Ana Kalıp',s:'Dökümhanenin kalbi. Granit\'in kanı burada erimiş metale karıştırılıyor. Döküm Ustası burada bekliyor.'}];
 Object.assign(MOD,{
- clones:['Kopya askerler','Üçlü blaster atışı yaparlar. Hareket etmeyi bırakma.'],
- probes:['Gözcü droidler','Havada süzülüp uzaktan ateş ederler.'],
- jumpers:['Jetli askerler','Jet paketleriyle üstüne sıçrarlar. Kırmızı halkadan çekil.'],
- speeders:['Hız motorcuları','İşaretli şeritte ok gibi hücum ederler.'],
- heavies:['Ağır kopyalar','Zırhlıdırlar; yavaş ama büyük enerji küreleri atarlar.'],
+ clones:['Kalıp askerler','Üçlü kıvılcım atışı yaparlar. Hareket etmeyi bırakma.'],
+ probes:['Gözcü kıvılcımlar','Havada süzülen küçük gözcüler uzaktan ateş eder.'],
+ jumpers:['Sıçrayıcılar','Yay bacaklı kalıplar üstüne sıçrar. Kırmızı halkadan çekil.'],
+ speeders:['Ray kızakçıları','İşaretli şeritte ok gibi hücum ederler.'],
+ heavies:['Ağır kalıplar','Zırhlıdırlar; yavaş ama büyük kor küreleri atarlar.'],
  scavs:['Hurdacılar','Dört kollu, hızlı ve vahşi leşçiler.'],
  beasts:['Buz canavarları','Boynuzlu, dayanıklı avcılar.'],
- rollbombs:['Bomba droidleri','Yuvarlanarak gelir ve patlarlar.'],
+ rollbombs:['Bomba topları','Yuvarlanarak gelir ve patlarlar.'],
  breach:['Gövde yarığı','Basınç kaybında boşluk seni dışarı çeker. Uzak dur.'],
  ice:['Buzlu zemin','Kayarsın; dönmek ve durmak zaman alır.'],
  blizzard:['Dondurucu soğuk','Isıtıcılardan uzak kaldıkça donarsın. Donunca yavaşlar ve hasar alırsın.'],
@@ -358,124 +402,124 @@ Object.assign(MOD,{
  crusher:['Hurda presi','Çelik duvarlar arenayı süpürür. Yeşil boşluğa geç; yakalanan düşmanlar ezilir.'],
  eggs:['Yumurta keseleri','Keseler zamanla ya da yaklaşınca açılır ve içinden tazılar çıkar. Uzaktan patlat.'],
  pylons:['Enerji kapıları','Direkler arasındaki ışınlar aralıklarla yanar. Yanmadan önce titrerler.'],
- totems:['Ayin totemleri','Totemler yanındaki düşmanları iyileştirir ve hasarlarını yarıya indirir. Önce totemleri yık.'],
+ totems:['Akort totemleri','Totemler yanındaki düşmanları iyileştirir ve hasarlarını yarıya indirir. Önce totemleri yık.'],
  spikes:['Dikenli karolar','Karolar sırayla diken çıkarır. Kızaran karodan çekil.'],
  chain:['Zincir','Dönen bir direğe zincirlisin; direkten belli bir mesafeden fazla uzaklaşamazsın.'],
- traps:['Av kapanları','Yaprakların altına gizlenmiş kapanlar seni bir süre yerinde tutar.'],
- sniper:['Keskin nişancı','Kırmızı nokta seni takip eder. Kilitlenmeden ağaçların arkasına saklan ya da hızla kaç.'],
+ traps:['Av kapanları','Sporların altına gizlenmiş kapanlar seni bir süre yerinde tutar.'],
+ sniper:['Keskin nişancı','Kırmızı nokta seni takip eder. Kilitlenmeden mantarların arkasına saklan ya da hızla kaç.'],
  barrage:['Yörünge bombardımanı','İşaretli alanlara gökten atış yapılır.'],
  pits:['Boşluk kuyuları','Düşersen hasar alıp geri dönersin. Düşmanlar düşerse ölür.'],
- reactor:['Reaktör deşarjı','Parlayan noktalardan düzenli olarak enerji sütunları yükselir.']});
-const MOD3={shields:['Enerji kalkanları','Bazı kopyaların kalkanı var. Önce kalkanı kır.'],swarm:['Kopya dalgası','Kopyalar sürü halinde gelir.'],storm:['Hurda fırtınası','Görüş daralır, rüzgâr seni sürükler.'],fog:['Orman sisi','Düşmanlar sisin içinden çıkar.'],turrets:['Savunma taretleri','Sabit taretler ateş eder. Onları da yok etmen gerekir.'],lasers:['Enerji hendekleri','Dönen ışınlara değme.'],alarm:['Takviye alarmı','Her alarmda büyük bir kopya dalgası gelir.'],dark:['Karanlık','Görüş alanın dar.'],mines:['Mayın patikası','Yanıp sönen kırmızı ışıklara basma.']};
+ reactor:['Ocak deşarjı','Parlayan noktalardan düzenli olarak erimiş metal sütunları yükselir.']});
+const MOD3={shields:['Enerji kalkanları','Bazı kalıpların kalkanı var. Önce kalkanı kır.'],swarm:['Kalıp dalgası','Kalıplar sürü halinde gelir.'],storm:['Hurda fırtınası','Görüş daralır, rüzgâr seni sürükler.'],fog:['Spor sisi','Düşmanlar sisin içinden çıkar.'],turrets:['Savunma taretleri','Sabit taretler ateş eder. Onları da yok etmen gerekir.'],lasers:['Enerji hendekleri','Dönen ışınlara değme.'],alarm:['Takviye alarmı','Her alarmda büyük bir kalıp dalgası gelir.'],dark:['Karanlık','Görüş alanın dar.'],mines:['Mayın patikası','Yanıp sönen kırmızı ışıklara basma.']};
 const LV3=[
- {t:'Abordaj',m:[],k:20,s:'Kopya askerler Kum Kırlangıcı\'nın gövdesini deldi. Yerdeki blaster tabancasını kaptın.'},
+ {t:'Abordaj',m:[],k:20,s:'Kalıp askerler Sırça Kuş\'un gövdesini deldi. Hepsinin yüzü seninki ama gözleri boş. Yerdeki kıvılcım tabancasını kaptın.'},
  {t:'Gövde Yarığı',m:['breach'],k:25,s:'Bir patlama gövdeyi yırttı. Basınç kaybı her şeyi boşluğa çekiyor.'},
- {t:'Gözcü Droidleri',m:['probes'],k:25,s:'Kopyalar gemiyi taramak için gözcü droidler saldı.'},
+ {t:'Gözcü Kıvılcımlar',m:['probes'],k:25,s:'Kalıplar gemiyi taramak için kıvılcım gözcüler saldı.'},
  {t:'Kayan Kargo',m:['cargo','heavies'],k:30,s:'Ambarın yerçekimi jeneratörü bozuldu. Tonlarca kargo havada süzülerek çarpışıyor.'},
  {t:'Kanca',b:1,m:[],s:'Abordaj ekibinin komutanı. Bedeni bir çelik iskelete kaynatılmış, kolları kanca.'},
- {t:'İkiz Güneş',m:['scavs','rollbombs'],k:30,s:'Kum Kırlangıcı hurda gezegenine zorunlu iniş yaptı. Leşçiler enkazı yağmalamaya geldi.'},
+ {t:'Pas Halkası',m:['scavs','rollbombs'],k:30,s:'Sırça Kuş ölü gemilerin arasına sığındı. Leşçiler enkazı yağmalamaya geldi.'},
  {t:'Hurda Presi',m:['crusher','scavs'],k:35,s:'Pas Kral\'ın ezme presleri çalıştı. Dev çelik duvarlar arenayı süpürüyor.'},
- {t:'Kaçak Motorlar',m:['speeders'],k:35,s:'Hız motorlu kaçakçılar senin için konulan ödülün peşinde.'},
+ {t:'Ray Kızakları',m:['speeders'],k:35,s:'Raylı kızaklarla uçan kaçakçılar senin için konulan ödülün peşinde.'},
  {t:'Mıknatıs Vinçleri',m:['cargo','shields','scavs'],k:40,s:'Pas Kral\'ın vinçleri tonlarca hurdayı havada savuruyor.'},
- {t:'Pas Kral',b:2,m:[],s:'Hurda gezegeninin hükümdarı. Paslı bir tahta yayılmış, sümüklü bir dev.'},
- {t:'Buz Tabakası',m:['ice'],k:40,s:'Kopyaların ileri üssü buzun üstünde. Her adımın kayıyor.'},
+ {t:'Pas Kral',b:2,m:[],s:'Halkanın hükümdarı. Mıknatıslı tahtına kaynamış, pasla kaplanmış dev bir yumuşakça. Halkadaki her vida ona vergi öder.'},
+ {t:'Su Verme',m:['ice'],k:40,s:'Dökümhane yeni askerlerini bu buz dünyasında soğutuyor. Her adımın kayıyor.'},
  {t:'Beyaz Ölüm',m:['blizzard','beasts'],k:45,s:'Sıcaklık eksi yetmişe düştü. Isıtıcılardan uzak kalırsan kanın donar.'},
- {t:'Bombardıman',m:['barrage','clones'],k:45,s:'Yörüngedeki gemiler üssü topa tutuyor. İşaretli alanlardan uzak dur.'},
- {t:'Jetli Avcılar',m:['jumpers','ice'],k:50,s:'Jet paketli kopyalar buzun üstünde seni kuşatıyor.'},
- {t:'Çelik Örümcek',b:3,m:[],s:'Altı bacaklı dev bir yürüyen zırh. Üssün son savunma hattı.'},
- {t:'Kırmızı Nokta',m:['sniper','beasts'],k:50,s:'Orman ayına indin. Sekiz ağaçların arasından dürbünle seni izliyor.'},
- {t:'Orman Takibi',m:['speeders','jumpers'],k:55,s:'Ağaçların arasından hız motorları ve jetli askerler fırlıyor.'},
- {t:'Kapan Patikası',m:['traps','probes'],k:55,s:'Sekiz patikaları av kapanlarıyla döşemiş. Kapanlar yaprakların altında saklı.'},
- {t:'Gece Pususu',m:['sniper','swarm'],k:60,s:'Ay battı. Kopyalar çemberi daraltırken Sekiz dürbününden seni izliyor.'},
- {t:'Sekiz',b:4,m:[],s:'Galaksinin en pahalı ödül avcısı. Sekiz gözlü kaskı ve jet paketiyle hiç ıskalamaz.'},
- {t:'Hangar',m:['heavies','cargo'],k:60,s:'Sekiz\'in gemisini çalıp Demir Ay\'ın hangarına süzüldün. Yerçekimsiz hangarda kargolar savruluyor.'},
- {t:'Boşluk Kuyuları',m:['pits','probes'],k:65,s:'İstasyonun bakım katı dipsiz kuyularla dolu.'},
- {t:'Gövde Delindi',m:['breach','jumpers'],k:65,s:'Göçebe filosu istasyonun gövdesini deldi. Boşluk her şeyi dışarı çekiyor.'},
- {t:'Reaktör Koridoru',m:['reactor','shields'],k:70,s:'Reaktörün enerjisi zeminden sütunlar halinde fışkırıyor.'},
- {t:'Yansıma',b:5,m:[],s:'Direktör\'ün en kusursuz kopyası: Granit\'in kendisi. Elinde kırmızı bir enerji kılıcı var.'},
- {t:'Çekirdek Kapısı',m:['reactor','clones','swarm'],k:70,s:'Yansıma\'nın ölümüyle bütün istasyon üzerine geliyor.'},
- {t:'Düşen İstasyon',m:['barrage','pits'],k:75,s:'Göçebe filosu dışarıdan istasyonu bombalıyor. Tavan çöküyor.'},
- {t:'Son Savunma',m:['heavies','speeders','breach'],k:75,s:'Çekirdeğin önünde Direktör\'ün son birlikleri bekliyor. Duvarlar çatırdıyor.'},
- {t:'Kaynak Ordusu',m:['swarm','shields','pits'],k:80,s:'Kopyalama tankları açıldı. Binlerce Granit uyanıyor.'},
- {t:'Direktör',b:6,m:[],s:'Kopya ordusunun yaratıcısı. Yaşam destek tankına bağlı, örümcek bacaklı, buruşuk bir beden.'}];
+ {t:'Bombardıman',m:['barrage','clones'],k:45,s:'Yörüngedeki dökümhane gemileri üssü topa tutuyor. İşaretli alanlardan uzak dur.'},
+ {t:'Sıçrayıcılar',m:['jumpers','ice'],k:50,s:'Yay bacaklı kalıplar buzun üstünde seni kuşatıyor.'},
+ {t:'Çelik Örümcek',b:3,m:[],s:'Altı bacaklı dev bir yürüyen zırh. Soğutma üssünün son savunma hattı.'},
+ {t:'Kırmızı Nokta',m:['sniper','beasts'],k:50,s:'Spor ormanına indin. Sekiz, dev mantarların arasından seni izliyor.'},
+ {t:'Spor Takibi',m:['speeders','jumpers'],k:55,s:'Mantarların arasından ray kızakları ve sıçrayıcılar fırlıyor.'},
+ {t:'Kapan Patikası',m:['traps','probes'],k:55,s:'Sekiz patikaları av kapanlarıyla döşemiş. Kapanlar sporların altında saklı.'},
+ {t:'Gece Pususu',m:['sniper','swarm'],k:60,s:'Mantarların ışığı söndü. Kalıplar çemberi daraltırken Sekiz mercekleriyle seni izliyor.'},
+ {t:'Sekiz',b:4,m:[],s:'Galaksinin en pahalı avcısı. Sekiz mercekli tüfeğiyle hiç ıskalamaz ve sporların arasında görünmez olur.'},
+ {t:'Hangar',m:['heavies','cargo'],k:60,s:'Sekiz\'in gemisini çalıp Büyük Dökümhane\'nin hangarına süzüldün. Yerçekimsiz hangarda kargolar savruluyor.'},
+ {t:'Boşluk Kuyuları',m:['pits','probes'],k:65,s:'Dökümhanenin bakım katı dipsiz kuyularla dolu.'},
+ {t:'Gövde Delindi',m:['breach','jumpers'],k:65,s:'Cam Göçerlerinin filosu dökümhanenin gövdesini deldi. Boşluk her şeyi dışarı çekiyor.'},
+ {t:'Ocak Koridoru',m:['reactor','shields'],k:70,s:'Eritme ocaklarının ateşi zeminden sütunlar halinde fışkırıyor.'},
+ {t:'Yansıma',b:5,m:[],s:'Döküm Ustası\'nın en kusursuz kalıbı: Granit\'in kendisi. Elinde kızıl bir kor kılıcı var.'},
+ {t:'Ana Kalıp Kapısı',m:['reactor','clones','swarm'],k:70,s:'Yansıma\'nın ölümüyle bütün dökümhane üzerine geliyor.'},
+ {t:'Eriyen Dökümhane',m:['barrage','pits'],k:75,s:'Göçer filosu dışarıdan dökümhaneyi bombalıyor. Tavandan erimiş metal damlıyor.'},
+ {t:'Son Savunma',m:['heavies','speeders','breach'],k:75,s:'Ana Kalıp\'ın önünde Döküm Ustası\'nın son birlikleri bekliyor. Duvarlar çatırdıyor.'},
+ {t:'Kalıp Ordusu',m:['swarm','shields','pits'],k:80,s:'Döküm hatları açıldı. Binlerce Granit kalıbından çıkıyor.'},
+ {t:'Döküm Ustası',b:6,m:[],s:'Kalıp ordusunun yaratıcısı. Bedeni dökümhanenin potasına kaynamış; örümcek bacaklı, kor gözlü yaşlı bir usta.'}];
 const BOSS3=[null,
- {n:'KANCA',pat:['charge','slam','homing','spawn'],spd:3.2,r:2,secs:22,min:700,win:'Kanca\'nın iskeleti parçalandı. Ama Kum Kırlangıcı ağır yaralı; en yakın gezegene inmek zorundasın.'},
- {n:'PAS KRAL',pat:['spawn','acid','radial','homing'],spd:1.8,r:2.6,secs:27,min:2000,fly:1,win:'Pas Kral tahtından devrildi. Hazinesinde kopya ordusunun ileri üssünün koordinatları vardı.'},
- {n:'ÇELİK ÖRÜMCEK',pat:['barrage','spiral','radial','slam'],spd:2.4,r:2.8,secs:31,min:4500,win:'Örümcek çöktü. Üssün kayıtları Direktör\'ün bir ödül avcısı tuttuğunu gösteriyor.'},
- {n:'SEKİZ',pat:['teleport','homing','mines','radial','charge'],spd:4.2,r:1.5,secs:36,min:8000,win:'Sekiz\'in kaskı ikiye ayrıldı. Gemisinin seyir bilgisayarında Demir Ay\'a giriş kodları vardı.'},
- {n:'YANSIMA',pat:['charge','teleport','slam','deflect','radial'],spd:4.8,r:1.3,secs:42,min:13000,win:'Yansıma diz çöktü. Son sözü "Biz aynıyız" oldu. Değildiniz.'},
- {n:'DİREKTÖR',pat:['lightning','barrage','spawn','spiral','teleport','lightning'],spd:1.8,r:2.8,secs:52,min:20000,fly:1,win:''}];
-W.saber={n:'Enerji Kılıcı',dmg:52,rate:2.8,pel:1,spr:0,spd:1,rng:5.2,col:0x3cf0ff,un:2,melee:1,p:3,d:'Yakın dövüş; mermileri geri sektirir'};
-const WN3={pistol:['Blaster Tabancası','Kopyadan alınan küçük blaster',0xff5a3c],smg:['Hızlı Blaster','Seri atışlı enerji mermisi',0xff7a3c],shotgun:['Saçma Blaster','Yakında yıkıcı yelpaze atış',0xffa040],rifle:['Blaster Tüfeği','Uzun menzil, yüksek hasar',0x50ff8a],minigun:['Ağır Tekrarlı Blaster','Kesintisiz enerji yağmuru',0xff4a3a],rocket:['Termal Fırlatıcı','Geniş alan patlaması',0xffc040],plasma:['İyon Tüfeği','Düşmanları delen mavi iyon ışını',0x60c8ff],saber:['Enerji Kılıcı','Geniş savuruş, uzağa enerji dalgası atar, mermileri sektirir',0x3cf0ff]};
+ {n:'KANCA',pat:['charge','slam','homing','spawn'],spd:3.2,r:2,secs:22,min:700,win:'Kanca\'nın iskeleti parçalandı. Ama Sırça Kuş ağır yaralı; en yakın sığınağa gitmek zorundasın.'},
+ {n:'PAS KRAL',pat:['spawn','acid','radial','homing'],spd:1.8,r:2.6,secs:27,min:2000,fly:1,win:'Pas Kral tahtından söküldü. Hazinesinde dökümhanenin soğutma üssünün koordinatları vardı.'},
+ {n:'ÇELİK ÖRÜMCEK',pat:['barrage','spiral','radial','slam'],spd:2.4,r:2.8,secs:31,min:4500,win:'Örümcek çöktü. Üssün kayıtları Döküm Ustası\'nın bir avcı tuttuğunu gösteriyor.'},
+ {n:'SEKİZ',pat:['teleport','homing','mines','radial','charge'],spd:4.2,r:1.5,secs:36,min:8000,win:'Sekiz\'in tüfeği ikiye ayrıldı. Gemisinin seyir bilgisayarında Büyük Dökümhane\'ye giriş kodları vardı.'},
+ {n:'YANSIMA',pat:['charge','teleport','slam','deflect','radial'],spd:4.8,r:1.3,secs:42,min:13000,win:'Yansıma diz çöktü. Son sözü "Aynı kalıptan çıktık" oldu. Çıkmamıştınız.'},
+ {n:'DÖKÜM USTASI',pat:['lightning','barrage','spawn','spiral','teleport','lightning'],spd:1.8,r:2.8,secs:52,min:20000,fly:1,win:''}];
+W.saber={n:'Kor Kılıcı',dmg:52,rate:2.8,pel:1,spr:0,spd:1,rng:5.2,col:0x3cf0ff,un:2,melee:1,p:3,d:'Yakın dövüş; mermileri geri sektirir'};
+const WN3={pistol:['Kıvılcım Tabancası','Kalıptan alınan küçük tabanca',0xff5a3c],smg:['Kıvılcım Makineli','Seri atışlı kıvılcım',0xff7a3c],shotgun:['Kıvılcım Saçması','Yakında yıkıcı yelpaze atış',0xffa040],rifle:['Ark Tüfeği','Uzun menzil, yüksek hasar',0x50ff8a],minigun:['Ağır Kıvılcım Topu','Kesintisiz kıvılcım yağmuru',0xff4a3a],rocket:['Döküm Havanı','Erimiş metal saçan geniş patlama',0xffc040],plasma:['Kor Işını','Düşmanları delen beyaz-sıcak ışın',0x60c8ff],saber:['Kor Kılıcı','Geniş savuruş, uzağa kor dalgası atar, mermileri sektirir',0x3cf0ff]};
 const RECAP3=[
- ['Önceki kısımda','Kum Çukuru','Uzaylılar Granit\'i Kezhar adlı çöl gezegenine götürdü. Granit tutsak gemisinden kaçtı; Varkh\'ı, Maden Çarkı\'nı, Kum Leviathanı\'nı, Ses Ana\'yı ve arenanın şampiyonu Draven\'ı devirdi.','Sonunda Hegemon\'u tahtıyla birlikte yıktı ve bir leviathanın sırtında fırtınanın içine doğru kaçtı.'],
- ['Önceki kısımda','Kaynak','Fırtınanın ötesinde göçebelerin yıldız gemisi Kum Kırlangıcı onu bekliyordu. Ama Hegemonya\'nın kayıtlarında Granit\'in adının yanında tek bir kelime yazıyordu: KAYNAK.','Onun kanından yapılmış ilk ordu çoktan Dünya\'ya doğru yola çıkmıştı.'],
- ['Kısım III','Dönüş','Direktör adlı bir yaratık Granit\'in kanından binlerce kopya asker üretti. Ay büyüklüğündeki savaş istasyonu Demir Ay, kopya ordusuyla Dünya yörüngesine ilerliyor.','Kum Kırlangıcı yolda pusuya düştü ve kopyalar gemiye çıktı. Granit yerdeki ilk blaster tabancasını kaptı. Bu sefer eve dönüyor.']];
+ ['Önceki kısımda','Cam Çölü','Mühürcüler Granit\'i camla kaplı Serap gezegenine götürdü. Granit numune gemisinden kaçtı; Kavanozcu\'yu, Maden Çarkı\'nı, Uğultu\'yu, Diapazon\'u ve müzenin şampiyonu Tolgar\'ı devirdi.','Sonunda Küratör\'ü arşiviyle birlikte yıktı ve bir Uğultu\'nun sırtında cam fırtınasının içine doğru kaçtı.'],
+ ['Önceki kısımda','Kaynak','Fırtınanın ötesinde Cam Göçerlerinin gemisi Sırça Kuş onu bekliyordu. Ama Küratör\'ün kataloğunda Granit\'in adının yanında tek bir kelime yazıyordu: KAYNAK.','Kanından alınan ilk damla çoktan Döküm Ustası\'na satılmıştı.'],
+ ['Kısım III','Dönüş','Döküm Ustası, Granit\'in kanını erimiş metale karıştırıp binlerce asker döktü: Kalıplar. Ay büyüklüğündeki Büyük Dökümhane, Kalıp ordusuyla Dünya\'ya ilerliyor.','Sırça Kuş yolda pusuya düştü ve Kalıplar gemiye çıktı. Granit yerdeki ilk kıvılcım tabancasını kaptı. Bu sefer eve dönüyor.']];
 
 
 /* ================= KISIM IV: YARININ GÖLGESİ ================= */
 const CHAP4=[null,
- {n:'Kül Şehir · 2049',s:'İstanbul, 2049. Avcı robotlar süper insanların neredeyse hepsini yok etti. Yaşlı Granit ve son direnişçiler yıkıntıların arasında saklanıyor.'},
- {n:'Karaca Laboratuvarı · 2026',s:'Granit\'in bilinci 2026\'daki genç bedenine uyandı. Dr. Selim Karaca, Demir Ay enkazından bulduğu buzlu tüpü laboratuvarına taşımış.'},
- {n:'Boğaz Köprüsü · 2026',s:'Karaca\'nın konvoyu köprüden geçiyor. Demirci adlı metal bükücü de tüpün peşinde, ama kendi amaçları için.'},
- {n:'Sığınak Kuşatması · 2049',s:'Gelecekte Avcılar direnişin saklandığı sarnıcı buldu. Ayla, Granit\'in bilincini geçmişte tutmak için dayanmak zorunda.'},
- {n:'Gala Gecesi · 2026',s:'Karaca, Avcı programını sarayda düzenlenen bir galada dünyaya tanıtıyor. Geçmişi değiştirmek için son şans.'},
- {n:'Zaman Çatlağı',s:'İki zaman birbirine çarpıyor. Geçmiş ve gelecek aynı anda çöküyor.'}];
+ {n:'Kül Şehir · 2049',s:'İstanbul, 2049. Uyumcu robotlar serum taşıyan herkesi avladı. Yaşlı Granit ve son direnişçiler Galata\'nın altındaki eski Muvakkithane\'de saklanıyor.'},
+ {n:'Karaca Laboratuvarı · 2026',s:'Muvakkithane\'nin büyük saati Granit\'i 2026\'ya fırlattı. Dr. Selim Karaca, dökümhane enkazından bulduğu buzlu kalbi laboratuvarına taşımış.'},
+ {n:'Boğaz Köprüsü · 2026',s:'Kalp bir konvoyla köprüden geçiyor. Demirkalkan\'dan eski bir silah arkadaşı da peşinde: Çelik Çavuş.'},
+ {n:'Muvakkithane Kuşatması · 2049',s:'Gelecekte Uyumcular saklanma yerini buldu. Yaşlı Nuri saati çalıştırmaya devam etmeli; saat durursa Granit geçmişe bir daha dönemez.'},
+ {n:'Tersane Galası · 2026',s:'Karaca, Uyumcu programını Haliç Tersanesi\'nde düzenlenen bir galada tanıtıyor. Kalbi yok etmek için son şans.'},
+ {n:'Zaman Çatlağı',s:'Saat aşırı kuruldu. Geçmiş ve gelecek aynı anda çöküyor.'}];
 Object.assign(MOD,{
- adapt:['Uyum','Robotlar ana silahına uyum sağlar ve her vuruşta daha az hasar alır. Dron, disk, bomba ve şok zinciri uyumu aşar.'],
- timeslow:['Zaman yavaşlaması','Şimşek\'in bıraktığı kum saatlerini topla: düşmanlar ve mermileri 5 saniye ağır çekime girer.'],
+ adapt:['Uyum','Uyumcular ana silahına uyum sağlar ve her vuruşta daha az hasar alır. Dron, disk, bomba ve şok zinciri uyumu aşar.'],
+ timeslow:['Cep saatleri','Nuri\'nin kurduğu cep saatlerini topla: düşmanlar ve mermileri 5 saniye ağır çekime girer.'],
  rift:['Zaman yırtıkları','Yırtıklardan sürekli düşman çıkar. İçinde durarak yırtığı kapat.'],
- echo:['Zaman yankısı','Gelecekteki benliğinin yankısı 2 saniye arkandan izini sürer ve seninle birlikte ateş eder.'],
- magfield:['Manyetik alan','Demirci\'nin mor alanları mermilerini büker ve seni içine çeker.'],
+ echo:['Saat yankısı','İki saniye önceki halinin yankısı izini sürer ve seninle birlikte ateş eder.'],
+ magfield:['Manyetik alan','Çelik Çavuş\'un mor alanları mermilerini büker ve seni içine çeker.'],
  protect:['Koru','Müttefikin saldırı altında. Ölürse bölüm biter. Yanında durursan iyileşir.'],
- hdrones:['Avcı dronları','Havada süzülen avcı dronları uzaktan ateş eder.'],
+ hdrones:['Uyumcu dronları','Havada süzülen dronlar uzaktan ateş eder.'],
  kolos:['Kolos','Dev yakın dövüş robotları. Yavaş ama çok dayanıklı.'],
- shifters:['Suret ikizleri','Biçim değiştirenler kısa mesafeli ışınlanarak yanına gelir.'],
+ shifters:['Ayna yüzler','Başkasının yüzünü takan yaratıklar kısa mesafeli ışınlanarak yanına gelir.'],
  crawlers:['Örümcek botlar','Hızlı koşan, değince patlayan küçük robotlar.'],
  troopers:['Karaca güvenliği','2026\'nın zırhlı özel güvenlik birlikleri.']});
 const LV4=[
- {t:'Kül Şehir',m:[],k:20,s:'2049. Yıkık Galata\'nın gölgesinde Avcı devriyesi seni buldu. Yaşın altmışı geçti ama serum hâlâ damarlarında.'},
- {t:'Uyarlanan Avcılar',m:['adapt'],k:25,s:'Avcılar Granit\'in kanından yapıldı. Her darbene uyum sağlıyorlar. Tek bir saldırıyla yenemezsin.'},
- {t:'Sığınak Kapısı',m:['protect'],k:25,s:'Ayla bilincini geçmişe gönderecek tek kişi. Hazırlanırken onu korumalısın.'},
- {t:'Zaman Yolculuğu',m:['rift','hdrones'],k:30,s:'Ayla aktarımı başlattı. Zamanın dokusu yırtılıyor ve yırtıklardan Avcılar sızıyor.'},
- {t:'Avcı Mk-X',b:1,m:[],s:'Avcı programının amiral robotu. Seni durdurmak için yıkıntıların arasından yükseliyor.'},
- {t:'Uyanış 2026',m:['echo'],k:30,s:'Gözlerini 2026\'da açtın. Gelecekteki benliğinin yankısı hâlâ yanında, bir adım geride.'},
- {t:'Güvenlik Katı',m:['timeslow','troopers'],k:35,s:'Hızlı konuşan, daha hızlı koşan bir genç seni buldu: Şimşek. Yanında kum saatleri taşıyor.'},
+ {t:'Kül Şehir',m:[],k:20,s:'2049. Yıkık Galata\'nın gölgesinde bir Uyumcu devriyesi seni buldu. Yaşın altmışı geçti ama serum hâlâ damarlarında.'},
+ {t:'Uyumcular',m:['adapt'],k:25,s:'Uyumcular Granit\'in kanından büyüdü. Her darbene uyum sağlıyorlar. Tek bir saldırıyla yenemezsin.'},
+ {t:'Muvakkithane Kapısı',m:['protect'],k:25,s:'Nuri büyük saati kuruyor. Saat tam vuruşunu yapana kadar onu korumalısın.'},
+ {t:'Saatin İçinden',m:['rift','hdrones'],k:30,s:'Sarkaç sallanmaya başladı. Zamanın dokusu yırtılıyor ve yırtıklardan Uyumcular sızıyor.'},
+ {t:'Uyumcu Mk-X',b:1,m:[],s:'Uyumcu programının amiral robotu. Seni durdurmak için yıkıntıların arasından yükseliyor.'},
+ {t:'Uyanış 2026',m:['echo'],k:30,s:'Saatin çarklarından 2026\'ya düştün. İki saniye önceki halinin yankısı hâlâ peşinde.'},
+ {t:'Güvenlik Katı',m:['timeslow','troopers'],k:35,s:'Laboratuvarda çırak bir saatçi seni buldu: genç Nuri. Kurduğu cep saatleri zamanı birkaç saniyeliğine yavaşlatıyor.'},
  {t:'Prototip Deposu',m:['adapt','kolos'],k:35,s:'Karaca ilk prototipleri bile çalıştırmış. Kolos robotlar uyanıyor.'},
- {t:'Suret\'in İzi',m:['shifters','echo'],k:40,s:'Birisi Karaca\'yı öldürmek istiyor. Ama bu ölüm Avcı programını durdurmayacak, başlatacak.'},
- {t:'Suret',b:2,m:[],s:'Her yüze bürünebilen bir suikastçı. Karaca\'yı öldürürse gelecek kesinleşir. Onu durdurmalısın.'},
- {t:'Köprüde Trafik',m:['magfield'],k:40,s:'Boğaz Köprüsü\'nde konvoy durdu. Havada asılı arabalar: Demirci burada.'},
- {t:'Uçan Arabalar',m:['magfield','hdrones'],k:45,s:'Demirci köprünün çeliğini büküyor. Karaca\'nın dronları da göğe yükseldi.'},
- {t:'Hızlı Kaçış',m:['timeslow','shifters'],k:45,s:'Şimşek zamanı yavaşlatırken Suret ikizleri köprüye iniyor.'},
- {t:'Koru Onu',m:['protect','troopers'],k:50,s:'Genç Şimşek yaralandı. Onu güvenliğe ulaştırana kadar koru.'},
- {t:'Demirci',b:3,m:[],s:'Metale hükmeden adam. Mermilerini havada durdurup sana geri fırlatabilir.'},
- {t:'Kuşatma',m:['protect','adapt'],k:50,s:'2049. Avcılar sarnıcın kapısını kırdı. Ayla bilinci geçmişte tutmaya çalışırken titriyor.'},
- {t:'Zaman Yırtıkları',m:['rift','crawlers'],k:55,s:'Aktarım zayıfladıkça yırtıklar büyüyor. Örümcek botlar içeri sızıyor.'},
- {t:'Kovan',m:['hdrones','timeslow'],k:55,s:'Gökyüzü dron sürüsüyle karardı. Şimşek\'in gelecekteki hali son kum saatlerini bıraktı.'},
- {t:'Son Hat',m:['protect','rift'],k:60,s:'Sarnıcın son odası. Ayla\'nın burnu kanıyor ama bırakmıyor.'},
+ {t:'Ayna Yüzlerin İzi',m:['shifters','echo'],k:40,s:'Kalp kendini korumak için yüz takan yaratıklar üretti. Laboratuvarda kimin kim olduğu belli değil.'},
+ {t:'Ayna Yüz',b:2,m:[],s:'Kalbin ilk yaratığı. Gördüğü her yüzü takabiliyor; şimdi seninkini deniyor.'},
+ {t:'Köprüde Trafik',m:['magfield'],k:40,s:'Boğaz Köprüsü\'nde konvoy durdu. Arabalar havada asılı: Çelik Çavuş burada.'},
+ {t:'Uçan Arabalar',m:['magfield','hdrones'],k:45,s:'Çelik Çavuş köprünün çeliğini büküyor. Karaca\'nın dronları da göğe yükseldi.'},
+ {t:'Hızlı Kaçış',m:['timeslow','shifters'],k:45,s:'Nuri zamanı yavaşlatırken Ayna Yüzler köprüye iniyor.'},
+ {t:'Koru Onu',m:['protect','troopers'],k:50,s:'Genç Nuri yaralandı. O ölürse gelecekte saati kuracak kimse kalmaz. Onu güvenliğe ulaştır.'},
+ {t:'Çelik Çavuş',b:3,m:[],s:'Demirkalkan programından eski silah arkadaşın. Serum onu süper asker yapmadı, mıknatısa çevirdi. Kalbi kendisi için istiyor.'},
+ {t:'Kuşatma',m:['protect','adapt'],k:50,s:'2049. Uyumcular Muvakkithane\'nin kapısını kırdı. Yaşlı Nuri sarkacı elleriyle tutuyor.'},
+ {t:'Zaman Yırtıkları',m:['rift','crawlers'],k:55,s:'Saat aksadıkça yırtıklar büyüyor. Örümcek botlar içeri sızıyor.'},
+ {t:'Kovan',m:['hdrones','timeslow'],k:55,s:'Gökyüzü dron sürüsüyle karardı. Nuri son cep saatlerini kurup avluya fırlattı.'},
+ {t:'Son Hat',m:['protect','rift'],k:60,s:'Muvakkithane\'nin son odası. Nuri\'nin elleri kanıyor ama sarkacı bırakmıyor.'},
  {t:'Kovan Ana',b:4,m:[],s:'Bütün dron sürülerini yöneten dev bir kovan makinesi.'},
- {t:'Gala',m:['shifters','echo'],k:60,s:'2026. Sarayın balo salonu. Davetlilerin arasında Suret ikizleri dolaşıyor.'},
- {t:'Manyetik Sahne',m:['magfield','troopers'],k:65,s:'Demirci galaya davetsiz geldi. Salonun bütün metali onun emrinde.'},
- {t:'Prototip Uyanıyor',m:['adapt','kolos'],k:65,s:'Karaca sahnede prototipleri çalıştırdı. Herkesin önünde sana saldırıyorlar.'},
- {t:'Kaos',m:['timeslow','rift'],k:70,s:'Gelecek geçmişe sızmaya başladı. Salonun ortasında zaman yırtıkları açılıyor.'},
- {t:'Karaca Zırhı',b:5,m:[],s:'Dr. Selim Karaca kendi icadı olan savaş zırhına girdi.'},
- {t:'İki Zaman',m:['rift','echo'],k:70,s:'Karaca yenildi ama tüp kayıp. Zaman çatlıyor ve 2049 ile 2026 aynı yerde duruyor.'},
- {t:'Uyum Tamamlandı',m:['adapt','hdrones','kolos'],k:75,s:'Gelecekten sızan Avcılar her şeye uyum sağlamış durumda.'},
- {t:'Son Koruma',m:['protect','magfield'],k:75,s:'Ayla iki zamanın arasında sıkıştı. Demirci ilk kez senin yanında savaşıyor.'},
- {t:'Çöküş',m:['rift','timeslow','adapt'],k:80,s:'Tüpün içindeki kalp artık bir makinenin kalbi. Son Avcı uyanıyor.'},
- {t:'Son Avcı',b:6,m:[],s:'Granit\'in kanından, zerrinden ve Avcı programından doğan son makine. Her silaha uyum sağlar.'}];
+ {t:'Tersane Galası',m:['shifters','echo'],k:60,s:'2026. Haliç Tersanesi\'nin eski kızakları ışıklarla süslenmiş. Davetlilerin arasında Ayna Yüzler dolaşıyor.'},
+ {t:'Manyetik Sahne',m:['magfield','troopers'],k:65,s:'Çelik Çavuş galaya davetsiz geldi. Tersanenin bütün çeliği onun emrinde.'},
+ {t:'Prototip Uyanıyor',m:['adapt','kolos'],k:65,s:'Karaca kızaktaki prototipleri çalıştırdı. Herkesin önünde sana saldırıyorlar.'},
+ {t:'Kaos',m:['timeslow','rift'],k:70,s:'Gelecek geçmişe sızmaya başladı. Tersanenin ortasında zaman yırtıkları açılıyor.'},
+ {t:'Karaca Zırhı',b:5,m:[],s:'Dr. Selim Karaca, kalbin gücüyle çalışan kendi savaş zırhına girdi.'},
+ {t:'İki Zaman',m:['rift','echo'],k:70,s:'Karaca yenildi ama kalp kayıp. Saat aşırı kuruldu; 2049 ile 2026 aynı yerde duruyor.'},
+ {t:'Uyum Tamamlandı',m:['adapt','hdrones','kolos'],k:75,s:'Gelecekten sızan Uyumcular her şeye uyum sağlamış durumda.'},
+ {t:'Son Koruma',m:['protect','magfield'],k:75,s:'Nuri iki zamanın arasında sıkıştı. Çelik Çavuş ilk kez senin yanında savaşıyor.'},
+ {t:'Çöküş',m:['rift','timeslow','adapt'],k:80,s:'Kalp artık bir makinenin kalbi. Son Uyumcu uyanıyor.'},
+ {t:'Son Uyumcu',b:6,m:[],s:'Granit\'in kanından, zerrinden ve dökümhanenin ateşinden doğan son makine. Her silaha uyum sağlar.'}];
 const BOSS4=[null,
- {n:'AVCI MK-X',pat:['charge','slam','radial','homing'],spd:3,r:2.2,secs:22,min:700,win:'Mk-X\'in çekirdeği söndü. Ayla aktarımı tamamladı ve dünya karardı.'},
- {n:'SURET',pat:['teleport','spawn','radial','charge'],spd:4.4,r:1.4,secs:27,min:2000,win:'Suret kaçtı ama Karaca hayatta. Gelecek henüz yazılmadı.'},
- {n:'DEMİRCİ',pat:['cars','deflect','radial','homing'],spd:2.6,r:1.6,secs:31,min:4500,fly:1,win:'Demirci köprüden süzülüp uzaklaştı. "Görüşeceğiz, asker." dedi.'},
- {n:'KOVAN ANA',pat:['spawn','spiral','barrage','slam'],spd:1.8,r:2.8,secs:36,min:8000,fly:1,win:'Kovan Ana düştü. Sarnıç bir süre daha güvende.'},
- {n:'KARACA ZIRHI',pat:['homing','lightning','charge','radial'],spd:3,r:2.2,secs:42,min:13000,win:'Karaca zırhından sürüklenerek çıkarıldı. Ama tüp çoktan ortadan kaybolmuştu.'},
- {n:'SON AVCI',pat:['charge','teleport','lightning','spiral','spawn','cars','deflect'],spd:3.6,r:2,secs:40,min:20000,adapt:1,win:''}];
+ {n:'UYUMCU MK-X',pat:['charge','slam','radial','homing'],spd:3,r:2.2,secs:22,min:700,win:'Mk-X\'in çekirdeği söndü. Saat tam vuruşunu yaptı ve dünya karardı.'},
+ {n:'AYNA YÜZ',pat:['teleport','spawn','radial','charge'],spd:4.4,r:1.4,secs:27,min:2000,win:'Ayna Yüz kırıldı; altında hiçbir yüz yoktu. Kalbin yeri artık belli: Karaca\'nın konvoyu.'},
+ {n:'ÇELİK ÇAVUŞ',pat:['cars','deflect','radial','homing'],spd:2.6,r:1.6,secs:31,min:4500,fly:1,win:'Çelik Çavuş köprüden süzülüp uzaklaştı. "Demirkalkan ölmedi, asker." dedi.'},
+ {n:'KOVAN ANA',pat:['spawn','spiral','barrage','slam'],spd:1.8,r:2.8,secs:36,min:8000,fly:1,win:'Kovan Ana düştü. Muvakkithane bir süre daha güvende.'},
+ {n:'KARACA ZIRHI',pat:['homing','lightning','charge','radial'],spd:3,r:2.2,secs:42,min:13000,win:'Karaca zırhından sürüklenerek çıkarıldı. Ama kalp çoktan ortadan kaybolmuştu.'},
+ {n:'SON UYUMCU',pat:['charge','teleport','lightning','spiral','spawn','cars','deflect'],spd:3.6,r:2,secs:40,min:20000,adapt:1,win:''}];
 const WN4={pistol:['Direniş Tabancası','Sığınaktan kalan eski tabanca',0xffb060],smg:['Serseri Makineli','Hızlı ama dağınık',0xffc060],shotgun:['Kırıcı Pompalı','Yakında robot kırıcı',0xff9a40],rifle:['Manyetik Tüfek','Uzun menzil, yüksek hasar',0x80e0ff],minigun:['Döner Top','Kesintisiz mermi yağmuru',0xffb050],rocket:['EMP Atar','Geniş alan patlaması',0x80c8ff],plasma:['Kronon Tüfeği','Zamanı delen ışın; düşmanları delip geçer',0xc080ff]};
 const RECAP4=[
- ['Önceki kısımda','Dönüş','Direktör, Granit\'in kanından bir kopya ordusu kurmuştu. Granit; Kanca\'yı, Pas Kral\'ı, Çelik Örümcek\'i, Sekiz\'i, kendi kopyası Yansıma\'yı ve sonunda Direktör\'ü yendi. Demir Ay patladı.','Granit Dünya\'ya döndü ve yıllar sonra ilk kez güneşin doğuşunu izledi.'],
- ['Önceki kısımda','Buzlu tüp','Ama istasyonun enkazında, buz tutmuş bir tüpte küçük bir kalp atmaya devam ediyordu. Tüpü Dr. Selim Karaca adlı bir bilim insanı buldu.','Karaca o hücrelerden kendini sürekli geliştiren robotlar yaptı: Avcılar. Her saldırıya uyum sağlıyorlardı.'],
- ['Kısım IV','Yarının Gölgesi','2049. Avcılar süper insanları neredeyse tamamen yok etti. Yaşlı Granit, bilinci zamanda geri gönderebilen genç Ayla, kör öğretmen Hoca ve son direnişçiler yıkık İstanbul\'da saklanıyor.','Plan basit ama imkânsız: Granit\'in bilincini 2026\'ya göndermek ve Karaca\'nın tüpü almasını engellemek.']];
+ ['Önceki kısımda','Dönüş','Döküm Ustası, Granit\'in kanından bir Kalıp ordusu dökmüştü. Granit; Kanca\'yı, Pas Kral\'ı, Çelik Örümcek\'i, Sekiz\'i, kendi kalıbı Yansıma\'yı ve sonunda Döküm Ustası\'nı yendi. Büyük Dökümhane kendi ateşinde eridi.','Granit Dünya\'ya döndü ve yıllar sonra ilk kez güneşin doğuşunu izledi.'],
+ ['Önceki kısımda','Buzlu kalp','Ama dökümhanenin enkazında, buz tutmuş bir kalıbın içinde küçük bir kalp atmaya devam ediyordu. Onu Dr. Selim Karaca adlı bir mühendis buldu.','Karaca o kalpten kendini sürekli geliştiren robotlar yaptı: Uyumcular. Her saldırıya uyum sağlıyorlardı.'],
+ ['Kısım IV','Yarının Gölgesi','2049. Uyumcular serum taşıyan herkesi avladı. Yaşlı Granit, Galata\'nın altındaki Osmanlı\'dan kalma Muvakkithane\'de saklanıyor. Oranın son muvakkiti Nuri, büyük saatin zamanı yalnızca ölçmediğini, büktüğünü biliyor.','Plan basit ama imkânsız: saatin içinden 2026\'ya geçmek ve kalbi Karaca\'nın elinde büyümeden yok etmek.']];
 
 
 /* ================= KISIM V: TAŞ DEVRİ ================= */
@@ -540,8 +584,8 @@ const BOSS5=[null,
  {n:'ZAMAN KERTENKELESİ',pat:['teleport','lightning','charge','voice','spiral','barrage','slam'],spd:3.6,r:2.6,secs:50,min:20000,win:''}];
 const WN5={pistol:['Sapan','Küçük ama isabetli taş atar',0xb8a890],smg:['Çakıl Fırlatıcı','Seri taş yağmuru',0xb0a088],shotgun:['Taş Saçma','Yakında avuç dolusu taş',0xa89878],rifle:['Kemik Yay','Uzun menzilli oklar',0xe8dcc0],minigun:['Ok Yağmuru','Kesintisiz ok',0xd8ccb0],rocket:['Volkan Taşı','Patlayan kızgın taş',0xff7a30],plasma:['Zaman Kristali Asası','Düşmanları delen kristal ışını',0xc080ff]};
 const RECAP5=[
- ['Önceki kısımda','Yarının Gölgesi','2049\'da Avcı robotlar süper insanları yok etmişti. Ayla, Granit\'in bilincini 2026\'ya gönderdi. Granit Avcı Mk-X\'i, Suret\'i, Demirci\'yi, Kovan Ana\'yı ve Karaca\'nın zırhını yendi.','Sonunda iki zamanın çarpıştığı çatlakta Son Avcı\'yı da devirdi. Zaman çizgisi düzelmeye başladı.'],
- ['Önceki kısımda','Zaman makinesi','Ama Karaca\'nın prototip zaman makinesi hâlâ çalışıyordu. Granit onu kapatmak için halkaya uzandığında makine onu içine çekti.','Ayla\'nın çığlığı uzaklaştı ve her şey beyaza döndü.'],
+ ['Önceki kısımda','Yarının Gölgesi','2049\'da Uyumcular serum taşıyan herkesi avlamıştı. Granit, Muvakkithane\'nin büyük saatinden 2026\'ya geçti. Uyumcu Mk-X\'i, Ayna Yüz\'ü, Çelik Çavuş\'u, Kovan Ana\'yı ve Karaca\'nın zırhını yendi.','Sonunda iki zamanın çarpıştığı çatlakta Son Uyumcu\'yı da devirdi. Zaman çizgisi düzelmeye başladı.'],
+ ['Önceki kısımda','Zaman makinesi','Ama büyük saat durmamıştı; çarkları kendi kendine dönüyordu. Granit sarkacı durdurmak için uzandığında saat onu içine çekti.','Nuri\'nin sesi uzaklaştı ve her şey beyaza döndü.'],
  ['Kısım V','Taş Devri','Granit gözlerini milyonlarca yıl önce, sıcak ve nemli bir ormanda açtı. Zaman makinesi altı parçaya ayrılıp dünyaya dağılmıştı.','Eve dönmenin tek yolu bütün parçaları bulmak. Elinde sadece bir sapan var.']];
 
 /* ================= ÜÇ BOYUTLU SAHNE ================= */
@@ -562,7 +606,8 @@ addEventListener('resize',resize);resize();
 
 const GC={},MC={};
 const geo=(k,f)=>GC[k]||(GC[k]=f());
-const M=(c,o)=>{const k=c+JSON.stringify(o||{});return MC[k]||(MC[k]=new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.78,metalness:.06},o||{})))};
+const TOONG=(()=>{const t=new THREE.DataTexture(new Uint8Array([64,150,255]),3,1,THREE.LuminanceFormat);t.minFilter=t.magFilter=THREE.NearestFilter;t.generateMipmaps=false;t.needsUpdate=true;return t})();
+const M=(c,o)=>{const k=c+JSON.stringify(o||{});if(MC[k])return MC[k];const p=Object.assign({color:c},o||{});delete p.roughness;delete p.metalness;delete p.flatShading;p.gradientMap=TOONG;return MC[k]=new THREE.MeshToonMaterial(p)};
 const E=(c,i)=>M(c,{emissive:c,emissiveIntensity:i||1.2});
 const BX=(w,h,d,m)=>new THREE.Mesh(geo('b'+w+'_'+h+'_'+d,()=>new THREE.BoxGeometry(w,h,d)),m);
 const SP=(r,m,s)=>new THREE.Mesh(geo('s'+r+'_'+(s||12),()=>new THREE.SphereGeometry(r,s||12,Math.max(6,(s||12)-3))),m);
@@ -570,7 +615,20 @@ const CY=(a,b,h,m,s)=>new THREE.Mesh(geo('c'+a+'_'+b+'_'+h+'_'+(s||12),()=>new T
 const CO=(r,h,m,s)=>new THREE.Mesh(geo('o'+r+'_'+h+'_'+(s||8),()=>new THREE.ConeGeometry(r,h,s||8)),m);
 const at=(o,x,y,z,rx,ry,rz)=>{o.position.set(x,y,z);if(rx)o.rotation.x=rx;if(ry)o.rotation.y=ry;if(rz)o.rotation.z=rz;return o};
 const sc=(o,x,y,z)=>{o.scale.set(x,y===undefined?x:y,z===undefined?x:z);return o};
-const shade=o=>{(o.isObject3D?o:o.g).traverse(c=>{if(c.isMesh)c.castShadow=true});return o};
+const shade=o=>{(o.isObject3D?o:o.g).traverse(c=>{if(c.isMesh&&!c.userData.ink)c.castShadow=true});return o};
+/* çizgi roman mürekkep konturu (ters kabuk) */
+const INK=new THREE.MeshBasicMaterial({color:0x0a090b,side:THREE.BackSide});
+function inkify(o,min,max){const root=o&&(o.isObject3D?o:o.g);if(!root)return o;const L=[];
+ root.traverse(c=>{if(!c.isMesh||c.userData.ink||c.userData.inked)return;const m=c.material;if(!m||Array.isArray(m)||m.transparent||m.isMeshBasicMaterial)return;
+  const p=c.geometry&&c.geometry.parameters,t=c.geometry&&c.geometry.type;if(!p)return;let z=0,s;
+  if(t==='BoxGeometry'){z=Math.max(p.width,p.height,p.depth);s=[1+.07/p.width,1+.07/p.height,1+.07/p.depth]}
+  else if(t==='SphereGeometry'||t==='DodecahedronGeometry'||t==='IcosahedronGeometry'||t==='OctahedronGeometry'){z=p.radius*2;const k=1+.045/p.radius;s=[k,k,k]}
+  else if(t==='CylinderGeometry'){if(p.openEnded)return;const r=Math.max(p.radiusTop,p.radiusBottom);z=Math.max(r*2,p.height);const k=1+.045/r;s=[k,1+.07/p.height,k]}
+  else if(t==='ConeGeometry'){z=Math.max(p.radius*2,p.height);const k=1+.045/p.radius;s=[k,1+.07/p.height,k]}
+  else return;if(z>=min)L.push([z,c,s])});
+ L.sort((a,b)=>b[0]-a[0]);
+ for(const[z,c,s] of L.slice(0,max)){c.userData.inked=1;const k=new THREE.Mesh(c.geometry,INK);k.userData.ink=1;k.castShadow=false;k.scale.set(Math.min(s[0],1.5),Math.min(s[1],1.5),Math.min(s[2],1.5));c.add(k)}
+ return o}
 
 /* ---------- karakterler ---------- */
 function mkPlayer(){
@@ -677,7 +735,7 @@ function wob(arr,o,ax,amp,spd){arr.push({o,ax,amp,spd,b:o.rotation[ax],ph:Math.r
 /* ================= DETAYLI MODELLER ================= */
 const DO=(r,m)=>new THREE.Mesh(geo('do'+r,()=>new THREE.DodecahedronGeometry(r,0)),m);
 const TO=(r,t,m)=>new THREE.Mesh(geo('to'+r+'_'+t,()=>new THREE.TorusGeometry(r,t,6,16)),m);
-const shadeLite=o=>{(o.isObject3D?o:o.g).traverse(c=>{if(c.isMesh){const p=c.geometry&&c.geometry.parameters;let z=0;if(p)z=Math.max(p.width||0,p.height||0,p.depth||0,(p.radius||0)*2,(p.radiusTop||0)*2,(p.radiusBottom||0)*2);c.castShadow=z>=.4}});return o};
+const shadeLite=o=>{(o.isObject3D?o:o.g).traverse(c=>{if(c.isMesh){const p=c.geometry&&c.geometry.parameters;let z=0;if(p)z=Math.max(p.width||0,p.height||0,p.depth||0,(p.radius||0)*2,(p.radiusTop||0)*2,(p.radiusBottom||0)*2);c.castShadow=z>=.4}});inkify(o,.4,6);return o};
 function teeth(par,n,w,x0,y,z,col,down){for(let i=0;i<n;i++)par.add(at(CO(w*.35,w*1.4,M(col||0xe8e0c8,{roughness:.35}),4),x0+i*w,y,z,down?Math.PI:0))}
 function humanoid(o){
  const g=new THREE.Group(),k=o.bulk||1,legs=[],arms=[],knees=[];
@@ -956,7 +1014,7 @@ function bossExtra2(b,g,w){
   for(let i=0;i<8;i++)g.add(at(BX(.32,.12,.02,i%2?M(0xffb020):M(0x111111)),-1.2+i*.34,1.15,1.21,0,0,.5));
   for(let i=0;i<16;i++)g.add(at(SP(.04,M(0x555555,{metalness:.9}),5),-1.4+(i%8)*.4,i<8?2.25:1.15,1.21));
   for(let i=0;i<3;i++)g.add(at(CY(.03,.03,1,M(0x111111),4),-.3+i*.3,2.75,.6,1));
- }else if(b===3){for(let i=0;i<5;i++)g.add(at(TO(2.32,.1,M(0x5a4230)),0,1.3+i*1.3,0,Math.PI/2));
+ }else if(b===3){for(let i=0;i<5;i++)g.add(at(TO(2.32,.1,M(0x2f5a6a)),0,1.3+i*1.3,0,Math.PI/2));
   for(let i=0;i<18;i++){const a=R(0,TAU),y=R(.5,6);g.add(at(sc(new THREE.Mesh(geo('cry',()=>new THREE.OctahedronGeometry(.6)),M(0x40c8ff,{emissive:0x2090ff,emissiveIntensity:1,transparent:true,opacity:.85})),.3,R(.4,.7),.3),Math.cos(a)*2.3,y,Math.sin(a)*2.3,0,0,Math.cos(a)*.8))}
   for(let i=0;i<24;i++){const a=i/24*TAU;g.add(at(CO(.07,.35,bone,4),Math.cos(a)*.95,6.8,Math.sin(a)*.95))}
   g.add(at(CY(.9,.9,.05,E(0xffc070,1.8),16),0,6.55,0));
@@ -975,7 +1033,7 @@ function bossExtra2(b,g,w){
   for(let i=0;i<5;i++)g.add(at(SP(.06,zer,6),-.3+i*.15,3.95,0));
  }}
 
-function mkDecoy(){const b=boss?boss.b:1,m=(PART===5?mkBoss5:PART===4?mkBoss4:PART===3?mkBoss3:PART===2?mkBoss2:mkBoss)(b);const gm=new THREE.MeshBasicMaterial({color:boss&&boss.sc||0xc080ff,transparent:true,opacity:.4,depthWrite:false});m.g.traverse(c=>{if(c.isMesh){c.material=gm;c.castShadow=false}});m.g.scale.setScalar(m.s*.55);return {g:m.g,legs:[],arms:[],head:null}}
+function mkDecoy(){const b=boss?boss.b:1,m=(PART===5?mkBoss5:PART===4?mkBoss4:PART===3?mkBoss3:PART===2?mkBoss2:mkBoss)(b);const gm=new THREE.MeshBasicMaterial({color:boss&&boss.sc||0xc080ff,transparent:true,opacity:.4,depthWrite:false});m.g.traverse(c=>{if(c.isMesh){if(c.userData.ink){c.visible=false;return}c.material=gm;c.castShadow=false}});m.g.scale.setScalar(m.s*.55);return {g:m.g,legs:[],arms:[],head:null}}
 function addShield(e,k){e.shMax=e.max*k;e.sh=e.shMax;e.shT=0;
  e.bub=at(SP(1,M(0x60c8ff,{transparent:true,opacity:.28,emissive:0x2090ff,emissiveIntensity:.9,depthWrite:false}),14),0,1.15,0);e.bub.scale.setScalar(e.r*2.1);e.g.add(e.bub)}
 
@@ -995,7 +1053,7 @@ function mkBoss2(b){const g=new THREE.Group(),w=[];let s=1;
   const drum=at(new THREE.Group(),0,1.2,1.5);drum.add(at(CY(.5,.5,2.6,dk,12),0,0,0,0,0,1.57));for(let i=0;i<10;i++)drum.add(at(CO(.12,.35,M(0xc0c0c0,{metalness:.9}),4),-1.1+i*.25,Math.cos(i)*.55,Math.sin(i)*.55,i));g.add(drum);w.push({o:drum,ax:'x',amp:0,spd:0,spinX:5});
   for(const x of[-1,1])for(let i=0;i<3;i++){const l=at(new THREE.Group(),1.5*x,1.6,-.8+i*.8);l.add(at(CY(.12,.08,2,dk),.7*x,-.5,0,0,0,-x*.9));g.add(l);wob(w,l,'z',.25,3+i)}
   for(const x of[-1,1]){const c=at(new THREE.Group(),1.2*x,1.6,1.4);c.add(at(BX(.4,.4,1.4,rust),0,0,.6));c.add(at(BX(.15,.5,.8,dk),.15,0,1.4));c.add(at(BX(.15,.5,.8,dk),-.15,0,1.4));g.add(c);wob(w,c,'y',.3,2)}
- }else if(b===3){s=1;const sk=M(0x8a6a4a),rg=M(0x6e5238);
+ }else if(b===3){s=1;const sk=M(0x9ccfd8,{emissive:0x2a6a8a,emissiveIntensity:.35}),rg=M(0x5a8ea0);
   for(let i=0;i<5;i++)g.add(at(CY(2.3-i*.05,2.35-i*.05,1.3,i%2?rg:sk,16),0,.65+i*1.3,0));
   const top=6.6,mouth=at(new THREE.Group(),0,top,0);
   mouth.add(CY(1.6,2.2,.4,M(0x3a1a10),16));mouth.add(at(CY(1.2,1.2,.1,E(0xff9a40,1.2),16),0,.12,0));
@@ -1070,7 +1128,7 @@ function setupHazards2(has){windK=1;
  wormT=R(9,13);wormWarned=0}
 function wormErupt(x,z,r,delay,k){const o=teleRing(x,z,r,delay,0xffa040);o.worm={r,k};snd('rumble')}
 function wormHit(o){const {x,z}=o,r=o.worm.r,g=new THREE.Group();
- for(let i=0;i<4;i++)g.add(at(CY(r*.75,r*.8,1.4,M(i%2?0x6e5238:0x8a6a4a),14),0,.7+i*1.4,0));
+ for(let i=0;i<4;i++)g.add(at(CY(r*.75,r*.8,1.4,i%2?M(0x5a8ea0):M(0x9ccfd8,{emissive:0x2a6a8a,emissiveIntensity:.35}),14),0,.7+i*1.4,0));
  const m=at(new THREE.Group(),0,5.7,0);m.add(CY(r*.6,r*.78,.3,M(0x3a1a10),14));for(let i=0;i<14;i++){const a=i/14*TAU;m.add(at(CO(.1,.5,M(0xf0ead8),4),Math.cos(a)*r*.6,.3,Math.sin(a)*r*.6))}g.add(m);
  g.position.set(x,-6,z);scene.add(g);fx.push({m:g,t:0,d:1.8,worm:1});
  burst(x,.5,z,0xd8a060,22,10);shake=.8;snd('boom');
@@ -1096,14 +1154,14 @@ function startEnding2(){state='ending';endT=0;hideOv();$('#hud').classList.remov
  for(const e of enemies)scene.remove(e.g);enemies.length=0;for(const b of ebul)scene.remove(b.m);ebul.length=0;for(const w of waves)scene.remove(w.m);waves.length=0;
  try{localStorage.setItem('granit2_done','1');localStorage.removeItem('granit2_v1')}catch(e){}
  if(arena)arena.visible=false;scene.background=new THREE.Color(0xd29a5e);scene.fog=new THREE.Fog(0xd29a5e,30,75);cv.style.filter='';
- const g=new THREE.Group(),segs=[],sk=M(0x8a6a4a),rg=M(0x6e5238);
+ const g=new THREE.Group(),segs=[],sk=M(0x9ccfd8,{emissive:0x2a6a8a,emissiveIntensity:.35}),rg=M(0x5a8ea0);
  const sand=new THREE.Mesh(new THREE.PlaneGeometry(500,500),M(0xc08a50));sand.rotation.x=-Math.PI/2;sand.position.y=-.01;g.add(sand);
  for(let i=0;i<16;i++){const s=new THREE.Group();s.add(at(CY(3-i*.06,3-i*.06,3.4,i%2?rg:sk,16),0,0,0,0,0,Math.PI/2));g.add(s);segs.push(s)}
  const mouth=at(new THREE.Group(),1.8,0,0);mouth.add(at(CY(2.4,3.1,.4,M(0x3a1a10),16),0,0,0,0,0,Math.PI/2));
  for(let i=0;i<16;i++){const a=i/16*TAU;mouth.add(at(CO(.15,.8,M(0xf0ead8),4),.3,Math.cos(a)*2.4,Math.sin(a)*2.4,0,0,-Math.PI/2))}segs[0].add(mouth);
  shade(g);scene.add(g);
  const th=new THREE.Group();th.add(at(CY(.18,.22,3,M(0x5a4a3a),8),0,1.5,0));const hm=at(CY(.45,.45,.5,M(0x8a6a3a),10),0,2.4,0);th.add(hm);th.position.set(P.x+2,0,P.z+1);scene.add(th);
- ufo={g,segs,th,hm,x0:P.x,z0:P.z,ride:false};player.g.rotation.set(0,-Math.PI/2,0);player.g.position.y=0;warn('TOKMAK ÇALIYOR');snd('rumble')}
+ ufo={g,segs,th,hm,x0:P.x,z0:P.z,ride:false};player.g.rotation.set(0,-Math.PI/2,0);player.g.position.y=0;warn('ÇAĞRI DİREĞİ TİTRİYOR');snd('rumble')}
 function wpath(s,U){return{x:U.x0-70+s,z:U.z0+Math.sin((s-70)*.05)*3,y:.9+Math.sin(s*.2)*.5,dz:Math.cos((s-70)*.05)*.15}}
 function updEnding2(dt){endT+=dt;const U=ufo;if(!U)return;
  U.hm.position.y=2.4+Math.abs(Math.sin(endT*9))*.5;
@@ -1111,14 +1169,14 @@ function updEnding2(dt){endT+=dt;const U=ufo;if(!U)return;
  U.segs.forEach((s,i)=>{const p=wpath(sh-i*3.3,U);s.position.set(p.x,p.y,p.z);s.rotation.y=-Math.atan2(p.dz,1)});
  const hp=wpath(sh,U);if(Math.random()<dt*14)burst(hp.x+2,.5,hp.z+R(-2,2),0xd8a060,3,7);
  if(endT<6)shake=Math.max(shake,Math.min(.6,endT*.1));
- if(!U.ride&&sh-3*3.3>=70){U.ride=true;warn('GRANİT LEVİATHANA TIRMANDI');snd('boom')}
+ if(!U.ride&&sh-3*3.3>=70){U.ride=true;warn('GRANİT UĞULTU\'YA TIRMANDI');snd('boom')}
  if(U.ride){const p=wpath(sh-3*3.3,U);P.x=p.x;P.z=p.z;player.g.position.set(p.x,p.y+3.2,p.z);player.g.rotation.y=Math.PI/2;player.arms[0].rotation.x=player.arms[1].rotation.x=-2.6;player.legs[0].rotation.x=.4;player.legs[1].rotation.x=-.4;
   scene.fog.near=Math.max(8,30-(endT-7)*4);scene.fog.far=Math.max(26,75-(endT-7)*8)}
  if(endT>12.3&&endT<12.4){const f=$('#flash');f.style.background='#f0c890';f.style.transition='none';f.style.opacity=.9;requestAnimationFrame(()=>{f.style.transition='opacity 1.4s';f.style.opacity=0})}
  if(endT>13.6&&state==='ending'){state='end';
-  show(`<div class="card"><div class="kick">Kısım II · 30 / 30 · Hikâyenin sonu… şimdilik</div><h2 class="ttl">Derin Yutan'ın sırtında</h2>
-  <p>Hegemon tahtıyla birlikte devrildi ve kale çökmeye başladı. Granit avludaki son tokmağı çalıştırdı. Kumun altından dağ büyüklüğünde bir leviathan yükseldi. Granit kancalarını pullarına geçirip sırtına tırmandı ve fırtınanın içine doğru gözden kayboldu.</p>
-  <p>Fırtınanın ötesinde göçebelerin gizli bir yıldız gemisi bekliyordu. Rotası Dünya'ydı. Ama Hegemonya'nın kayıtlarında Granit'in adının yanında tek bir kelime yazıyordu: <b>KAYNAK</b>. Onun kanından yapılmış ilk ordu çoktan Dünya'ya doğru yola çıkmıştı.</p>
+  show(`<div class="card"><div class="kick">Kısım II · 30 / 30 · Hikâyenin sonu… şimdilik</div><h2 class="ttl">Uğultu'nun sırtında</h2>
+  <p>Küratör arşiviyle birlikte devrildi ve cam kubbe çatlamaya başladı. Granit avludaki son çağrı direğini vurdu. Ovanın altından dağ büyüklüğünde bir Uğultu yükseldi, bütün çöl aynı notayla inledi. Granit kancalarını cam pullarına geçirip sırtına tırmandı ve fırtınanın içinde gözden kayboldu.</p>
+  <p>Fırtınanın ötesinde Cam Göçerlerinin gemisi Sırça Kuş bekliyordu. Rotası Dünya'ydı. Ama Küratör'ün kataloğunda Granit'in adının yanında tek bir kelime yazıyordu: <b>KAYNAK</b>. Kanından alınan ilk damla çoktan Döküm Ustası'na satılmıştı.</p>
   <div class="stamp">DEVAM EDECEK</div><p class="hint">Kısım III: Dönüş · Son seviye: ${P.lvl} · Silah: ${esc(wn(P.weapon))} Mk ${P.mk}</p>
   <div class="btns"><button class="btn" data-a="new3">Kısım III'e geç</button><button class="btn alt" data-a="again">Ana menü</button></div></div>`)}}
 
@@ -1248,13 +1306,13 @@ function decor3(ch){const steel=M(0x7a8088,{metalness:.7,roughness:.35});
   for(const [x,z] of[[-14,4],[14,4],[-10,14],[10,14]]){const p=at(CY(.9,1,5,M(0x3a2224,{metalness:.6}),8),x,2.5,z);p.add(at(SP(.4,E(0xff4a3a,1.8),8),0,2.8,0));addObst(x,z,1,shadeLite(p))}
  }}
 function enrich3(ch,o){
- if(ch===1){o.text('KUM KIRLANGICI',0,-19.5,1.6,'#2a2018',0,.6);for(const [x,z] of[[-6,-6],[6,6],[-6,6],[6,-6]])o.grate(x,z,.8);for(let i=0;i<10;i++)o.stain(R(-20,20),R(-20,20),R(.4,1.2),'#1a0808',.5);o.stripes(-23,-2,1.4,4);o.stripes(21.6,-2,1.4,4);for(let i=0;i<8;i++)o.crack(R(-22,22),R(-22,22),R(2,5));
+ if(ch===1){o.text('SIRÇA KUŞ',0,-19.5,1.6,'#2a2018',0,.6);for(const [x,z] of[[-6,-6],[6,6],[-6,6],[6,-6]])o.grate(x,z,.8);for(let i=0;i<10;i++)o.stain(R(-20,20),R(-20,20),R(.4,1.2),'#1a0808',.5);o.stripes(-23,-2,1.4,4);o.stripes(21.6,-2,1.4,4);for(let i=0;i<8;i++)o.crack(R(-22,22),R(-22,22),R(2,5));
   for(let x=-21;x<=21;x+=6)for(const z of[-21.5,21.5])pool2(x,z,2.4,0xff3020,.12);outer(0x2a221a,0xffa060)}
  else if(ch===2){for(let i=0;i<14;i++)o.stain(R(-20,20),R(-20,20),R(.8,2.2),'#3a2818',.45);for(let i=0;i<20;i++)o.line(R(-22,22),R(-22,22),R(-22,22),R(-22,22),.05,'#2a1a10',0,.25);o.text('HURDA BÖLGESİ',0,-18,1.6,'#3a2010',0,.5)}
  else if(ch===3){for(let i=0;i<10;i++)o.stain(R(-20,20),R(-20,20),R(1,3),'#a8d8f0',.35);for(let i=0;i<14;i++)o.crack(R(-20,20),R(-20,20),R(3,7),'#7aa8c8');let fx=-20,fz=-18;for(let i=0;i<24;i++){fx+=1.4;fz+=Math.cos(i*.4)*.8;o.stain(fx,fz,.22,'#8aa8c0',.6)}}
  else if(ch===4){for(let i=0;i<30;i++)o.stain(R(-22,22),R(-22,22),R(.6,2),pick(['#2a3a1a','#4a3a24','#1a2a12']),.5);for(let i=0;i<40;i++){const[x,z]=freeSpot(3,1);arena.add(at(CO(R(.2,.4),R(.5,1),M(0x3a6a2a),5),x,.3,z,R(-.3,.3),0,R(-.3,.3)))}
   for(let i=0;i<30;i++)arena.add(at(SP(.05,E(0xd8ff80,3),5),R(-20,20),R(1,4),R(-20,20)))}
- else if(ch===5){for(let i=-24;i<=24;i+=2){o.line(i,-26,i,26,.05,'#2a4a6a',0,.6);o.line(-26,i,26,i,.05,'#2a4a6a',0,.6)}o.text('DEMİR AY · SEKTÖR 7',0,-19.5,1.4,'#40a0ff',0,.6);for(let i=0;i<6;i++)o.glyph(R(-15,15),R(-15,15),1.4,'#2a5a8a');outer(0x121418,0x40a0ff,6,10)}
+ else if(ch===5){for(let i=-24;i<=24;i+=2){o.line(i,-26,i,26,.05,'#2a4a6a',0,.6);o.line(-26,i,26,i,.05,'#2a4a6a',0,.6)}o.text('BÜYÜK DÖKÜMHANE · OCAK 7',0,-19.5,1.4,'#40a0ff',0,.6);for(let i=0;i<6;i++)o.glyph(R(-15,15),R(-15,15),1.4,'#2a5a8a');outer(0x121418,0x40a0ff,6,10)}
  else{o.circ(0,-15,8,.4,'#ff4a3a',.5);for(let i=0;i<8;i++){const a=i/8*TAU;o.line(0,-15,Math.cos(a)*24,-15+Math.sin(a)*24,.2,'#4a1010',0,.6)}o.text('KAYNAK',0,8,3,'#ff4a3a',0,.3);for(let i=0;i<10;i++)o.stain(R(-20,20),R(-5,20),R(.6,1.4),'#1a0505',.5);outer(0x1a0c0e,0xff4a3a,7,12)}}
 /* ---------- tehlikeler ---------- */
 const breaches=[],pits=[],vents=[];let barT=6,brT=0,brOn=false;
@@ -1305,9 +1363,9 @@ function updEnding3(dt){endT+=dt;const U=ufo;if(!U)return;const g=U.g;
  if(endT>7.4&&endT<7.5){const f=$('#flash');f.style.background='#ffffff';f.style.transition='none';f.style.opacity=1;requestAnimationFrame(()=>{f.style.transition='opacity 2s';f.style.opacity=0})}
  if(endT>9&&state==='ending'){state='end';
   show(`<div class="card"><div class="kick">Kısım III · 30 / 30 · Son</div><h2 class="ttl">Eve dönüş</h2>
-  <p>Kaynak Çekirdeği çöktüğünde Demir Ay kendi ağırlığı altında parçalandı. Granit'in gemisi patlamanın ışığından bir saniye önce kurtuldu. Göçebe filosu onu yörüngede karşıladı.</p>
-  <p>Üç gün sonra Kum Kırlangıcı Dünya atmosferine girdi. Granit Karadeniz kıyısında bir tepede, yıllar sonra ilk kez güneşin doğuşunu izledi. Kopyalar dağılmıştı, Direktör yoktu. İlk kez kimse onun kanını istemiyordu.</p>
-  <div class="stamp">SON</div><p class="hint">…ama istasyonun enkazı arasında, buz tutmuş bir tüpte küçük bir kalp atmaya devam ediyordu. · Son seviye: ${P.lvl} · Silah: ${esc(wn(P.weapon))} Mk ${P.mk}</p>
+  <p>Ana Kalıp çatladığında Büyük Dökümhane kendi ateşinde eridi. Granit'in gemisi patlamanın ışığından bir saniye önce kurtuldu. Cam Göçerlerinin filosu onu yörüngede karşıladı.</p>
+  <p>Üç gün sonra Sırça Kuş Dünya atmosferine girdi. Granit Karadeniz kıyısında bir tepede, yıllar sonra ilk kez güneşin doğuşunu izledi. Kalıplar erimişti, Döküm Ustası yoktu. İlk kez kimse onun kanını istemiyordu.</p>
+  <div class="stamp">SON</div><p class="hint">…ama dökümhanenin enkazında, buz tutmuş bir kalıbın içinde küçük bir kalp atmaya devam ediyordu. · Son seviye: ${P.lvl} · Silah: ${esc(wn(P.weapon))} Mk ${P.mk}</p>
   <div class="btns"><button class="btn" data-a="new4">Kısım IV'e geç</button><button class="btn alt" data-a="again">Ana menü</button></div></div>`)}}
 function trySpecial(e,d,dt){
  if(e.d.jump&&!e.leap){e.jT=(e.jT===undefined?R(1.5,3):e.jT)-dt;if(e.jT<=0&&d>3.5&&d<14){e.jT=R(3,4.5);const tx=clamp(P.x,-21,21),tz=clamp(P.z,-21,21);teleRing(tx,tz,1.8,.65,0xff3a2a);e.leap={sx:e.x,sz:e.z,tx,tz,t:-.65}}}
@@ -1498,9 +1556,9 @@ function decor4(ch){
  }}
 function enrich4(ch,o){
  if(ch===1){for(let i=0;i<16;i++){o.stain(R(-22,22),R(-22,22),R(.8,2.4),'#111',.45);o.crack(R(-22,22),R(-22,22),R(3,7),'#000')}o.line(-24,0,24,0,.25,'#c8b040',[1.4,1],.5);o.line(0,-24,0,24,.25,'#c8b040',[1.4,1],.35);o.text('2049',0,-18,3,'#c84a2a',0,.35)}
- else if(ch===2){o.text('KARACA',0,-19.5,2.4,'#2a3a4a',0,.55);o.text('AVCI PROGRAMI · YETKİSİZ GİRİŞ YASAK',0,19.5,1,'#c82020',Math.PI,.6);for(let i=-24;i<=24;i+=4)o.line(i,-26,i,26,.04,'#9ab0c0',0,.6);o.stripes(-3,-16,6,.6);outer(0xc8d2da,0x9adfff)}
+ else if(ch===2){o.text('KARACA',0,-19.5,2.4,'#2a3a4a',0,.55);o.text('UYUMCU PROGRAMI · YETKİSİZ GİRİŞ YASAK',0,19.5,1,'#c82020',Math.PI,.6);for(let i=-24;i<=24;i+=4)o.line(i,-26,i,26,.04,'#9ab0c0',0,.6);o.stripes(-3,-16,6,.6);outer(0xc8d2da,0x9adfff)}
  else if(ch===3){for(const x of[-12,-4,4,12])o.line(x,-26,x,26,.18,'#e8e4d8',[2,1.6],.8);o.line(-20,-26,-20,26,.25,'#e8c840',0,.8);o.line(20,-26,20,26,.25,'#e8c840',0,.8);for(let i=0;i<8;i++)o.stain(R(-18,18),R(-22,22),R(.5,1.4),'#151515',.4);o.text('BOĞAZ KÖPRÜSÜ',0,-21,.9,'#e8e4d8',0,.35)}
- else if(ch===4){for(let i=0;i<12;i++)o.stain(R(-22,22),R(-22,22),R(1,3),'#1a2a2a',.45);o.text('SIĞINAK',0,-20,1.8,'#8a6a3a',0,.4);outer(0x1e1a14,0xffa040,5,8)}
+ else if(ch===4){for(let i=0;i<12;i++)o.stain(R(-22,22),R(-22,22),R(1,3),'#1a2a2a',.45);o.text('MUVAKKİTHANE',0,-20,1.8,'#8a6a3a',0,.4);outer(0x1e1a14,0xffa040,5,8)}
  else if(ch===5){for(let i=-24;i<24;i+=4)for(let j=-24;j<24;j+=4)if(((i+j)/4)%2===0)o.x.fillStyle='rgba(30,24,16,.22)',o.x.fillRect(o.X(i),o.X(j),4*o.S,4*o.S);o.line(0,-26,0,26,4,'#8a1a1a',0,.8);o.line(-2,-26,-2,26,.15,'#d4af37',0,.8);o.line(2,-26,2,26,.15,'#d4af37',0,.8);o.circ(0,0,6,.25,'#d4af37',.6);outer(0x2a1e14,0xfff0c0,7,11)}
  else{o.x.fillStyle='rgba(200,210,220,.18)';o.x.fillRect(512,0,512,1024);for(let i=0;i<12;i++)o.crack(R(-20,20),R(-20,20),R(4,9),'#b070ff');for(let i=0;i<5;i++)o.glyph(R(-15,15),R(-15,15),R(1.5,3),'#9a50ff');o.text('2026',12,-18,2.4,'#e8e4d8',0,.35);o.text('2049',-12,-18,2.4,'#c84a2a',0,.35)}}
 /* ---------- mekanikler ---------- */
@@ -1514,7 +1572,7 @@ function setupHazards4(has){rifts.length=0;hglass.length=0;mags.length=0;echoH.l
  if(has('magfield'))for(let i=0;i<3;i++){const[x,z]=freeSpot(6,3);const g=new THREE.Group();const rg=new THREE.Mesh(geo('ring',()=>new THREE.RingGeometry(.85,1,40)),E(0x9a70ff,1.6));rg.rotation.x=-Math.PI/2;rg.position.y=.05;rg.scale.setScalar(5);g.add(rg);pool2(x,z,5,0x9a70ff,.1);
   const sh=new THREE.Group();for(let k=0;k<8;k++){const a=k/8*TAU;sh.add(at(BX(.15,.5,.15,M(0x9aa0a8,{metalness:.9})),Math.cos(a)*3.5,1.5+Math.sin(k)*.5,Math.sin(a)*3.5,k,k))}g.add(sh);at(g,x,0,z);arena.add(g);mags.push({x,z,r:5,sh})}
  if(has('protect')){const fut=futureCh(Math.ceil(LVL/5));const k=fut?'ayla':'simsek';const m=mkAlly(k);m.g.position.set(0,0,-4);scene.add(m.g);const hp=600*(1+.4*tierOf());ally={...m,x:0,z:-4,hp,max:hp,name:fut?'AYLA':'ŞİMŞEK'};$('#allyname').textContent=ally.name;$('#allybar').classList.add('on')}
- if(has('echo')){const e=mkPlayer();const gm=new THREE.MeshBasicMaterial({color:0x60d0ff,transparent:true,opacity:.32,depthWrite:false});e.g.traverse(c=>{if(c.isMesh){c.material=gm;c.castShadow=false}});scene.add(e.g);echoG=e;echoF=1}}
+ if(has('echo')){const e=mkPlayer();const gm=new THREE.MeshBasicMaterial({color:0x60d0ff,transparent:true,opacity:.32,depthWrite:false});e.g.traverse(c=>{if(c.isMesh){if(c.userData.ink){c.visible=false;return}c.material=gm;c.castShadow=false}});scene.add(e.g);echoG=e;echoF=1}}
 function updHaz4(dt,tm){
  if(tsT>0){tsT-=dt;if(tsT<=0)cv.style.filter=''}
  if(curMods.includes('timeslow')&&clearing===0){tsSpawn-=dt;if(tsSpawn<=0&&hglass.length<2){tsSpawn=R(9,13);const[x,z]=freeSpot(3,1.5);const g=new THREE.Group();g.add(at(CO(.3,.45,E(0xffd040,1.4),8),0,.75,0,Math.PI));g.add(at(CO(.3,.45,E(0xffd040,1.4),8),0,1.2,0));g.add(at(CY(.33,.33,.05,M(0x6a4a20),8),0,1.45,0));g.add(at(CY(.33,.33,.05,M(0x6a4a20),8),0,.5,0));
@@ -1706,7 +1764,7 @@ function updEnding4(dt){endT+=dt;const U=ufo;if(!U)return;const k=Math.max(.02,1
  if(endT>5.9)player.g.visible=false;
  if(endT>7.6&&state==='ending'){state='end';player.g.rotation.z=0;player.g.scale.setScalar(.93);
   show(`<div class="card"><div class="kick">Kısım IV · 30 / 30 · Hikâyenin sonu… şimdilik</div><h2 class="ttl">Zamanın dışına</h2>
-  <p>Son Avcı'nın çekirdeği söndüğünde zamanın çatlağı kapanmaya başladı ve Ayla'nın geleceği düzeldi. Ama Karaca'nın prototip zaman makinesi hâlâ çalışıyordu. Granit onu kapatmak için halkaya uzandığı anda makine onu içine çekti.</p>
+  <p>Son Uyumcu'nun çekirdeği söndüğünde zamanın çatlağı kapanmaya başladı ve Nuri'nin geleceği düzeldi. Ama Muvakkithane'nin büyük saati durmamıştı; çarkları kendi kendine dönüyordu. Granit sarkacı durdurmak için uzandığı anda saat onu içine çekti.</p>
   <p>Gözlerini açtığında havada kükürt ve kül kokusu vardı. Ufukta bir volkan tütüyordu. Gökyüzünde kanatlı, dev bir gölge süzülüyordu. Ve çalılıkların arasında, sarı gözlü bir şey onu izliyordu.</p>
   <div class="stamp">DEVAM EDECEK</div><p class="hint">Kısım V: Taş Devri · Son seviye: ${P.lvl} · Silah: ${esc(wn(P.weapon))} Mk ${P.mk}</p>
   <div class="btns"><button class="btn" data-a="new5">Kısım V'e geç</button><button class="btn alt" data-a="again">Ana menü</button></div></div>`)}}
@@ -1722,7 +1780,7 @@ function updEnding5(dt){endT+=dt;const U=ufo;if(!U)return;U.core.material.opacit
  if(endT>7.4&&state==='ending'){state='end';
   show(`<div class="card"><div class="kick">Kısım V · 30 / 30 · Son</div><h2 class="ttl">Eve giden halka</h2>
   <p>Altı parça yerine oturduğunda zaman makinesi ilk kez sessizce uğuldadı. Grok ve kabilesi uzaktan izliyordu. Grok kemik maskesini göğsüne bastırdı: veda böyle ediliyordu.</p>
-  <p>Granit halkadan geçtiğinde kendini 2049'da, güneşli bir bahçede buldu. Ayla koşarak geldi ve ona sarıldı. Şimşek ne kadar geç kaldığını söyledi; sadece üç dakika geçmişti. Granit güldü. Cebinde, yanına aldığı küçük bir taş vardı: Grok'un kabilesinin el izi işlenmiş bir taş.</p>
+  <p>Granit halkadan geçtiğinde kendini 2049'da, Muvakkithane'nin güneşli avlusunda buldu. Yaşlı Nuri cep saatine baktı ve gülümsedi: sadece üç dakika geçmişti. Granit güldü. Cebinde, yanına aldığı küçük bir taş vardı: Grok'un kabilesinin el izi işlenmiş bir taş.</p>
   <div class="stamp">SON</div><p class="hint">Beş kısım, yüz elli bölüm, otuz boss. Destan tamamlandı. · Son seviye: ${P.lvl} · Silah: ${esc(wn(P.weapon))} Mk ${P.mk}</p>
   <div class="btns"><button class="btn" data-a="again">Ana menü</button></div></div>`)}}
 
@@ -1801,8 +1859,8 @@ function updLobs(dt){for(let i=lobs.length-1;i>=0;i--){const l=lobs[i];l.t+=dt;c
  if(k>=1){scene.remove(l.m);lobs.splice(i,1);boomFx(l.tx,l.tz,1.8,l.acid?0x9a3cb0:0xff7020);if(Math.hypot(P.x-l.tx,P.z-l.tz)<1.8)hurtP(l.pd);if(l.acid)addPool(l.tx,l.tz,1.6,3.5)}}}
 /* ================= BOSS İMZA SALDIRILARI ================= */
 const SIG={1:[null,[['boomer','SATIR FIRLATMA',0xc8c8c8],['quake','YER YARMA',0xff6a20]],[['cone','ASİT KUSMA',0x9cff3a,'acid'],['vortex','LAĞIM GİRDABI',0x6f7d3d]],[['sweep','GÖZ LAZERİ',0xff2a2a],['wall','BAKIŞ DUVARI',0xff4ad0]],[['grab','UZAYAN KOL',0x40f0ff],['decoys','YANKI DENEKLER',0x40f0ff]],[['ringfall','ROKET HALKASI',0xff7020],['sweep','ALEV PÜSKÜRTÜCÜ',0xff8a20]],[['cone','ÜÇ BAŞLI ALEV',0xff6a20,'fire'],['grab','KUYRUK KAMÇISI',0xb040ff]]],
- 2:[null,[['vortex','ASKI GİRDABI',0x40e0ff],['ringfall','YÖRÜNGE TOPLARI',0x40e0ff]],[['wall','KIYMIK DUVARI',0xc0c0c0],['quake','SONDAJ',0xd8a060]],[['cone','KUM PÜSKÜRTME',0xd8a060,'slow'],['grab','YUTMA',0xff9a40]],[['decoys','RAHİBE GÖLGELERİ',0xc080ff],['sweep','SES ÇIĞLIĞI',0xb070ff]],[['boomer','BIÇAK FIRLATMA',0xdddddd],['decoys','ARENA HAYALETLERİ',0xffffff]],[['vortex','ZERRİN GİRDABI',0x40c8ff],['wall','HÜKÜM DUVARI',0xd4af37]]],
- 3:[null,[['grab','KANCA ATIŞI',0xc8c8c8],['boomer','DÖNEN KANCA',0xc8c8c8]],[['grab','DİL KAMÇISI',0x9a3a4a],['cone','SÜMÜK SELİ',0x9cff3a,'acid']],[['sweep','TARET TARAMASI',0xff5020],['ringfall','TOPÇU HALKASI',0xff5020]],[['decoys','HOLOGRAM',0x60c8ff],['wall','SEKİZ NAMLU',0x60c8ff]],[['boomer','KILIÇ FIRLATMA',0xff2020],['quake','KIRMIZI YARIK',0xff2020]],[['vortex','ÇEKİM ALANI',0xc040ff],['sweep','ŞİMŞEK TARAMASI',0xd080ff]]],
+ 2:[null,[['vortex','ASKI GİRDABI',0x40e0ff],['ringfall','YÖRÜNGE TOPLARI',0x40e0ff]],[['wall','KIYMIK DUVARI',0xc0c0c0],['quake','SONDAJ',0xd8a060]],[['cone','CAM PÜSKÜRTME',0xd8a060,'slow'],['grab','YUTMA',0xff9a40]],[['decoys','RAHİP GÖLGELERİ',0xc080ff],['sweep','AKORT ÇIĞLIĞI',0xb070ff]],[['boomer','BIÇAK FIRLATMA',0xdddddd],['decoys','SERGİ HAYALETLERİ',0xffffff]],[['vortex','ZERRİN GİRDABI',0x40c8ff],['wall','ARŞİV DUVARI',0xd4af37]]],
+ 3:[null,[['grab','KANCA ATIŞI',0xc8c8c8],['boomer','DÖNEN KANCA',0xc8c8c8]],[['grab','DİL KAMÇISI',0x9a3a4a],['cone','SÜMÜK SELİ',0x9cff3a,'acid']],[['sweep','TARET TARAMASI',0xff5020],['ringfall','TOPÇU HALKASI',0xff5020]],[['decoys','HOLOGRAM',0x60c8ff],['wall','SEKİZ NAMLU',0x60c8ff]],[['boomer','KILIÇ FIRLATMA',0xff2020],['quake','KIRMIZI YARIK',0xff2020]],[['vortex','ÇEKİM ALANI',0xc040ff],['sweep','KOR ARKI',0xd080ff]]],
  4:[null,[['sweep','ÇEKİRDEK LAZERİ',0xff3060],['quake','ADIM SARSINTISI',0x9a9aa8]],[['decoys','BİN YÜZ',0xb060ff],['boomer','MASKE FIRLATMA',0xe8e0d8]],[['vortex','MIKNATIS',0x9a70ff],['wall','ÇELİK YAĞMURU',0x9aa0a8]],[['ringfall','DRON KUŞATMASI',0xff3060],['cone','SÜRÜ SALDIRISI',0xff3060,'fire']],[['grab','ÇEKİCİ IŞIN',0x40c0ff],['ringfall','FÜZE HALKASI',0x40c0ff]],[['decoys','UYUM KOPYALARI',0x40e0ff],['sweep','DÖRT KOL',0x40e0ff]]],
  5:[null,[['cone','ISIRIK',0xeee6cc,'fire'],['quake','AYAK DARBESİ',0x8a6a4a]],[['boomer','SOPA FIRLATMA',0x6a4a2a],['quake','KAYA YARMA',0x8a6a4a]],[['wall','DİKEN YAĞMURU',0xd8c8a0],['quake','KUYRUK TOPUZU',0x8a6a4a]],[['cone','BUZ NEFESİ',0x9ad8ff,'slow'],['grab','HORTUM',0x6a4a2a]],[['grab','ÇENE KAPANI',0xe8e0c8],['vortex','ÇAMUR GİRDABI',0x4a4a30]],[['decoys','ZAMAN YANKILARI',0xc080ff],['ringfall','ZAMAN KIRILMASI',0xc080ff]]]};
 function bossPats(B){const s=(SIG[PART]&&SIG[PART][B.b])||[];B.sigs=s;return B.d.pat.concat(s.map((_,i)=>'sig'+i),s.map((_,i)=>'sig'+i))}
@@ -1826,15 +1884,119 @@ function updSig(B,dt,rage,dist){
  case 'sig-grab':if(B.t<=0){if(segDist(P.x,P.z,B.x,B.z,B.ga,16)<1.1){P.x=B.x+Math.sin(B.ga)*(B.r+1.4);P.z=B.z+Math.cos(B.ga)*(B.r+1.4);hurtP(bdmg(.16));P.rootT=.5;warn('YAKALANDIN!',1)}const pts=[new THREE.Vector3(B.x,1.4,B.z),new THREE.Vector3(B.x+Math.sin(B.ga)*16,1.4,B.z+Math.cos(B.ga)*16)];const ln=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:B.sc}));scene.add(ln);fx.push({m:ln,t:0,d:.25,line:1});idle(rage)}return true}
  return false}
 
+
+/* ================= İMZA MEKANİĞİ: SERUM KANI ================= */
+const SERUM=[null,
+ {n:'Öfke',d:'7 saniye boyunca iki kat hasar, 1,5 kat atış hızı ve her öldürmede can.',col:'#ff3b30'},
+ {n:'Kum Dalgası',d:'Etrafındaki herkesi savuran ve sersemleten bir zerrin dalgası. Ayağının altında 6 saniyelik bir zerrin alanı bırakır.',col:'#40c8ff'},
+ {n:'Kan Kopyaları',d:'9 saniye boyunca yanında savaşan iki kan kopyası.',col:'#ff4a6a'},
+ {n:'Zaman Durdurma',d:'4,5 saniye boyunca düşmanlar ve mermileri tamamen donar.',col:'#c080ff'},
+ {n:'İlkel Kükreme',d:'Çevreye büyük hasar veren ve bütün düşmanları 4 saniye kaçıran bir kükreme.',col:'#ffb040'}];
+const BLOODBORN=new Set(['runner','splitter','mini','exploder','clone','jumper','heavy','hunter','kolos','hdrone','crawler','decoy']);
+const BLOODBOSS={1:[6],2:[],3:[5,6],4:[1,6],5:[]};
+const isBlood=e=>e===boss?(BLOODBOSS[PART]||[]).includes(boss.b):BLOODBORN.has(e.type);
+let FRZ=0,serumKids=[];
+function serumGain(v){if(state!=='play')return;const was=P.serum>=100;P.serum=Math.min(100,(P.serum||0)+v);if(!was&&P.serum>=100){warn('SERUM HAZIR · BOŞLUK',0);snd('lvl')}}
+function serumHit(e,d){hurt(e,d*(isBlood(e)?2:1));if(isBlood(e))burst(e.x,1.4,e.z,0xff2040,3,4,.7)}
+function useSerum(){if(state!=='play'||(P.serum||0)<100)return;P.serum=0;const S=SERUM[PART],w=wstat();sfx((S.n||'SERUM').toLocaleUpperCase('tr')+'!',P.x,2.6,P.z,S.col,46);snd('boss');shake=.6;
+ const f=$('#flash');f.style.background=S.col;f.style.transition='none';f.style.opacity=.35;requestAnimationFrame(()=>{f.style.transition='opacity .8s';f.style.opacity=0});
+ warn(S.n.toUpperCase(),1);const cands=()=>boss&&boss.alive&&!boss.hidden?enemies.concat([boss]):enemies.slice();
+ if(PART===1){P.serumT=7}
+ else if(PART===2){addWave(P.x,P.z,13,26,0,0x40c8ff);for(const e of cands()){const dx=e.x-P.x,dz=e.z-P.z,d=Math.hypot(dx,dz)||1;if(d<12){serumHit(e,w.dmg*7);if(e!==boss&&!e.d.fixed){e.x=clamp(e.x+dx/d*6,-HALF,HALF);e.z=clamp(e.z+dz/d*6,-HALF,HALF);e.stunT=2.5}}}
+  const m=new THREE.Mesh(geo('pool',()=>new THREE.CircleGeometry(1,28)),M(0x40c8ff,{transparent:true,opacity:.35,emissive:0x2090ff,emissiveIntensity:1.2,depthWrite:false}));m.rotation.x=-Math.PI/2;m.position.set(P.x,.05,P.z);m.scale.setScalar(3.5);const g=new THREE.Group();g.add(m);arena.add(g);zf.push({x:P.x,z:P.z,r:3.5,g,life:6})}
+ else if(PART===3){P.serumT=9;for(let k=0;k<2;k++){const c=mkPlayer();const gm=new THREE.MeshBasicMaterial({color:0xff4a6a,transparent:true,opacity:.45,depthWrite:false});c.g.traverse(o=>{if(o.isMesh){if(o.userData.ink){o.visible=false;return}o.material=gm;o.castShadow=false}});scene.add(c.g);serumKids.push({...c,k,cd:R(0,.5)})}}
+ else if(PART===4){P.serumT=4.5;FRZ=4.5;cv.style.filter='grayscale(.6) hue-rotate(200deg) brightness(1.1)'}
+ else{addWave(P.x,P.z,15,30,0,0xffb040);for(const e of cands()){const d=Math.hypot(e.x-P.x,e.z-P.z);if(d<14)serumHit(e,w.dmg*9);if(e!==boss)e.flee=4}}}
+function updSerum(dt){
+ if(P.serumT>0){P.serumT-=dt;const S=SERUM[PART];
+  if(PART===1&&player){player.g.scale.setScalar(.93*1.08)}
+  if(PART===3){const w=wstat(),tm=levelTime;for(const c of serumKids){const a=tm*1.6+c.k*Math.PI,x=P.x+Math.cos(a)*2.6,z=P.z+Math.sin(a)*2.6;c.g.position.set(x,0,z);c.cd-=dt;const t=nearest(x,z,18);
+    if(t){c.g.rotation.y=Math.atan2(t.x-x,t.z-z);if(c.cd<=0){c.cd=1/(w.rate*.7);mkBullet(x,z,Math.atan2(t.x-x,t.z-z),{...w,col:0xff4a6a,boom:0,pel:1,pierce:w.pierce},w.dmg*.7,{bounce:0,drone:1,serum:1})}}}}
+  if(P.serumT<=0){P.serumT=0;if(player)player.g.scale.setScalar(.93);for(const c of serumKids)scene.remove(c.g);serumKids=[];if(PART===4)cv.style.filter=''}}
+ if(FRZ>0){FRZ-=dt;if(FRZ<=0){FRZ=0;cv.style.filter=''}}
+ for(let i=zf.length-1;i>=0;i--){const f=zf[i];if(f.life!==undefined){f.life-=dt;if(f.life<=0){arena.remove(f.g);zf.splice(i,1)}}}
+ const S=SERUM[PART];if(!S)return;const fill=$('#serum i'),v=P.serum||0;fill.style.width=v+'%';const rdy=v>=100;$('#serum').classList.toggle('rdy',rdy);$('#serumBtn').classList.toggle('rdy',rdy);$('#serumBtn').style.setProperty('--p',v+'%');
+ const lab=$('#serumt');const txt=P.serumT>0?S.n+' · '+P.serumT.toFixed(1)+' sn':rdy?S.n+' hazır · Boşluk':'Serum · '+S.n;if(lab.textContent!==txt)lab.textContent=txt}
+function clearSerum(){P.serumT=0;FRZ=0;for(const c of serumKids)scene.remove(c.g);serumKids=[];if(player)player.g.scale.setScalar(.93)}
+
+/* ---------- çizgi roman ses yazıları ---------- */
+const PCOL={1:'#ff7a1a',2:'#29c4e8',3:'#ff3b3b',4:'#b070ff',5:'#7cc83a'};
+let sfxN=0,sfxLast=0;
+function sfx(t,x,y,z,col,fs){const L=document.getElementById('sfxl');if(!L||sfxN>=6)return;const v=new THREE.Vector3(x,y,z);if(!v.project)return;v.project(cam);if(v.z>1||Math.abs(v.x)>1.1||Math.abs(v.y)>1.1)return;
+ const d=document.createElement('div');d.className='sfx';d.textContent=t;d.style.left=((v.x+1)/2*innerWidth)+'px';d.style.top=((1-v.y)/2*innerHeight)+'px';
+ d.style.setProperty('--r',(Math.random()*24-12).toFixed(1)+'deg');if(col)d.style.setProperty('--c',col);if(fs)d.style.setProperty('--fs',fs+'px');
+ L.appendChild(d);sfxN++;setTimeout(()=>{d.remove();sfxN--},820)}
+/* ================= ÇİZGİ ROMAN SAYFALARI ================= */
+const COMIC={
+1:[["Üç yıl. Bu duvarın her çatlağını ezberledim.",["GARDİYAN","Kilit açıldı! Granit dışarıda!"],"ÇIT!"],
+ ["Buhar, pas, çürük et. Varga'nın mutfağı.",["LAĞIM ANA","Yavrularım aç, asker. Sen de yeterince iri görünüyorsun."],"ŞLAP!"],
+ ["Gökyüzü. Rengini unutmuşum.",["ÇOK GÖZLÜ","Seni görüyorum. Seni hep gördüm."],"ZZAP!"],
+ ["Kanımı geri istiyorum, doktor.",["DENEK SIFIR","Ben senden önceydim. Başarısız olan bendim."],"KRAK!"],
+ ["Yeraltı. Tabii ki yeraltı.",["DEMİR LEŞ","Cephaneliğin anahtarı benim gövdemde."],"GÜM!"],
+ ["Duvarın ötesi özgürlük. Sadece bir duvar daha.",["DR. VARGA","Sen benim eserimsin, Arda. Eser sahibini terk etmez."],"GRAAAH!"]],
+2:[["Kavanoz mu? Beni kavanoza mı koydunuz?",["KAVANOZCU","Numune 4471. İnsan. Etiket: tehlikeli. Kapak: sıkı."],"ÇAT!"],
+ ["Mavi toz. Ellerim karıncalanıyor.",["MADENCİ","Az nefes al, yabancı. Zerrin ciğeri cama çevirir."],"VIIIN!"],
+ ["Adımlarımı mı sayıyor bu şey?",["CAM GÖÇERİ","Ritimsiz yürü. Uğultu ritmi sever… ve yutar."],"UUUUUM!"],
+ ["Bu nota kafatasımın içinde çınlıyor.",["DİAPAZON","Her kemik bir tel. Biz sadece akort ediyoruz."],"DİİİNG!"],
+ ["Para mı veriyorlar? Benim için mi?",["TOLGAR","Üç yüz yıldır buradayım, küçük adam. Kafes güvenlidir."],"HUUURAA!"],
+ ["Kanımın bir damlası bile senin değil.",["KÜRATÖR","Her şey koleksiyonumun parçası. Sen de. Özellikle sen."],"KRİİİK!"]],
+3:[["Bu yüz… benim yüzüm.",["KALIP ASKER","Kaynak tespit edildi. Geri dökülecek."],"ZİNK!"],
+ ["Ölü gemilerden bir krallık. Hoş.",["PAS KRAL","Başına konan ödül, halkamın bir yıllık vergisi kadar!"],"KLANG!"],
+ ["Soğuk iyidir. Düşünmeme yardım eder.",["ÇELİK ÖRÜMCEK","Soğutma tamamlandı. Yeni seri hazır."],"TSSSS!"],
+ ["Mantarlar ışıldıyor. Ve bir şey bana bakıyor.",["SEKİZ","Sekiz mercek, tek atış. Kımıldama, Kaynak."],"PİİİV!"],
+ ["Ay büyüklüğünde bir fırın. Hepsi benim kanımla.",["YANSIMA","Ben senin daha iyi kalıbınım. Çatlak yok. Şüphe yok."],"VVUM!"],
+ ["Usta. Bitirelim şu dökümü.",["DÖKÜM USTASI","Her usta en iyi işini eritip yeniden döker."],"FSSSHH!"]],
+4:[["Altmış yaş. Dizlerim gıcırdıyor, yumruğum değil.",["UYUMCU","Hedef: serum taşıyıcısı. Uyum başlatılıyor."],"TRAK!"],
+ ["2026. Saçlarım yine siyah.",["GENÇ NURİ","Saatin içinden mi çıktın? Usta anlatsa inanmazdım!"],"TİK-TAK!"],
+ ["Seni tanıyorum. Demirkalkan, üçüncü bölük.",["ÇELİK ÇAVUŞ","Sen kahraman oldun, Arda. Ben hurda. Kalp benim."],"KRRANG!"],
+ ["Dayan, Nuri. Sarkacı bırakma.",["YAŞLI NURİ","Saat benimle yaşlandı, evlat. İkimiz de son vuruşumuzdayız."],"DONG!"],
+ ["Gala mı? Ben davetsiz gelirim.",["DR. KARACA","Hanımlar beyler: geleceğin bekçileri, Uyumcular!"],"ŞAK ŞAK!"],
+ ["İki zaman, tek yumruk.",["SON UYUMCU","Bütün saldırıların kayıtlı. Bütün geleceğin hesaplı."],"BZZZT!"]],
+5:[["Ağaçlar gökdelen kadar. Ve bir şey bana aç gözlerle bakıyor.",["KRAL KERTENKELE","GRRRAAAHH!"],"GÜM GÜM!"],
+ ["Şefin kolyesi… saatin çarkı o.",["ŞEF GROK","Gök taşı Grok'un! Yabancı alamaz!"],"BONK!"],
+ ["Toprak sıcak. Gökyüzü kanatlı.",["DİKENLİ DEV","Hrrrmmm…"],"KRAŞ!"],
+ ["Buz mu? Bir saat önce yaz vardı.",["MAMUT ATA","HUUUUOOOO!"],"ÇATIRT!"],
+ ["Çamur. Her yer çamur.",["GROK","Bataklık yer! Granit dikkat!"],"ŞLOP!"],
+ ["Çekirdek orada. Eve bir adım kaldı.",["ZAMAN KERTENKELESİ","Tıssss… tik… tak…"],"TİK… TAK…"]]};
+const CPAL={1:['#2b2f36','#59636e','#ff7a1a'],2:['#e8a85a','#7a3d1e','#29c4e8'],3:['#10122a','#3a2a6a','#ff3b3b'],4:['#3a1418','#8a2a2a','#b070ff'],5:['#4a7a3a','#c87a3a','#7cc83a']};
+function cmScene(p,ch){const [a,b,c]=CPAL[p];let g='';
+ const sky=`<defs><linearGradient id="cs${p}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${b}"/><stop offset="1" stop-color="${a}"/></linearGradient></defs><rect width="400" height="200" fill="url(#cs${p})"/>`;
+ if(p===1){g=`<rect x="0" y="150" width="400" height="50" fill="#1a1c20"/>`;for(let i=0;i<12;i++)g+=`<rect x="${10+i*34}" y="0" width="9" height="160" fill="#101114"/>`;g+=`<rect x="0" y="40" width="400" height="8" fill="#101114"/><circle cx="330" cy="70" r="22" fill="${c}" opacity=".85"/>`}
+ else if(p===2){g=`<circle cx="300" cy="55" r="26" fill="#fff4dc"/><circle cx="345" cy="80" r="12" fill="#ffe0b0"/><path d="M0 150 Q80 110 160 150 T320 140 T400 150 V200 H0Z" fill="#b9733a"/><path d="M0 170 Q100 140 200 172 T400 165 V200 H0Z" fill="#8a4a22"/><rect x="60" y="60" width="16" height="95" fill="#2a1408"/><path d="M52 60 h32 l-16 -26z" fill="#2a1408"/>`;for(let i=0;i<5;i++)g+=`<path d="M${200+i*30} ${150-i*3} l6 -18 l6 18z" fill="${c}" opacity=".8"/>`}
+ else if(p===3){for(let i=0;i<40;i++)g+=`<circle cx="${(i*97)%400}" cy="${(i*53)%200}" r="${i%5?1:2}" fill="#fff" opacity=".8"/>`;g+=`<circle cx="270" cy="95" r="58" fill="#2a1a3a" stroke="${c}" stroke-width="4"/><ellipse cx="270" cy="95" rx="95" ry="16" fill="none" stroke="#ff9a40" stroke-width="5"/><circle cx="250" cy="80" r="14" fill="#ff6a20"/>`}
+ else if(p===4){const f=ch===1||ch===4;g=`<circle cx="320" cy="60" r="30" fill="${f?'#ff4a3a':'#ffe08a'}" opacity=".9"/><path d="M0 150 H400 V200 H0Z" fill="#160a0c"/><rect x="90" y="40" width="34" height="115" fill="#160a0c"/><path d="M84 40 L107 0 L130 40Z" fill="#160a0c"/><path d="M170 150 a50 50 0 0 1 100 0Z" fill="#160a0c"/><rect x="160" y="70" width="6" height="85" fill="#160a0c"/><rect x="274" y="70" width="6" height="85" fill="#160a0c"/><path d="M157 70 l6 -18 l6 18z M271 70 l6 -18 l6 18z" fill="#160a0c"/>`;if(f)g+=`<path d="M20 150 l10 -40 l10 40z M330 150 l14 -55 l14 55z" fill="#2a1214"/>`}
+ else{g=`<path d="M220 160 L300 60 L330 60 L400 160Z" fill="#3a2418"/><path d="M300 60 q15 -20 30 0" fill="#ff5a20"/><path d="M310 55 q10 -40 -10 -60" stroke="#555" stroke-width="10" fill="none" opacity=".6"/><rect x="0" y="160" width="400" height="40" fill="#2a3a1a"/>`;for(const x of[40,110,170])g+=`<rect x="${x}" y="80" width="7" height="85" fill="#1a2410"/><path d="M${x+3} 80 q-30 0 -40 20 M${x+3} 80 q30 0 40 20 M${x+3} 80 q-20 -15 -35 -10 M${x+3} 80 q20 -15 35 -10" stroke="#1a2410" stroke-width="7" fill="none"/>`}
+ return `<svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">${sky}${g}</svg>`}
+function cmHero(p){const c=CPAL[p][2],old=p===4;return `<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMax slice"><rect width="200" height="200" fill="${c}"/>${cmRays('#000',.12)}<g transform="translate(28,66) scale(.72)">
+ <path d="M20 200 Q30 140 70 130 L130 130 Q170 140 180 200Z" fill="#2c3038" stroke="#000" stroke-width="4"/><path d="M60 132 L100 175 L140 132" fill="none" stroke="#000" stroke-width="3"/>
+ <path d="M68 70 Q68 28 100 26 Q132 28 132 70 L130 102 Q124 128 100 132 Q76 128 70 102Z" fill="#c99a78" stroke="#000" stroke-width="4"/>
+ <path d="M66 62 Q70 22 100 22 Q130 22 134 62 Q120 44 100 46 Q80 44 66 62Z" fill="${old?'#c8c8c8':'#1a1a1a'}" stroke="#000" stroke-width="3"/>
+ <path d="M74 112 Q100 140 126 112 Q120 132 100 134 Q80 132 74 112Z" fill="${old?'#d8d8d8':'#3a2a20'}"/>
+ <rect x="78" y="74" width="16" height="7" fill="#000"/><rect x="106" y="74" width="16" height="7" fill="#000"/><rect x="108" y="75" width="7" height="4" fill="#40c8ff"/>
+ <path d="M112 60 L122 94" stroke="#7a3a2a" stroke-width="3"/><path d="M90 108 h20" stroke="#000" stroke-width="4"/><path d="M20 200 H180 V260 H20Z" fill="#2c3038"/></g></svg>`}
+function cmFoe(p,i){const c=CPAL[p][2];const sp=[0,1,2,3,4,5].map(k=>`<path d="M${40+k*24} ${80-(k%2)*18} l12 -${30+(k*7+i*5)%25} l12 ${30+(k*7+i*5)%25}z" fill="#111"/>`).join('');
+ return `<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMax slice"><rect width="200" height="200" fill="#16161c"/>${cmRays(c,.35)}<g transform="translate(0,34)">${sp}
+ <path d="M15 200 Q25 ${110-i*4} 100 ${86-i*3} Q175 ${110-i*4} 185 200Z" fill="#111" stroke="#000" stroke-width="4"/>
+ <ellipse cx="78" cy="${130-i*2}" rx="12" ry="7" fill="${c}"/><ellipse cx="122" cy="${130-i*2}" rx="12" ry="7" fill="${c}"/><path d="M70 160 Q100 ${178+i} 130 160" stroke="${c}" stroke-width="5" fill="none"/>
+ ${[0,1,2,3,4].map(k=>`<path d="M${80+k*10} 160 l4 10 l4 -10z" fill="#eee"/>`).join('')}<rect x="15" y="198" width="170" height="60" fill="#111"/></g></svg>`}
+function cmRays(col,op){let r='';for(let k=0;k<20;k++){const a=k/20*Math.PI*2,b=a+.12;r+=`<path d="M100 110 L${100+Math.cos(a)*260} ${110+Math.sin(a)*260} L${100+Math.cos(b)*260} ${110+Math.sin(b)*260}Z" fill="${col}" opacity="${op}"/>`}return r}
+let comicSeen=0;
+function showComic(){const ch=Math.ceil(LVL/5),C=(COMIC[PART]||[])[ch-1];if(!C)return showIntro0();state='intro';$('#hud').classList.remove('on');
+ const S=CHAP[ch],roman=['','I','II','III','IV','V'][PART];
+ show(`<div class="cpage" role="dialog" aria-label="Çizgi roman sayfası">
+  <div class="cpan cp1"><div class="cart">${cmScene(PART,ch)}</div><div class="ccap"><b>KISIM ${roman} · BÖLÜM ${ch}: ${esc(S.n).toLocaleUpperCase('tr')}</b>${esc(S.s)}</div></div>
+  <div class="cpan cp2"><div class="cart">${cmHero(PART)}</div><div class="cbal">${esc(C[0])}</div><div class="cname">GRANİT</div></div>
+  <div class="cpan cp3"><div class="cart">${cmFoe(PART,ch)}</div><div class="cbal cbr"><i>${esc(C[1][0])}</i>${esc(C[1][1])}</div><div class="csfx">${esc(C[2])}</div></div>
+  <div class="btns cbtn"><button class="btn" data-a="cm">Devam</button></div></div>`,'comicov')}
 /* ================= OYUN DURUMU ================= */
 let lastKillT=0,bossDelay=0,P,LVL=1,state='title',kills=0,spawned=0,target=0,spawnT=0,clearing=0,levelTime=0,spotted=0,alarmT=0,shake=0,pendingLv=0,boss=null,bossTrickle=0;
 const zf=[],qs=[],thumps=[],sandP=[],waves=[];let windA=0,wormT=10,wormWarned=0,recapI=0;
 const enemies=[],bullets=[],ebul=[],gems=[],parts=[],fx=[],tele=[],pools=[],barrels=[],mines=[],lasers=[],lights=[],obst=[],nades=[],meds=[];
 let curMods=[],arena=null,arenaCh=0,player=null,orb=null,orbList=[],ufo=null,endT=0;
 const tierOf=()=>Math.floor((LVL-1)/5);
-function newPlayer(){return{x:0,z:0,hp:100,maxHp:100,lvl:1,xp:0,weapon:'pistol',mk:0,dmgMul:1,rateMul:1,proj:1,pierce:0,bounce:0,crit:.05,leech:0,regen:0,armor:0,spdMul:1,magnet:0,drones:0,blades:0,grenade:0,bolt:0,sk:{},slowT:0,zerOn:false,inSand:false,moving:false,fire:0,inv:0,face:0,gT:0,bT:0,ph:0}}
+function newPlayer(){return{x:0,z:0,hp:100,maxHp:100,lvl:1,xp:0,weapon:'pistol',mk:0,dmgMul:1,rateMul:1,proj:1,pierce:0,bounce:0,crit:.05,leech:0,regen:0,armor:0,spdMul:1,magnet:0,drones:0,blades:0,grenade:0,bolt:0,sk:{},serum:0,serumT:0,slowT:0,zerOn:false,inSand:false,moving:false,fire:0,inv:0,face:0,gT:0,bT:0,ph:0}}
 const xpNeed=()=>Math.floor(6+P.lvl*2.4);
-function wstat(){const w=W[P.weapon],z=P.zerOn?1.25:1,m=(1+.3*P.mk)*P.dmgMul*(1+.025*(P.lvl-1))*z;return{...w,col:PART===5?WN5[P.weapon][2]:PART===4?WN4[P.weapon][2]:PART===3?WN3[P.weapon][2]:PART===2?WN2[P.weapon][2]:w.col,dmg:w.dmg*m,rate:w.rate*P.rateMul*(P.zerOn?1.5:1),pierce:(w.pierce||0)+P.pierce}}
+function wstat(){const w=W[P.weapon],z=(P.zerOn?1.25:1)*(PART===1&&P.serumT>0?2:1)*(P.serumT>0&&PART===1?1:1),m=(1+.3*P.mk)*P.dmgMul*(1+.025*(P.lvl-1))*z;return{...w,col:PART===5?WN5[P.weapon][2]:PART===4?WN4[P.weapon][2]:PART===3?WN3[P.weapon][2]:PART===2?WN2[P.weapon][2]:w.col,dmg:w.dmg*m,rate:w.rate*P.rateMul*(P.zerOn?1.5:1)*(PART===1&&P.serumT>0?1.5:1),pierce:(w.pierce||0)+P.pierce}}
 function estDPS(){const w=wstat();let d=w.melee?w.dmg*w.rate*1.1*(1+(P.proj-1)*.35)*(1+P.crit):w.dmg*w.pel*(w.pel>1?.6:1)*P.proj*w.rate*(1+P.crit);if(w.boom)d*=1.3;d+=P.drones*w.dmg*.55*1.6+P.blades*w.dmg*.5*2+P.grenade*w.dmg*2.5/3+P.bolt*w.dmg*1.6/2.5;return d}
 
 /* ================= ARENA ================= */
@@ -1863,12 +2025,12 @@ function floorTex(t,ch){const c=document.createElement('canvas');c.width=c.heigh
 function heliTex(){const c=document.createElement('canvas');c.width=c.height=256;const x=c.getContext('2d');
  x.strokeStyle='#e8e2d0';x.lineWidth=12;x.beginPath();x.arc(128,128,110,0,TAU);x.stroke();x.fillStyle='#ffd23f';x.font='bold 150px Arial';x.textAlign='center';x.textBaseline='middle';x.fillText('H',128,136);
  return new THREE.CanvasTexture(c)}
-function addObst(x,z,r,mesh){obst.push({x,z,r,mesh});if(mesh)arena.add(mesh)}
+function addObst(x,z,r,mesh){obst.push({x,z,r,mesh});if(mesh){inkify(mesh,.4,8);arena.add(mesh)}}
 function buildArena(ch){
  if(arena){scene.remove(arena);arena.traverse(o=>{if(o.material&&o.material.map&&o.userData.own){o.material.map.dispose();o.material.dispose()}})}
  arena=new THREE.Group();scene.add(arena);obst.length=0;lights.length=0;arenaCh=ch;
  const t=TH[ch];scene.background=new THREE.Color(t.bg);
- hemi.color.set(t.hemi[0]);hemi.groundColor.set(t.hemi[1]);hemi.userData.base=t.hemi[2];sun.color.set(t.dir[0]);sun.userData.base=t.dir[1];
+ hemi.color.set(t.hemi[0]);hemi.groundColor.set(t.hemi[1]);hemi.userData.base=t.hemi[2]*.85;sun.color.set(t.dir[0]);sun.userData.base=t.dir[1]*1.25;
  const fm=new THREE.MeshStandardMaterial({map:floorTex(t,ch),roughness:.92});
  const floor=new THREE.Mesh(new THREE.PlaneGeometry(52,52),fm);floor.userData.own=1;floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;arena.add(floor);
  const outer=new THREE.Mesh(new THREE.PlaneGeometry(220,220),M(t.bg));outer.rotation.x=-Math.PI/2;outer.position.y=-.02;arena.add(outer);
@@ -2121,7 +2283,7 @@ const ET={
  egg:{hp:60,spd:0,dmg:0,r:.8,xp:3,b:mkEgg,fixed:1,egg:1},
  totem:{hp:140,spd:0,dmg:0,r:.7,xp:5,b:mkTotem,fixed:1,totem:1}};
 function tierMul(){const t=tierOf();return{hp:Math.pow(2.3,t)*(1+.05*((LVL-1)%5)),dmg:1+.35*t,spd:1+.05*t}}
-function spawnEnemy(type,x,z){const d=ET[type],tm=tierMul(),b=d.b();b.g.position.set(x,0,z);scene.add(b.g);
+function spawnEnemy(type,x,z){const d=ET[type],tm=tierMul(),b=inkify(d.b(),.14,6);b.g.position.set(x,0,z);scene.add(b.g);
  const e=Object.assign(b,{type,d,x,z,hp:d.hp*tm.hp,max:d.hp*tm.hp,spd:d.spd*tm.spd*R(.9,1.1),dmg:d.dmg*tm.dmg,r:d.r,atk:R(.2,1),fire:R(1,2.5),ph:R(0,6),hit:0,bcd:0,face:0,born:.4});
  if(d.shield||(PART>=2&&(type==='sentinel'||type==='clone')&&curMods.includes('shields')&&Math.random()<.25))addShield(e,d.shield||.5);
  if(PART===4&&curMods.includes('adapt')&&!d.fixed)addAdaptRing(e);
@@ -2150,18 +2312,18 @@ function nearest(x,z,range,skip){let best=null,bd=range*range;for(const e of ene
  if(boss&&boss.alive&&!(skip&&skip.has(boss))&&!boss.hidden){const d=(boss.x-x)**2+(boss.z-z)**2;if(d<bd)best=boss}return best}
 
 function burst(x,y,z,col,n,sp,size){for(let i=0;i<n;i++){if(parts.length>260)break;const m=new THREE.Mesh(geo('p'+(size||1),()=>new THREE.BoxGeometry(.16*(size||1),.16*(size||1),.16*(size||1))),E(col,1));m.position.set(x,y,z);scene.add(m);const a=R(0,TAU),s=R(.3,1)*(sp||6);parts.push({m,vx:Math.cos(a)*s,vy:R(2,7),vz:Math.sin(a)*s,life:R(.35,.8)})}}
-function boomFx(x,z,r,col){const m=new THREE.Mesh(geo('bfx',()=>new THREE.SphereGeometry(1,16,10)),M(col||0xff8a2a,{transparent:true,opacity:.7,emissive:col||0xff7a1a,emissiveIntensity:1.6,depthWrite:false}).clone());m.position.set(x,.8,z);scene.add(m);fx.push({m,t:0,d:.35,r});burst(x,1,z,col||0xffa040,12,9);shake=Math.max(shake,.35);snd('boom')}
+function boomFx(x,z,r,col){const m=new THREE.Mesh(geo('bfx',()=>new THREE.SphereGeometry(1,16,10)),M(col||0xff8a2a,{transparent:true,opacity:.7,emissive:col||0xff7a1a,emissiveIntensity:1.6,depthWrite:false}).clone());m.position.set(x,.8,z);scene.add(m);fx.push({m,t:0,d:.35,r});{const n=performance.now();if(n-sfxLast>260){sfxLast=n;sfx(pick(['BUM!','GÜM!','BAM!']),x,1.4,z,'#ffd23a',r>3?44:34)}}burst(x,1,z,col||0xffa040,12,9);shake=Math.max(shake,.35);snd('boom')}
 function explode(x,z,r,dmgE,dmgP,col){boomFx(x,z,r,col);for(const e of enemies.slice())if(Math.hypot(e.x-x,e.z-z)<r+e.r)hurt(e,dmgE);if(boss&&boss.alive&&Math.hypot(boss.x-x,boss.z-z)<r+boss.r)hurt(boss,dmgE);
  if(dmgP&&Math.hypot(P.x-x,P.z-z)<r)hurtP(dmgP);
  for(const b of barrels.slice())if(Math.hypot(b.x-x,b.z-z)<r*.8)popBarrel(b)}
 function popBarrel(b){const i=barrels.indexOf(b);if(i<0)return;barrels.splice(i,1);obst.splice(obst.indexOf(b),1);arena.remove(b.mesh);explode(b.x,b.z,4.2,60*tierMul().hp+wstat().dmg*3,P.maxHp*.2,0xff6a1a)}
 
-function hurt(e,d,crit,src){if(!e.alive&&e===boss)return;if(PART===4)d=adaptHit(e,d,src);
+function hurt(e,d,crit,src){if(!e.alive&&e===boss)return;if(crit&&Math.random()<.22)sfx(pick(['ÇAT!','PAT!','TAK!','ZAP!']),e.x,2.2,e.z,'#fff',28);if(PART===4)d=adaptHit(e,d,src);
  if(e.sh>0){e.sh-=d;e.shT=3.5;e.hit=.05;if(e.sh<=0){e.bub.visible=false;burst(e.x,1.2,e.z,0x60c8ff,8,5)}return}
  if(e.tb)d*=.5;e.hp-=d;e.hit=.08;
  if(e===boss){if(e.hp<=0)killBoss();return}
  if(e.hp<=0)killE(e)}
-function killE(e){const i=enemies.indexOf(e);if(i<0)return;enemies.splice(i,1);{const cvv=coinOf(e);if(cvv)dropCoin(e.x,e.z,cvv)}if(e.tb2)scene.remove(e.tb2);if(ATK[e.type]&&ATK[e.type].die==='puddle')addPool(e.x,e.z,1.8,4);scene.remove(e.g);
+function killE(e){const i=enemies.indexOf(e);if(i<0)return;enemies.splice(i,1);serumGain(e.d.xp>=3?3:1.5);if(PART===1&&P.serumT>0)P.hp=Math.min(P.maxHp,P.hp+2+P.lvl*.1);{const cvv=coinOf(e);if(cvv)dropCoin(e.x,e.z,cvv)}if(e.tb2)scene.remove(e.tb2);if(ATK[e.type]&&ATK[e.type].die==='puddle')addPool(e.x,e.z,1.8,4);scene.remove(e.g);
  kills++;lastKillT=levelTime;burst(e.x,1,e.z,e.type==='splitter'||e.type==='mini'?0x9a3cb0:e.type==='robot'||e.type==='turret'?0xffc040:e.type==='exploder'?0x9cff3a:0x8a1010,7,5);
  dropGem(e.x,e.z,e.d.xp*(1+tierOf()*.5));if(Math.random()<.022)dropMed(e.x,e.z);
  if(P.leech)P.hp=Math.min(P.maxHp,P.hp+P.leech);
@@ -2174,7 +2336,7 @@ function dropGem(x,z,v){const big=v>=3,g=new THREE.Group(),gm=geo('gem',()=>new 
  const gx=x+R(-.4,.4),gz=z+R(-.4,.4);g.position.set(gx,0,gz);scene.add(g);gems.push({m:g,inner,x:gx,z:gz,v,pull:0})}
 function dropMed(x,z){const g=new THREE.Group();g.add(BX(.6,.45,.6,M(0xf2f2f2)));g.add(sc(BX(.6,.45,.6,OUT),1.18));{const sh=new THREE.Mesh(geo('pool',()=>new THREE.CircleGeometry(1,28)),SHD);sh.rotation.x=-Math.PI/2;sh.position.y=-.37;sh.scale.setScalar(.55);g.add(sh)}g.add(at(BX(.4,.47,.12,E(0xff2a2a,1)),0,0,0));g.add(at(BX(.12,.47,.4,E(0xff2a2a,1)),0,0,0));g.position.set(x,.4,z);scene.add(g);meds.push({g,x,z})}
 
-function hurtP(d){if(P.inv>0||state!=='play')return;d*=(1-P.armor);P.hp-=d;P.inv=.18;$('#vign').style.opacity=.9;setTimeout(()=>$('#vign').style.opacity=0,140);shake=Math.max(shake,.25);snd('hurt');
+function hurtP(d){if(P.inv>0||state!=='play')return;d*=(1-P.armor);P.hp-=d;serumGain(d/P.maxHp*70);P.inv=.18;if(d>P.maxHp*.12)sfx(pick(['AH!','OF!','UFF!']),P.x,2.4,P.z,'#ff5050',30);$('#vign').style.opacity=.9;setTimeout(()=>$('#vign').style.opacity=0,140);shake=Math.max(shake,.25);snd('hurt');
  if(P.hp<=0){P.hp=0;gameOver()}}
 
 /* ---------- yörünge silahları ---------- */
@@ -2183,7 +2345,7 @@ function syncOrb(){if(orb){scene.remove(orb)}orb=new THREE.Group();orbList=[];sc
  for(let i=0;i<P.blades;i++){const g=new THREE.Group();const s=new THREE.Mesh(geo('saw',()=>new THREE.CylinderGeometry(.55,.55,.05,10)),M(0xd8dde2,{metalness:.9,roughness:.2}));g.add(s);for(let k=0;k<8;k++)g.add(at(CO(.08,.22,M(0xaab0b6,{metalness:.9}),4),Math.cos(k/8*TAU)*.6,0,Math.sin(k/8*TAU)*.6,Math.PI/2,0,-k/8*TAU+Math.PI/2));orb.add(g);orbList.push({g,type:'blade',i,n:P.blades})}}
 
 /* ================= BOSS ================= */
-function spawnBoss(b){const d=BOSS[b],mb=PART===5?mkBoss5(b):PART===4?mkBoss4(b):PART===3?mkBoss3(b):PART===2?mkBoss2(b):mkBoss(b);const hp=Math.max(d.min,estDPS()*d.secs)*(1+.012*P.lvl)*.7;
+function spawnBoss(b){const d=BOSS[b],mb=PART===5?mkBoss5(b):PART===4?mkBoss4(b):PART===3?mkBoss3(b):PART===2?mkBoss2(b):mkBoss(b);inkify(mb,.1,44);const hp=Math.max(d.min,estDPS()*d.secs)*(1+.012*P.lvl)*.7;
  const[x,z]=[0,-15];mb.g.position.set(x,0,z);scene.add(mb.g);
  boss=Object.assign(mb,{pats:null,b,d,x,z,hp,max:hp,r:d.r,alive:true,st:'idle',t:2.2,face:0,vx:0,vz:0,hit:0,atk:0,burst:0,ang:0,hidden:false,ring:null,cd:0});
  $('#bossname').textContent=d.n;$('#bossbar').classList.add('on');warn(d.n+' GELİYOR',1);snd('boss')}
@@ -2240,7 +2402,7 @@ function startPat(p,rage){const B=boss;if(p.startsWith('sig'))return startSig(B,
  else if(p==='burrow2'){wormErupt(clamp(P.x,-21,21),clamp(P.z,-21,21),4,1.3,.28);wormErupt(R(-18,18),R(-18,18),4,1.6,.28);idle(rage)}
  else if(p==='homing'){for(let i=0;i<3+Math.floor(B.b/3);i++)eBullet(B.x,B.z,B.face+(i-1.5)*.6,6.5,bdmg(.12),{col:0xff7020,big:1,home:2.4,life:5});snd('eshot');idle(rage)}
  else idle(rage)}
-function killBoss(){const B=boss;B.alive=false;if(B.beam)scene.remove(B.beam);for(let q=0;q<14;q++)dropCoin(B.x+R(-3,3),B.z+R(-3,3),5+tierOf()*3);for(let i=0;i<6;i++)setTimeout(()=>{if(state==='play'||state==='ending')boomFx(B.x+R(-2,2),B.z+R(-2,2),3,pick([0xff6a1a,0xc040ff,0x9cff3a]))},i*160);
+function killBoss(){const B=boss;sfx('KABOOM!',B.x,3,B.z,PCOL[PART],68);B.alive=false;if(B.beam)scene.remove(B.beam);for(let q=0;q<14;q++)dropCoin(B.x+R(-3,3),B.z+R(-3,3),5+tierOf()*3);for(let i=0;i<6;i++)setTimeout(()=>{if(state==='play'||state==='ending')boomFx(B.x+R(-2,2),B.z+R(-2,2),3,pick([0xff6a1a,0xc040ff,0x9cff3a]))},i*160);
  setTimeout(()=>{scene.remove(B.g)},700);$('#bossbar').classList.remove('on');kills++;for(let i=0;i<20;i++)dropGem(B.x+R(-3,3),B.z+R(-3,3),6+tierOf()*3);
  for(const e of enemies.slice())killE(e);
  clearing=2.2;}
@@ -2251,15 +2413,15 @@ function clearWorld(){for(const a of[enemies]){for(const e of a)scene.remove(e.g
  for(const m of meds)scene.remove(m.g);meds.length=0;for(const n of nades)scene.remove(n.m);nades.length=0;
  if(boss){scene.remove(boss.g);boss=null}$('#bossbar').classList.remove('on');
  for(const w of waves)scene.remove(w.m);waves.length=0;
- if(sniper){scene.remove(sniper.dot,sniper.beam);sniper=null}for(const c of coins)scene.remove(c.m);coins.length=0;for(const l of lobs)scene.remove(l.m);lobs.length=0;for(const t of tethers)if(t.tb2)scene.remove(t.tb2);tethers.length=0;if(boss&&boss.beam)scene.remove(boss.beam);if(chainP){scene.remove(chainP.ch);chainP=null}if(ally){scene.remove(ally.g);ally=null}if(echoG){scene.remove(echoG.g);echoG=null}for(const h of hglass)scene.remove(h.g);hglass.length=0;for(const t of tribes)scene.remove(t.g);tribes.length=0;for(const H of herd)for(const a of H.an)scene.remove(a.g);herd.length=0;for(const m of meteors){scene.remove(m.sh);scene.remove(m.m)}meteors.length=0;for(const t of torches)scene.remove(t.g);torches.length=0;$('#allybar').classList.remove('on');tsT=0;cv.style.filter='';if(crusher){for(const b of crusher.bars)scene.remove(b);crusher=null}crates.length=0;heaters.length=0;
+ if(sniper){scene.remove(sniper.dot,sniper.beam);sniper=null}clearSerum();for(const c of coins)scene.remove(c.m);coins.length=0;for(const l of lobs)scene.remove(l.m);lobs.length=0;for(const t of tethers)if(t.tb2)scene.remove(t.tb2);tethers.length=0;if(boss&&boss.beam)scene.remove(boss.beam);if(chainP){scene.remove(chainP.ch);chainP=null}if(ally){scene.remove(ally.g);ally=null}if(echoG){scene.remove(echoG.g);echoG=null}for(const h of hglass)scene.remove(h.g);hglass.length=0;for(const t of tribes)scene.remove(t.g);tribes.length=0;for(const H of herd)for(const a of H.an)scene.remove(a.g);herd.length=0;for(const m of meteors){scene.remove(m.sh);scene.remove(m.m)}meteors.length=0;for(const t of torches)scene.remove(t.g);torches.length=0;$('#allybar').classList.remove('on');tsT=0;cv.style.filter='';if(crusher){for(const b of crusher.bars)scene.remove(b);crusher=null}crates.length=0;heaters.length=0;
  if(ufo){scene.remove(ufo.g);if(ufo.th)scene.remove(ufo.th);ufo=null}}
-function prepareLevel(n,recap){LVL=n;ERA=PART===4?(futureCh(Math.ceil(n/5))?1:2):0;const L=LV[n-1],ch=Math.ceil(n/5);curMods=L.m.slice();
+function prepareLevel(n,recap){document.documentElement.style.setProperty('--org',PCOL[PART]||'#ff7a1a');LVL=n;ERA=PART===4?(futureCh(Math.ceil(n/5))?1:2):0;const L=LV[n-1],ch=Math.ceil(n/5);curMods=L.m.slice();
  clearWorld();buildArena(ch);
  bossDelay=0;lastKillT=0;pendingLv=0;lvlGold=0;P.bleedT=0;kills=0;spawned=0;target=L.b?1:L.k;spawnT=1.2;clearing=0;levelTime=0;spotted=0;alarmT=12;bossTrickle=4;
  P.x=0;P.z=L.b?8:0;P.hp=Math.min(P.maxHp,P.hp+P.maxHp*.4);P.inv=0;
  setupHazards();
  if(player&&player.part!==PART*10+ERA){scene.remove(player.g);player=null}
- if(!player){player=mkPlayer();scene.add(player.g)}player.g.visible=true;player.g.scale.setScalar(.93);player.g.position.set(P.x,0,P.z);player.g.rotation.set(0,0,0);player.arms[0].rotation.set(-1.25,0,-.35);player.arms[1].rotation.set(-1.25,0,0);syncOrb();
+ if(!player){player=inkify(mkPlayer(),.07,48);scene.add(player.g)}player.g.visible=true;player.g.scale.setScalar(.93);player.g.position.set(P.x,0,P.z);player.g.rotation.set(0,0,0);player.arms[0].rotation.set(-1.25,0,-.35);player.arms[1].rotation.set(-1.25,0,0);syncOrb();
  const dark=curMods.includes('dark');
  hemi.intensity=dark?.1:hemi.userData.base;sun.intensity=dark?.05:sun.userData.base;plight.intensity=dark?2.1:(ch>=5?.6:0);
  scene.fog=curMods.includes('fog')?new THREE.Fog(ch===5?0x26302a:0x9aa4a8,22,40):dark?new THREE.Fog(0x050506,24,40):null;
@@ -2274,11 +2436,11 @@ function prepareLevel(n,recap){LVL=n;ERA=PART===4?(futureCh(Math.ceil(n/5))?1:2)
  if(PART===5){if(!scene.fog)scene.fog=new THREE.Fog(TH5[ch].bg,32,85);plight.intensity=0}
  if(PART===4){if(futureCh(ch)&&!dark&&!scene.fog)scene.fog=new THREE.Fog(TH4[ch].bg,30,75);plight.intensity=dark?2.1:(ch===4?1.4:0)}
  if(player.eyes)player.eyes.material=(PART===2&&ch>=2)||PART>=3?EYE(0x40c8ff):M(0x111111);
- P.slowT=0;P.zerOn=false;P.inSand=false;P.vx=P.vz=0;P.swing=0;P.rootT=0;P.safeX=P.x;P.safeZ=P.z;
+ clearSerum();P.slowT=0;P.zerOn=false;P.inSand=false;P.vx=P.vz=0;P.swing=0;P.rootT=0;P.safeX=P.x;P.safeZ=P.z;
  save();snapAt=JSON.stringify(P);
  updHud(true);if(recap){recapI=0;showRecap()}else showIntro()}
 function showRecap(){state='intro';$('#hud').classList.remove('on');const RC=PART===5?RECAP5:PART===4?RECAP4:PART===3?RECAP3:RECAP,r=RC[recapI],last=recapI>=RC.length-1;
- show(`<div class="card"><div class="kick">${esc(r[0])} · ${recapI+1} / ${RC.length}</div><h2 class="ttl">${esc(r[1])}</h2><p>${esc(r[2])}</p><p>${esc(r[3])}</p>${recapI===0?`<div class="chips"><span>30 bölüm</span><span>6 boss</span><span>${PART===5?'Son Avcı yenildi':PART===4?'Direktör yenildi':PART===3?'Hegemon yenildi':'Dr. Varga yenildi'}</span></div>`:''}
+ show(`<div class="card"><div class="kick">${esc(r[0])} · ${recapI+1} / ${RC.length}</div><h2 class="ttl">${esc(r[1])}</h2><p>${esc(r[2])}</p><p>${esc(r[3])}</p>${recapI===0?`<div class="chips"><span>30 bölüm</span><span>6 boss</span><span>${PART===5?'Son Uyumcu yenildi':PART===4?'Döküm Ustası yenildi':PART===3?'Küratör yenildi':'Dr. Varga yenildi'}</span></div>`:''}
  <div class="btns"><button class="btn" data-a="rc">${last?'Kaçışa başla':'Devam'}</button>${last?'':'<button class="btn alt" data-a="rcskip">Özeti geç</button>'}</div></div>`)}
 let snapAt=null;
 const SKEY=p=>p===5?'granit5_v1':p===4?'granit4_v1':p===3?'granit3_v1':p===2?'granit2_v1':'granit_v1';
@@ -2298,16 +2460,18 @@ function levelDone(){state='clear';$('#hud').classList.remove('on');const L=LV[L
  <div class="stats"><span>Öldürülen: <b>${kills}</b></span><span>Süre: <b>${Math.floor(levelTime/60)}:${String(Math.floor(levelTime%60)).padStart(2,'0')}</b></span><span>Seviye: <b>${P.lvl}</b></span><span>Can: <b>${Math.ceil(P.hp)}/${P.maxHp}</b></span><span>Altın: <b>+${lvlGold}</b> (toplam ${SHOP.gold})</span></div>
  ${LVL<5?`<p class="hint">İlk boss'a kadar öldürülen toplam düşman: ${[20,45,70,100][LVL-1]} / 100</p>`:''}
  <div class="btns"><button class="btn" data-a="${B?'weapon':'next'}">${B?'Cephaneliğe bak':'Devam et'}</button></div></div>`)}
-function showIntro(){state='intro';$('#hud').classList.add('on');const L=LV[LVL-1],ch=Math.ceil(LVL/5),first=(LVL-1)%5===0;const B=L.b?BOSS[L.b]:null;
+function showIntro(){if((LVL-1)%5===0&&comicSeen!==PART*100+LVL&&COMIC[PART])return showComic();showIntro0()}
+function showIntro0(){state='intro';$('#hud').classList.add('on');const L=LV[LVL-1],ch=Math.ceil(LVL/5),first=(LVL-1)%5===0;const B=L.b?BOSS[L.b]:null;
  const feats=L.m.map(m=>`<div class="feat"><b>${esc(md(m)[0])}</b><span>${esc(md(m)[1])}</span></div>`).join('');
  show(`<div class="card ${B?'boss':''}"><div class="kick">${first?'Kısım '+ch+' · '+esc(CHAP[ch].n):'Bölüm '+LVL+' / 30'}</div>
  <h2 class="ttl">${B?'BOSS: '+esc(B.n):esc(L.t)}</h2>${first?`<p>${esc(CHAP[ch].s)}</p>`:''}<p>${esc(L.s)}</p>
+ ${(LVL-1)%5===0?`<div class="feat serum" style="border-left-color:${SERUM[PART].col}"><b style="color:${SERUM[PART].col}">Serum · ${esc(SERUM[PART].n)}</b><span>${esc(SERUM[PART].d)} Granit'in kanından yapılmış düşmanlara iki kat etkili. Hasar aldıkça ve öldürdükçe dolar; Boşluk tuşu ya da sağ alttaki düğmeyle kullan.</span></div>`:''}
  ${feats||(B?'':'<div class="feat"><b>Temel çatışma</b><span>Gardiyanları alt et, silahın otomatik ateş eder.</span></div>')}
  ${B?`<div class="feat"><b>Boss gücü</b><span>Senin seviyene göre ayarlandı (Seviye ${P.lvl}). Kırmızı alanlardan uzak dur.</span></div>`:`<p class="hint">Hedef: ${L.k} düşman · Düşman kademesi ${tierOf()+1}/6</p>`}
  <div class="eqrow"><span>Takılı eklentiler</span>${SHOP.equip.map(id=>`<span class="bc" style="--c:${CAT[SKC[id]][1]}">${skIco(id,CAT[SKC[id]][1],'bi')}${esc(SK.find(s=>s.id===id).n)}</span>`).join('')}</div>
  <div class="btns"><button class="btn" data-a="go">Başla</button><button class="btn alt" data-a="market"><span class="ci"></span>Market · ${SHOP.gold}</button><button class="btn alt" data-a="menu">Ana menü</button></div></div>`)}
 function gameOver(why){saveShop();state='over';$('#hud').classList.remove('on');player.g.rotation.x=-1.4;player.g.position.y=.4;
- show(`<div class="card boss"><div class="stamp">YAKALANDIN</div><h2 class="ttl">${why==='ally'?esc((ally&&ally.name)||'Müttefik')+' düştü':'Granit düştü'}</h2><p>${why==='ally'?'Müttefikini kaybettin ve zaman çizgisi koptu… ama bir kez daha geri sarılabilir.':PART===5?'Yırtıcılar seni çalılıklara sürükledi… ama Granit\'i hiçbir çağ durduramaz.':PART===4?'Avcılar seni kuşattı… ama zaman bir kez daha geri sarılabilir.':PART===3?'Kopyalar seni tutsak hücresine geri taşıyor… ama onlar sadece birer kopya.':PART===2?'Muhafızlar seni ışık hücresine geri sürüklüyor… ama hiçbir hücre seni uzun süre tutamadı.':'Gardiyanlar seni hücrene geri sürüklüyor… ama bu duvarlar seni daha önce de tutamadı.'}</p>
+ show(`<div class="card boss"><div class="stamp">YAKALANDIN</div><h2 class="ttl">${why==='ally'?esc((ally&&ally.name)||'Müttefik')+' düştü':'Granit düştü'}</h2><p>${why==='ally'?'Müttefikini kaybettin ve zaman çizgisi koptu… ama bir kez daha geri sarılabilir.':PART===5?'Yırtıcılar seni çalılıklara sürükledi… ama Granit\'i hiçbir çağ durduramaz.':PART===4?'Uyumcular seni kuşattı… ama zaman bir kez daha geri sarılabilir.':PART===3?'Kalıplar seni dökümhaneye geri taşıyor… ama onlar sadece birer kalıp.':PART===2?'Muhafızlar seni cam kavanoza geri sürüklüyor… ama hiçbir hücre seni uzun süre tutamadı.':'Gardiyanlar seni hücrene geri sürüklüyor… ama bu duvarlar seni daha önce de tutamadı.'}</p>
  <div class="stats"><span>Bölüm: <b>${LVL} · ${esc(LV[LVL-1].t)}</b></span><span>Öldürülen: <b>${kills}/${target>1?target:'boss'}</b></span></div>
  <div class="btns"><button class="btn" data-a="retry">Bölümü yeniden dene</button><button class="btn alt" data-a="menu">Ana menü</button></div></div>`)}
 const CAT={atk:['Saldırı','#ff6a3c'],def:['Savunma','#3cb4ff'],sup:['Hareket','#8ee05a'],tek:['Teknoloji','#c08cff']};
@@ -2349,7 +2513,7 @@ function weaponChoice(){const bn=LV[LVL-1].b||P.mk||0;const pool=Object.keys(W).
  const opts=pool.sort(()=>Math.random()-.5).slice(0,2);opts.unshift(P.weapon);
  const mx={dmg:60,rate:13,rng:28};
  const bars=k=>{const w=W[k],m=1+.3*bn;return [['Hasar',w.dmg*w.pel*(w.pel>1?.6:1)*m/(mx.dmg*2.5)],['Atış hızı',w.rate/mx.rate],['Menzil',w.rng/mx.rng],['Alan',w.boom?1:w.pel>1?.65:w.pierce?.55:.15]].map(([l,v])=>`<span class="st"><span>${l}</span><i><b style="width:${Math.round(clamp(v,.06,1)*100)}%"></b></i></span>`).join('')};
- show(`<div class="lu"><div class="lu-h"><div class="lvb mk">Mk ${bn}</div><div><div class="kick">Silah seçimi</div><h2 class="ttl">${PART===5?'Kabile silahları':PART===4?'Direniş cephaneliği':PART===3?'Kopya cephaneliği':PART===2?'Hegemon\'un cephaneliği':'Gardiyanın dolabı açık'}</h2></div></div>
+ show(`<div class="lu"><div class="lu-h"><div class="lvb mk">Mk ${bn}</div><div><div class="kick">Silah seçimi</div><h2 class="ttl">${PART===5?'Kabile silahları':PART===4?'Direniş cephaneliği':PART===3?'Kalıp cephaneliği':PART===2?'Küratör\'ün cephaneliği':'Gardiyanın dolabı açık'}</h2></div></div>
  <p class="sub">Her boss sonrası silahın bir kademe güçlenir. Mevcut silahını geliştirebilir ya da yenisine geçebilirsin.</p>
  <div class="cards">${opts.map((k,i)=>`<button class="sk wpn" data-w="${k}" style="--c:${k===P.weapon?'#ff7a1a':'#ffd23f'};--d:${i*80}ms">
   <span class="sk-top"><span class="cat">${k===P.weapon?'Geliştir':'Yeni silah'}</span><span class="key">${i+1}</span></span>
@@ -2361,21 +2525,21 @@ function pauseScreen(){if(state!=='play')return;state='pause';const sk=SK.filter
  <div class="chips">${sk||'<span>Henüz yetenek yok</span>'}</div>
  <div class="btns"><button class="btn" data-a="resume">Devam</button><button class="btn alt" data-a="retry">Bölümü baştan başlat</button><button class="btn alt" data-a="menu">Ana menü</button></div>
  <p class="hint">Hareket: WASD / ok tuşları veya ekranda sürükle · Ateş otomatik · Duraklat: Esc veya P</p></div>`)}
-function titleScreen(){ERA=0;state='title';$('#hud').classList.remove('on');clearWorld();setPart(2);cv.style.filter='';P=P||newPlayer();
+function titleScreen(){document.documentElement.style.setProperty('--org','#ff7a1a');ERA=0;state='title';$('#hud').classList.remove('on');clearWorld();setPart(2);cv.style.filter='';P=P||newPlayer();
  buildArena(3);curMods=[];hemi.intensity=hemi.userData.base;sun.intensity=sun.userData.base;plight.intensity=0;scene.fog=new THREE.Fog(0xd29a5e,30,90);
  if(player&&player.part!==PART*10+ERA){scene.remove(player.g);player=null}
- if(!player){player=mkPlayer();scene.add(player.g)}player.g.visible=true;player.g.scale.setScalar(.93);player.g.position.set(0,0,0);player.g.rotation.set(0,0,0);player.eyes.material=EYE(0x40c8ff);if(orb)scene.remove(orb);
+ if(!player){player=inkify(mkPlayer(),.07,48);scene.add(player.g)}player.g.visible=true;player.g.scale.setScalar(.93);player.g.position.set(0,0,0);player.g.rotation.set(0,0,0);player.eyes.material=EYE(0x40c8ff);if(orb)scene.remove(orb);
  for(const a of[pools,barrels,mines,lasers,lights,zf,qs,thumps,sandP])a.length=0;
  const s1=loadSave(1),s2=loadSave(2),s3=loadSave(3),s4=loadSave(4),d4=flag('granit4_done'),s5=loadSave(5),d5=flag('granit5_done'),d1=flag('granit_done'),d2=flag('granit2_done'),d3=flag('granit3_done');
  show(`<div class="card"><h1 class="ttl">GRANİT</h1><div class="kick">Bir süper askerin kaçış destanı</div>
  <div class="parts">
   <div class="part"><div class="pk">Kısım I${d1?' · Bitirildi':''}</div><b>Kara Sektör'den Kaçış</b><p>Gizli bir yeraltı hapishanesi, Dr. Varga ve onun mutantları.</p>
    <div class="btns"><button class="btn" data-a="new1">Yeni oyun</button>${s1?`<button class="btn alt" data-a="cont1">Devam · Bölüm ${s1.level}</button>`:''}</div></div>
-  <div class="part p2"><div class="pk">Kısım II${d2?' · Bitirildi':''}</div><b>Kum Çukuru</b><p>Uzaylıların çöl gezegeni Kezhar'da tutsaksın. Kısım I'in özetiyle başlar.</p>
+  <div class="part p2"><div class="pk">Kısım II${d2?' · Bitirildi':''}</div><b>Cam Çölü</b><p>Mühürcülerin cam çöllü gezegeni Serap'ta tutsaksın. Kısım I'in özetiyle başlar.</p>
    <div class="btns"><button class="btn" data-a="new2">Yeni oyun</button>${s2?`<button class="btn alt" data-a="cont2">Devam · Bölüm ${s2.level}</button>`:''}</div></div>
-  <div class="part p3"><div class="pk">Kısım III${d3?' · Bitirildi':''}</div><b>Dönüş</b><p>Kopya ordusu, blaster silahları ve enerji kılıcı. Kısım II'nin özetiyle başlar.</p>
+  <div class="part p3"><div class="pk">Kısım III${d3?' · Bitirildi':''}</div><b>Dönüş</b><p>Kanından dökülen Kalıp ordusu, kıvılcım silahları ve kor kılıcı. Kısım II'nin özetiyle başlar.</p>
    <div class="btns"><button class="btn" data-a="new3">Yeni oyun</button>${s3?`<button class="btn alt" data-a="cont3">Devam · Bölüm ${s3.level}</button>`:''}</div></div>
-  <div class="part p4"><div class="pk">Kısım IV${d4?' · Bitirildi':''}</div><b>Yarının Gölgesi</b><p>2049 ve 2026 arasında gidip gelen bir zaman savaşı. Kısım III'ün özetiyle başlar.</p>
+  <div class="part p4"><div class="pk">Kısım IV${d4?' · Bitirildi':''}</div><b>Yarının Gölgesi</b><p>Galata'nın altındaki eski bir saatle 2049 ve 2026 arasında gidip gelen bir zaman savaşı. Kısım III'ün özetiyle başlar.</p>
    <div class="btns"><button class="btn" data-a="new4">Yeni oyun</button>${s4?`<button class="btn alt" data-a="cont4">Devam · Bölüm ${s4.level}</button>`:''}</div></div>
   <div class="part p5"><div class="pk">Kısım V · Yeni${d5?' · Bitirildi':''}</div><b>Taş Devri</b><p>Dinozorlar, mağara kabileleri ve dağılmış bir zaman makinesi. Kısım IV'ün özetiyle başlar.</p>
    <div class="btns"><button class="btn" data-a="new5">Yeni oyun</button>${s5?`<button class="btn alt" data-a="cont5">Devam · Bölüm ${s5.level}</button>`:''}</div></div>
@@ -2401,6 +2565,7 @@ ov.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disa
  else if(a==='rc'){recapI++;if(recapI<(PART===5?RECAP5:PART===4?RECAP4:PART===3?RECAP3:RECAP).length)showRecap();else showIntro()}
  else if(a==='rcskip')showIntro();
  else if(a==='go')beginPlay();
+ else if(a==='cm'){comicSeen=PART*100+LVL;snd('click');showIntro0()}
  else if(a==='next')prepareLevel(LVL+1);
  else if(a==='weapon')weaponChoice();
  else if(a==='retry'){P=Object.assign(newPlayer(),JSON.parse(snapAt));pendingLv=0;prepareLevel(LVL)}
@@ -2436,19 +2601,54 @@ function updEnding(dt){if(PART===5)return updEnding5(dt);if(PART===4)return updE
 
 /* ================= GİRDİ ================= */
 const keys={};
-addEventListener('keydown',e=>{keys[e.code]=1;if((state==='levelup'||state==='clear')&&/^Digit[1-3]$/.test(e.code)){const c=ov.querySelectorAll('.sk')[+e.code.slice(5)-1];if(c)c.click()}if((e.code==='Escape'||e.code==='KeyP')){if(state==='play')pauseScreen();else if(state==='pause'){hideOv();state='play'}}});
+addEventListener('keydown',e=>{keys[e.code]=1;if(e.code==='Space'){e.preventDefault();useSerum()}if((state==='levelup'||state==='clear')&&/^Digit[1-3]$/.test(e.code)){const c=ov.querySelectorAll('.sk')[+e.code.slice(5)-1];if(c)c.click()}if((e.code==='Escape'||e.code==='KeyP')){if(state==='play')pauseScreen();else if(state==='pause'){hideOv();state='play'}}});
 addEventListener('keyup',e=>{keys[e.code]=0});
 addEventListener('blur',()=>{for(const k in keys)keys[k]=0;if(state==='play')pauseScreen()});
 const joy={on:false,id:null,ox:0,oy:0,x:0,y:0};const jel=$('#joy'),jk=jel.querySelector('i');
 cv.addEventListener('pointerdown',e=>{initAudio();if(state!=='play')return;joy.on=true;joy.id=e.pointerId;joy.ox=e.clientX;joy.oy=e.clientY;joy.x=joy.y=0;jel.style.left=e.clientX+'px';jel.style.top=e.clientY+'px';jel.style.display='block';jk.style.transform='';try{cv.setPointerCapture(e.pointerId)}catch(_){}});
 cv.addEventListener('pointermove',e=>{if(!joy.on||e.pointerId!==joy.id)return;let dx=e.clientX-joy.ox,dy=e.clientY-joy.oy;const l=Math.hypot(dx,dy),mx=50;if(l>mx){dx*=mx/l;dy*=mx/l}joy.x=dx/mx;joy.y=dy/mx;jk.style.transform=`translate(${dx}px,${dy}px)`});
 const jend=e=>{if(e.pointerId!==joy.id)return;joy.on=false;joy.x=joy.y=0;jel.style.display='none'};cv.addEventListener('pointerup',jend);cv.addEventListener('pointercancel',jend);
+$('#serumBtn').addEventListener('click',()=>{initAudio();useSerum()});
 $('#pauseBtn').addEventListener('click',()=>{initAudio();pauseScreen()});
 $('#muteBtn').addEventListener('click',()=>{initAudio();muted=!muted;$('#muteBtn').style.opacity=muted?.45:1});
 
 /* ================= SES ================= */
 let AC=null,muted=false,noiseB=null,lastShot=0;
-function initAudio(){if(AC)return;try{AC=new (window.AudioContext||window.webkitAudioContext)();noiseB=AC.createBuffer(1,AC.sampleRate*.5,AC.sampleRate);const d=noiseB.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1}catch(e){AC=null}}
+function initAudio(){if(AC)return;try{AC=new (window.AudioContext||window.webkitAudioContext)();noiseB=AC.createBuffer(1,AC.sampleRate*.5,AC.sampleRate);const d=noiseB.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1}catch(e){AC=null}startMusic()}
+/* ================= ÖZGÜN MÜZİK (makam tabanlı, tarayıcıda üretilir) ================= */
+const SC={hicaz:[0,1,4,5,7,8,10],kurdi:[0,1,3,5,7,8,10],nihavend:[0,2,3,5,7,8,10],pent:[0,3,5,7,10]};
+const MTH={
+1:{bpm:122,root:45,sc:'kurdi',prog:[0,0,-4,-2],k:'x---x---x---x---',s:'----x-------x---',h:'--x---x---x---x-',t:'',b:'x-x-x-x-x-x-x-x-',l:'x--x--x---x-x---',lw:'square',bw:'sawtooth',seed:7},
+2:{bpm:96,root:50,sc:'hicaz',prog:[0,1,0,-2],k:'x-----x---x-----',s:'',h:'',t:'----x---x-x-x--x',b:'x--x--x-x-------',l:'x---x-x---x--x--',lw:'triangle',bw:'triangle',vib:1,seed:3},
+3:{bpm:132,root:43,sc:'nihavend',prog:[0,-4,-2,-5],k:'x---x---x---x---',s:'----x-------x---',h:'xxxxxxxxxxxxxxxx',t:'',b:'x-xxx-xxx-xxx-xx',l:'xxxxxxxxxxxxxxxx',lw:'sawtooth',bw:'sawtooth',arp:1,seed:11},
+4:{bpm:108,root:47,sc:'kurdi',prog:[0,-2,-4,-5],k:'x-------x-x-----',s:'----x-------x---',h:'x-x-x-x-x-x-x-x-',t:'',b:'x---x--x--x-x---',l:'x-----x---x-----',lw:'sine',bw:'sawtooth',bell:1,tick:1,seed:5},
+5:{bpm:90,root:40,sc:'pent',prog:[0,0,3,-2],k:'x-------x-------',s:'',h:'',t:'x--x--x-x--x--x-',b:'x-------x--x----',l:'x--x----x-x-----',lw:'sine',bw:'triangle',vib:1,seed:9}};
+const MU={next:0,step:0,g:null,iv:null,mel:{},vol:0};
+const mf=n=>440*Math.pow(2,(n-69)/12);
+function mNote(t,n,dur,type,vol,o){o=o||{};const a=AC.createOscillator(),g=AC.createGain();a.type=type;a.frequency.setValueAtTime(mf(n),t);
+ if(o.vib){const l=AC.createOscillator(),lg=AC.createGain();l.frequency.value=5.5;lg.gain.value=mf(n)*.012;l.connect(lg).connect(a.frequency);l.start(t);l.stop(t+dur+.05)}
+ let out=g;if(o.cut){const f=AC.createBiquadFilter();f.type='lowpass';f.frequency.setValueAtTime(o.cut,t);f.frequency.exponentialRampToValueAtTime(Math.max(120,o.cut*.25),t+dur);g.connect(f);out=f}
+ g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(vol,t+(o.at||.008));g.gain.exponentialRampToValueAtTime(.0001,t+dur);a.connect(g);out.connect(MU.g);a.start(t);a.stop(t+dur+.05)}
+function mKick(t,v){const a=AC.createOscillator(),g=AC.createGain();a.frequency.setValueAtTime(130,t);a.frequency.exponentialRampToValueAtTime(38,t+.14);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.2);a.connect(g).connect(MU.g);a.start(t);a.stop(t+.22)}
+function mNoise(t,dur,v,type,f){if(!noiseB)return;const s=AC.createBufferSource(),g=AC.createGain(),b=AC.createBiquadFilter();s.buffer=noiseB;b.type=type;b.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);s.connect(b).connect(g).connect(MU.g);s.start(t);s.stop(t+dur+.02)}
+function mTom(t,f,v){const a=AC.createOscillator(),g=AC.createGain();a.type='sine';a.frequency.setValueAtTime(f*1.6,t);a.frequency.exponentialRampToValueAtTime(f,t+.08);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.25);a.connect(g).connect(MU.g);a.start(t);a.stop(t+.27)}
+function melody(p){if(MU.mel[p])return MU.mel[p];const T=MTH[p],S=SC[T.sc];let x=T.seed*9301+49297,deg=4;const m=[];
+ for(let i=0;i<64;i++){x=(x*9301+49297)%233280;const r=x/233280;deg=Math.max(0,Math.min(S.length*2-1,deg+(r<.35?-1:r<.7?1:r<.85?-2:2)));if(i%16===0)deg=S.length;m.push(deg)}
+ return MU.mel[p]=m}
+function degN(T,root,d){const S=SC[T.sc];return root+S[d%S.length]+12*Math.floor(d/S.length)}
+function musicMode(){if(muted)return 0;if(state==='play'||state==='levelup')return boss&&boss.alive?2:1;if(state==='pause')return .3;if(state==='ending'||state==='end')return 0;return .5}
+function schedStep(i,t,mode){const T=MTH[PART]||MTH[1],bar=i>>4,s=i&15,root=T.root+T.prog[bar],on=c=>c&&c[s]==='x',B=mode===2,dt=60/T.bpm/4/(B?1.12:1);
+ if(mode>=1){if(on(T.k)||(B&&s%4===2&&T.k))mKick(t,.55);if(on(T.s))mNoise(t,.14,.22,'bandpass',1800);if(on(T.h))mNoise(t,.04,T.tick?.16:.07,'highpass',T.tick?9000:7000);
+  if(T.t&&on(T.t))mTom(t,s%3?180:120,.32);if(T.bell&&s===0&&bar%2===0)mNote(t,root+24,1.6,'sine',.09,{at:.002});
+  if(on(T.b))mNote(t,root-12+(T.arp?[0,0,7,12][s%4]:0),dt*(T.arp?1:2.2),T.bw,B?.2:.15,{cut:B?2400:1200});
+  const lead=B?(s%2===0):on(T.l);if(lead){const m=melody(PART)[i];const n=T.arp?degN(T,root+12,[0,2,4,7][s%4]+(bar%2)):degN(T,root+12,m);mNote(t,n,dt*(T.arp?.9:2.6),T.lw,(B?.075:.05)*(T.lw==='square'||T.lw==='sawtooth'?.7:1),{vib:T.vib,cut:T.lw==='sawtooth'?3000:0,at:T.vib?.04:.008})}}
+ if(s===0){const v=mode>=1?.035:.06;for(const iv of[0,SC[T.sc][2],7])mNote(t,root+iv,dt*16,'triangle',v,{at:.4,cut:900})}}
+function musicTick(){if(!AC||!MU.g)return;const now=AC.currentTime,mode=musicMode();MU.g.gain.setTargetAtTime(mode?.42:0,now,.4);if(!mode)return;
+ if(MU.next<now)MU.next=now+.05;const T=MTH[PART]||MTH[1];
+ while(MU.next<now+.22){schedStep(MU.step,MU.next,mode);MU.next+=60/T.bpm/4/(mode===2?1.12:1);MU.step=(MU.step+1)%64}}
+window.__MU={MU,MTH,schedStep,setAC:(a,n)=>{AC=a;noiseB=n},setPart:p=>{PART=p}};
+function startMusic(){if(!AC||MU.g)return;try{MU.g=AC.createGain();MU.g.gain.value=0;const c=AC.createDynamicsCompressor();MU.g.connect(c).connect(AC.destination);MU.iv=setInterval(musicTick,70)}catch(e){MU.g=null}}
+
 function tone(f1,f2,dur,type,vol,delay){const t=AC.currentTime+(delay||0),o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.setValueAtTime(f1,t);o.frequency.exponentialRampToValueAtTime(Math.max(20,f2),t+dur);g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g).connect(AC.destination);o.start(t);o.stop(t+dur+.02)}
 function noise(dur,vol,freq){const t=AC.currentTime,s=AC.createBufferSource(),g=AC.createGain(),f=AC.createBiquadFilter();s.buffer=noiseB;f.type='lowpass';f.frequency.value=freq;g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);s.connect(f).connect(g).connect(AC.destination);s.start(t);s.stop(t+dur)}
 function snd(k){if(!AC||muted)return;try{const n=AC.currentTime;
@@ -2503,6 +2703,7 @@ function updPlayer(dt){let mx=0,mz=0;
   if(boss)boss.bcd=(boss.bcd||0)-dt}}
 function updEnemies(dt){const sp=(spotted>0?1.35:1)*(PART===4?tsMul():1),tots=enemies.filter(x=>x.d.totem);
  for(let i=0;i<enemies.length;i++){const e=enemies[i];if(e.born>0){e.born-=dt;e.g.scale.setScalar(1-Math.max(0,e.born)/.4*.9)}
+  if(FRZ>0||e.stunT>0){if(e.stunT>0)e.stunT-=dt;e.g.position.x=e.x;e.g.position.z=e.z;continue}
   e.bcd-=dt;e.atk-=dt;const onA=ally&&!e.d.fixed&&(i%4===0||Math.hypot(ally.x-e.x,ally.z-e.z)<Math.hypot(P.x-e.x,P.z-e.z)),TX=onA?ally.x:P.x,TZ=onA?ally.z:P.z,dx=TX-e.x,dz=TZ-e.z,d=Math.hypot(dx,dz)||1;
   if(e.d.blink){e.bk=(e.bk===undefined?R(1,3):e.bk)-dt;if(e.bk<=0&&d>4&&d<15){e.bk=R(2.5,4);burst(e.x,1,e.z,0xb060ff,6,4);const a=Math.atan2(e.x-TX,e.z-TZ)+R(-.8,.8);e.x=clamp(TX+Math.sin(a)*2.5,-HALF,HALF);e.z=clamp(TZ+Math.cos(a)*2.5,-HALF,HALF);burst(e.x,1,e.z,0xb060ff,6,4)}}
   minionAtk(e,d,dt,TX,TZ);let mx=dx/d,mz=dz/d;if(e.flee>0){e.flee-=dt;mx=-mx;mz=-mz}const qsl=qs.length&&qs.some(q=>Math.hypot(e.x-q.x,e.z-q.z)<q.r)?.5:1;
@@ -2538,7 +2739,7 @@ function updBullets(dt){
   const segD=(x,z)=>{const t=clamp(((x-ox)*sx+(z-oz)*sz)/sl,0,1);return Math.hypot(x-(ox+sx*t),z-(oz+sz*t))};if(mags.length&&!b.drone)for(const mg of mags){const ax=mg.x-b.x,az=mg.z-b.z,dd=Math.hypot(ax,az);if(dd<mg.r&&dd>.3){const s1=Math.hypot(b.vx,b.vz);b.vx+=ax/dd*45*dt;b.vz+=az/dd*45*dt;const s2=Math.hypot(b.vx,b.vz)||1;b.vx*=s1/s2;b.vz*=s1/s2;b.m.rotation.y=Math.atan2(b.vx,b.vz)}}
   b.life-=dt;b.m.position.set(b.x,1.25,b.z);let dead=b.life<=0||Math.abs(b.x)>HALF||Math.abs(b.z)>HALF;
   if(!dead)for(const br of barrels){if(Math.hypot(br.x-b.x,br.z-b.z)<.75){popBarrel(br);dead=true;break}}
-  if(!dead)for(const t of thumps){if(Math.hypot(t.x-b.x,t.z-b.z)<.8){if(t.cd<=0){t.cd=9;wormErupt(t.x+R(-1,1),t.z+R(-1,1),5.5,1.6,.3);warn('LEVİATHAN ÇAĞRILDI')}break}}
+  if(!dead)for(const t of thumps){if(Math.hypot(t.x-b.x,t.z-b.z)<.8){if(t.cd<=0){t.cd=9;wormErupt(t.x+R(-1,1),t.z+R(-1,1),5.5,1.6,.3);warn('UĞULTU ÇAĞRILDI')}break}}
   if(!dead){const cands=boss&&boss.alive&&!boss.hidden?enemies.concat([boss]):enemies;
    for(const e of cands){if(b.hitS.has(e))continue;if(segD(e.x,e.z)<e.r+.28+b.wr){b.hitS.add(e);
      if(e===boss&&boss.reflect){eBullet(b.x,b.z,Math.atan2(P.x-b.x,P.z-b.z),12,bdmg(.05),{col:0xff3030});dead=true;break}
@@ -2549,7 +2750,7 @@ function updBullets(dt){
      dead=true;break}}}
   if(dead){if(b.boom&&b.life<=0)explode(b.x,b.z,b.boom,b.dmg,0,0xff6a1a);scene.remove(b.m);bullets.splice(i,1)}}
  for(let i=ebul.length-1;i>=0;i--){const b=ebul[i];if(b.home){const a=Math.atan2(P.x-b.x,P.z-b.z),c=Math.atan2(b.vx,b.vz);let d=a-c;while(d>Math.PI)d-=TAU;while(d<-Math.PI)d+=TAU;const n=c+clamp(d,-b.home*dt,b.home*dt);b.vx=Math.sin(n)*b.spd;b.vz=Math.cos(n)*b.spd}
-  const tsm=PART===4?tsMul():1;if(b.boomer){b.bt+=dt*tsm;b.life-=dt*tsm;if(!boss||!boss.alive)b.life=0;else{const k=Math.sin(Math.PI*Math.min(1,b.bt/2.2));b.x=boss.x+Math.sin(b.ba)*16*k;b.z=boss.z+Math.cos(b.ba)*16*k}b.m.rotation.y+=dt*14;b.m.position.set(b.x,1.4,b.z)}else{b.x+=b.vx*dt*tsm;b.z+=b.vz*dt*tsm;b.life-=dt*tsm;b.m.position.set(b.x,1.2,b.z)}let dead=b.life<=0||Math.abs(b.x)>HALF+1||Math.abs(b.z)>HALF+1;
+  const tsm=(PART===4?tsMul():1)*(FRZ>0?0:1);if(b.boomer){b.bt+=dt*tsm;b.life-=dt*tsm;if(!boss||!boss.alive)b.life=0;else{const k=Math.sin(Math.PI*Math.min(1,b.bt/2.2));b.x=boss.x+Math.sin(b.ba)*16*k;b.z=boss.z+Math.cos(b.ba)*16*k}b.m.rotation.y+=dt*14;b.m.position.set(b.x,1.4,b.z)}else{b.x+=b.vx*dt*tsm;b.z+=b.vz*dt*tsm;b.life-=dt*tsm;b.m.position.set(b.x,1.2,b.z)}let dead=b.life<=0||Math.abs(b.x)>HALF+1||Math.abs(b.z)>HALF+1;
   if(!dead&&P.bladePos)for(const bp of P.bladePos)if(Math.hypot(bp.x-b.x,bp.z-b.z)<(b.big?1.15:.95)){dead=true;burst(b.x,1.2,b.z,0xe8eef4,5,5,.6);snd('clink');break}
   if(!dead&&P.weapon==='saber'&&!b.dfl){const dd=Math.hypot(P.x-b.x,P.z-b.z);if(dd<(P.swing>0?2.8:1.8)){b.dfl=1;if(P.swing>0||Math.random()<.6){deflectBullet(b);dead=true}}}
   if(!dead&&ally&&Math.hypot(ally.x-b.x,ally.z-b.z)<(b.car?1.6:.8)){ally.hp-=b.dmg;dead=true}
@@ -2579,7 +2780,7 @@ function updWorld(dt){const tm=performance.now()/1000;
   if(proj>0&&proj<12.2){const perp=Math.abs(px*dz-pz*dx);if(perp<.62&&L.cd<=0){hurtP(P.maxHp*.14);L.cd=.5}}}
  spotted-=dt;
  for(const s of lights){const x=Math.sin(tm*s.sp+s.ph)*15,z=Math.cos(tm*s.sp*1.37+s.ph*2)*15;s.g.position.set(x,0,z);if(Math.hypot(P.x-x,P.z-z)<3.6){if(spotted<=0)warn('TESPİT EDİLDİN!',1);spotted=2.5}}
- if(PART>=2){updHaz2(dt,tm);if(PART===3){updHaz3(dt,tm);updHaz3b(dt,tm)}updUniq(dt,tm);if(PART===5)updHaz5(dt,tm);if(PART===4){updHaz4(dt,tm);if(boss&&boss.alive&&boss.d.adapt&&boss.ad>.03)hazMsg='SON AVCI UYUMU %'+Math.round(boss.ad*100)+' · dron, disk, bomba ve şok uyumu aşar'}if(state!=='play')return}
+ if(PART>=2){updHaz2(dt,tm);if(PART===3){updHaz3(dt,tm);updHaz3b(dt,tm)}updUniq(dt,tm);if(PART===5)updHaz5(dt,tm);if(PART===4){updHaz4(dt,tm);if(boss&&boss.alive&&boss.d.adapt&&boss.ad>.03)hazMsg='SON UYUMCU UYUMU %'+Math.round(boss.ad*100)+' · dron, disk, bomba ve şok uyumu aşar'}if(state!=='play')return}
  const msg=spotted>0?'⚠ PROJEKTÖR SENİ GÖRDÜ — DÜŞMANLAR HIZLANDI':hazMsg&&PART>=2?hazMsg:P.zerOn?'ZERRİN: ateş hızı +%50, hasar +%25 · canın eriyor':P.slowT>0?'SES DALGASI: yavaşladın':P.inSand?'BATAKLIK KUM: yavaşladın':'';
  const se=$('#spot');if(se._m!==msg){se._m=msg;se.textContent=msg;se.style.display=msg?'block':'none'}
  if(curMods.includes('alarm')){alarmLight.intensity=1.2+Math.sin(tm*5)*1;alarmT-=dt;if(alarmT<=0){alarmT=17;warn('KIRMIZI ALARM',1);const n=Math.min(6+tierOf()*2,target-spawned);for(let i=0;i<n;i++){const[x,z]=edgeSpot();spawnEnemy(rollType(spawnWeights()),x,z);spawned++}}}else alarmLight.intensity=0}
@@ -2604,7 +2805,7 @@ function updHud(force){{const gv=$('#goldv');if(gv&&gv.textContent!=String(SHOP.
 /* ================= ANA DÖNGÜ ================= */
 let last=performance.now(),camA=0;const camPos=new THREE.Vector3(0,22,14);
 function frame(now){const dt=Math.min(.05,(now-last)/1000);last=now;
- if(state==='play'){levelTime+=dt;updPlayer(dt);if(state==='play')updEnemies(dt);if(state==='play')updBoss(PART===4?dt*tsMul():dt);updBullets(dt);if(state==='play')updWorld(dt);if(state==='play')updSpawn(dt);
+ if(state==='play'){levelTime+=dt;updPlayer(dt);if(state==='play')updEnemies(dt);if(state==='play'&&FRZ<=0)updBoss(PART===4?dt*tsMul():dt);if(state==='play')updSerum(dt);updBullets(dt);if(state==='play')updWorld(dt);if(state==='play')updSpawn(dt);
   if(bossDelay>0&&state==='play'){bossDelay-=dt;if(bossDelay<=0&&!boss)spawnBoss(LV[LVL-1].b)}
   if(clearing!==0&&state==='play'){clearing-=dt;if((clearing<=0&&gems.length===0)||clearing<-2){clearing=0;levelDone()}}
   if(pendingLv>0&&state==='play')levelUpScreen();
