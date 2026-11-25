@@ -1,18 +1,30 @@
-# Granit: Kara Sektör'den Kaçış
+# Granit: Kaçış Destanı
 
-Tarayıcıda çalışan, 3D, hikâyeli bir hayatta kalma ve nişancı oyunu (Three.js).
+Tarayıcıda çalışan, 3D, hikâyeli bir hayatta kalma ve nişancı oyunu (Three.js). Oyun beş kısımdan oluşuyor; her kısımda 30 bölüm ve 6 boss var. Toplam 150 bölüm ve 30 boss.
 
-Yüzbaşı Arda "Granit" Demir, iptal edilen bir süper asker programının hayatta kalan tek deneğidir. Kara Sektör adlı gizli yeraltı hapishanesine kapatılmıştır. Bir fırtına gecesi hücre kilidi kısa devre yapar ve Granit, eline geçirdiği küçük bir tabancayla kaçmaya başlar.
+Yüzbaşı Arda "Granit" Demir, iptal edilen bir süper asker programının hayatta kalan tek deneğidir. Önce gizli bir hapishaneden kaçar, sonra uzaylılar onu kaçırır, kanından bir kopya ordusu yapılır, zamanda geri gider ve sonunda Taş Devri'ne düşer.
+
+## Kısımlar
+
+| Kısım | Ad | Konu |
+|---|---|---|
+| I | Kara Sektör'den Kaçış | Yeraltı hapishanesi, Dr. Varga ve mutantları |
+| II | Kum Çukuru | Uzaylıların çöl gezegeni Kezhar, kum leviathanı, zerrin tozu |
+| III | Dönüş | Kopya ordusu, blaster silahları, enerji kılıcı, Demir Ay istasyonu |
+| IV | Yarının Gölgesi | 2049 ile 2026 arasında bir zaman savaşı, uyum sağlayan avcı robotlar |
+| V | Taş Devri | Dinozorlar, mağara kabileleri, parçalanmış zaman makinesi |
+
+Kısım II'den itibaren her kısım bir önceki kısmın özetiyle başlar.
 
 ## Oynanış
 
-- **30 bölüm**, 6 kısım: hücre bloğu → çamaşırhane ve mutfak → avlu → laboratuvar → kanalizasyon ve cephanelik → dış duvar ve helikopter pisti
-- **Her 5 bölümde bir boss:** Kasap, Lağım Ana, Çok Gözlü, Denek Sıfır, Demir Leş, Kimera. Bossların canı, karşılaştığın anda karakterinin gücüne göre ayarlanır.
-- **Her bölümün kendine özgü bir özelliği vardır:** karanlık, zehirli havuzlar, patlayıcı variller, projektörler, taretler, mayınlar, lazerler, alarm dalgaları, bölünen yaratıklar, robotlar.
-- **Düşmanlar her boss sonrasında güçlenir.** İlk boss'a kadar toplam 100 düşman vardır.
-- **Seviye atladıkça yetenek seçersin.** 16 yetenek arasından seçim yapılır: çift namlu, seken mermi, dron, testere diskleri, şok zinciri ve diğerleri.
-- **Her boss sonrası silah seçersin.** 7 silah vardır: tabanca, hafif makineli, pompalı, saldırı tüfeği, ağır makineli, roket atar, plazma tüfeği.
-- **İlerleme tarayıcıda kaydedilir** (localStorage).
+- **Otomatik ateş:** Silah en yakın düşmana kendiliğinden ateş eder. Sen hareket eder, kaçar ve yer seçersin.
+- **Seviye atlama:** 16 yetenek arasından üç kart sunulur. Kartlar dört kategoriye ayrılır: saldırı, savunma, hareket ve teknoloji. Seyrek çıkan destansı kartlar iki kademe birden verir. Her seviyede bir kez kartları yeniden çekebilirsin.
+- **Silahlar:** Her boss sonrası 7 silah arasından seçim yapılır ve silah bir kademe güçlenir. Silahların adı ve görünüşü her kısımda değişir.
+- **Bosslar:** Canları, karşılaştığın anda karakterinin gücüne göre ayarlanır.
+- **Kısma özgü mekanikler:** Her kısmın kendine ait tehlikeleri vardır. Örneğin kum leviathanı, ayin totemleri, hurda presi, keskin nişancı, zaman yırtıkları, uyum, sürü koşusu, meteor yağmuru ve ince buz.
+- **Mini harita:** Düşmanları, bossu, engelleri, tehlikeleri ve toplanabilir nesneleri gösterir.
+- **Kayıt:** İlerleme her kısım için ayrı ayrı tarayıcıda kaydedilir (localStorage).
 
 ## Kontroller
 
@@ -20,14 +32,11 @@ Yüzbaşı Arda "Granit" Demir, iptal edilen bir süper asker programının haya
 |---|---|---|
 | Hareket | WASD / ok tuşları | Ekranda sürükle |
 | Ateş | Otomatik | Otomatik |
+| Güçlendirme seçimi | 1, 2, 3 | Karta dokun |
 | Duraklat | Esc / P | II düğmesi |
 
 ## Çalıştırma
 
 Kurulum gerekmez. `index.html` dosyasını bir tarayıcıda aç. Three.js r128 CDN'den yüklendiği için internet bağlantısı gerekir.
 
-GitHub Pages ile yayınlamak için: depo **Settings → Pages → Branch: `main` / root** ayarını seç.
-
-## Devamı
-
-30. bölümün sonunda Granit'i uzaylılar kaçırır. Devam oyunu: **Kısım II: Yıldız Hapishanesi**.
+GitHub Pages ile yayınlamak için deponun **Settings → Pages** bölümünde kaynak olarak **`main` / root** seç.
