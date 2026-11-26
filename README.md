@@ -28,7 +28,7 @@ Kısım II'den itibaren her kısım bir önceki kısmın özetiyle başlar. Her 
 - **Serum Kanı:** Öldürdükçe ve hasar aldıkça dolar; Boşluk tuşuyla her kısma özgü bir güç açığa çıkar. Granit'in kanından yapılmış düşmanlara iki kat etkilidir.
 - **Görsel stil:** Çizgi roman havası: üç tonlu gölgelendirme, mürekkep konturları, baskı noktası dokusu, ekrana patlayan ses yazıları ve her kısmın kendi imza rengi.
 - **Müzik:** Tarayıcıda anlık üretilir; her kısmın Türk makamlarına dayalı kendi ritmi vardır, boss gelince değişir.
-- **Yan karakterler:** Her kısmın iki yan karakteri marketten altınla alınır ve boss savaşlarında yanında savaşır; her birinin kendine özgü bir yeteneği vardır.
+- **Yan karakterler:** Her boss savaşından önce üç yan karakterden birini seçersin: Şifacı Ece (iyileştirir), Saya (serum barını doldurur) ya da Gardiyan Hasan (%60 daha fazla hasar). Granit ve yan karakterlerin modelleri Tripo'da üretilip oyun için sadeleştirildi.
 - **Konuşmalar:** Bölüm başlarında, boss savaşlarında ve yan karakterlerle çizgi roman balonlarıyla konuşmalar geçer.
 - **Silah ustalığı:** Boss sonrası aynı silahı seçersen ustalığı artar (en fazla 5 kademe); ilerleme ve stat değişimi ekranda gösterilir.
 - **Mobil yan ekran:** Telefonda yan ekran için düzenlenmiş arayüz, tam ekran ve yatay kilit. Android'de Chrome'dan **Ana ekrana ekle** ile uygulama gibi tam ekran açılır.
