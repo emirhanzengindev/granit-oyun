@@ -229,7 +229,7 @@ body.fs #fsBtn{opacity:.6}
  #ov>*{margin:auto}
  .card{padding:14px 22px 0;width:min(760px,100%)}.card h2.ttl,.ttl{font-size:clamp(22px,6vh,30px)!important;margin:2px 0 6px}.card p,.sub{font-size:14px!important;line-height:1.35;margin:4px 0}.kick{font-size:12px}
  .feat{font-size:13px;padding:6px 10px;margin:5px 0}.chips{margin:4px 0}
- .btns{position:sticky;bottom:0;margin:10px -22px 0;padding:10px 22px max(10px,env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--panel) 30%);z-index:2}.btn{padding:9px 18px;font-size:18px}
+ .card>.btns{position:sticky;bottom:0;margin:10px -22px 0;padding:10px 22px max(10px,env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--panel) 30%);z-index:2}.btn{padding:9px 18px;font-size:18px}
  .lu{padding:0}.lu-h{margin-bottom:4px}.lu .lvb{width:52px;height:52px;font-size:14px}.cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px}
  .sk{display:flex!important;padding:10px 12px!important;min-height:0!important}.sk .icw{width:52px!important;height:52px!important;margin:4px auto!important}.sk .icw.wide{width:86px!important}.sk small{font-size:12px}.sk b{font-size:16px}.st{font-size:11px}
  .cpage{grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:1fr 1fr;height:calc(100vh - 70px);height:calc(100dvh - 70px);width:min(1100px,100%);gap:8px}
@@ -238,6 +238,26 @@ body.fs #fsBtn{opacity:.6}
  .cbtn{grid-column:1/4;position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));margin:0;z-index:3}
  .mgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.wrow{margin:6px 0}.wup .icw{width:80px}
 }
+
+@media (orientation:landscape) and (max-height:540px){
+ .card h1.ttl{font-size:clamp(26px,9vh,40px)!important;margin:0}.card>.kick{margin-bottom:6px}
+ .parts{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+ .part{flex:0 0 min(250px,34vw);scroll-snap-align:start;padding:10px 12px!important;margin:0!important}
+ .part b{font-size:17px}.part p{font-size:12px!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:3px 0!important}
+ .part .btns{margin-top:6px;gap:6px}.part .btn{padding:7px 12px;font-size:15px}
+ .feat span{font-size:12.5px}
+ #joyhint{display:block}
+}
+@media (orientation:landscape) and (max-height:340px){
+ .sk .icw{display:none!important}.sk .rar{margin:2px 0}.cards .sk{padding:8px 10px!important}.lu-h .lvb{width:40px;height:40px}
+ .card{padding:8px 16px 0}.card p,.sub{font-size:12.5px!important}.feat{padding:4px 8px;margin:3px 0}.chips span{font-size:11px}
+ .bottom{bottom:max(4px,env(safe-area-inset-bottom))}#serumBtn{width:70px;height:70px}#mini{width:72px;height:72px}
+ .cpage{height:calc(100vh - 54px);height:calc(100dvh - 54px)}.cbal{font-size:12px}.ccap{font-size:11.5px}.ccap b{font-size:14px}
+}
+#joyhint{display:none;position:fixed;left:max(40px,env(safe-area-inset-left));bottom:max(30px,env(safe-area-inset-bottom));width:110px;height:110px;border-radius:50%;border:2px dashed rgba(255,255,255,.28);pointer-events:none;opacity:0;transition:opacity .4s}
+#joyhint::after{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px;border-radius:50%;background:rgba(255,255,255,.18)}
+@media not all and (pointer:coarse){#joyhint{display:none!important}}
+#hud.on~#joyhint.show{opacity:1}
 </style>
 </head>
 <body>
@@ -268,6 +288,7 @@ body.fs #fsBtn{opacity:.6}
 <div id="vign"></div>
 <div id="flash"></div>
 <div id="joy"><i></i></div>
+<div id="joyhint"></div>
 <div id="ov"></div>
 <div id="rot" role="dialog" aria-label="Telefonu yan çevir"><div class="rph"></div><b>Telefonunu yan çevir</b><p>Granit yan ekranda oynanmak için tasarlandı: sol başparmağınla yürü, sağ başparmağınla serumu kullan.</p><button class="btn alt" id="rotSkip">Dikey oyna</button></div>
 <button class="tbtn" id="fsBtn" aria-label="Tam ekran">⛶</button>
@@ -2699,7 +2720,7 @@ function loadSave(p){try{const s=JSON.parse(localStorage.getItem(SKEY(p||PART))|
 function flag(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function dropSave(p){try{localStorage.removeItem(SKEY(p))}catch(e){}}
 
-function beginPlay(){hideOv();state='play';P.vx=P.vz=0;$('#hud').classList.add('on');P._low=0;
+function beginPlay(){hideOv();state='play';{const jh=document.getElementById('joyhint');if(jh&&!window._moved)jh.classList.add('show')}P.vx=P.vz=0;$('#hud').classList.add('on');P._low=0;
  if(LV[LVL-1].b){if(!boss)bossDelay=.9}
  else{warn('BÖLÜM '+LVL);levelTalk()}}
 function levelDone(){state='clear';$('#hud').classList.remove('on');const L=LV[LVL-1];{const bonus=10+LVL*2+(L.b?60:0);addGold(bonus);saveShop()}
@@ -2871,7 +2892,7 @@ addEventListener('keydown',e=>{keys[e.code]=1;if(e.code==='Space'){e.preventDefa
 addEventListener('keyup',e=>{keys[e.code]=0;if(e.key==='Meta'||e.key==='Alt'||e.key==='Control')for(const k in keys)keys[k]=0});
 addEventListener('blur',()=>{for(const k in keys)keys[k]=0;if(typeof joyReset==='function')joyReset();if(state==='play')pauseScreen()});
 const joy={on:false,id:null,ox:0,oy:0,x:0,y:0};const jel=$('#joy'),jk=jel.querySelector('i');
-cv.addEventListener('pointerdown',e=>{initAudio();tryLandscape();if(state!=='play')return;if(joy.on&&joy.id!==e.pointerId)return;joy.on=true;joy.id=e.pointerId;joy.ox=e.clientX;joy.oy=e.clientY;joy.x=joy.y=0;jel.style.left=e.clientX+'px';jel.style.top=e.clientY+'px';jel.style.display='block';jk.style.transform='';try{cv.setPointerCapture(e.pointerId)}catch(_){}});
+cv.addEventListener('pointerdown',e=>{initAudio();tryLandscape();if(state!=='play')return;window._moved=1;{const jh=document.getElementById('joyhint');if(jh)jh.classList.remove('show')}if(joy.on&&joy.id!==e.pointerId)return;joy.on=true;joy.id=e.pointerId;joy.ox=e.clientX;joy.oy=e.clientY;joy.x=joy.y=0;jel.style.left=e.clientX+'px';jel.style.top=e.clientY+'px';jel.style.display='block';jk.style.transform='';try{cv.setPointerCapture(e.pointerId)}catch(_){}});
 cv.addEventListener('pointermove',e=>{if(!joy.on||e.pointerId!==joy.id)return;if(e.pointerType==='mouse'&&!(e.buttons&1)){joyReset();return}let dx=e.clientX-joy.ox,dy=e.clientY-joy.oy;const l=Math.hypot(dx,dy),mx=50;if(l>mx){dx*=mx/l;dy*=mx/l}joy.x=dx/mx;joy.y=dy/mx;jk.style.transform=`translate(${dx}px,${dy}px)`});
 function joyReset(){joy.on=false;joy.id=null;joy.x=joy.y=0;jel.style.display='none'}
 function inputReset(){for(const k in keys)keys[k]=0;joyReset()}
@@ -2893,6 +2914,9 @@ function goFull(manual){const d=document.documentElement,rq=d.requestFullscreen|
 function tryLandscape(){if(!coarse||lsTried)return;lsTried=true;goFull()}
 addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-a^=new],[data-a^=cont],[data-a=go]'))tryLandscape()},true);
 $('#fsBtn').addEventListener('click',()=>{lsTried=true;goFull(true)});
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone),(display-mode: fullscreen)').matches;
+function iosHint(){try{if(!isIOS||standalone||inFrame||localStorage.getItem('granit_ioshint'))return;localStorage.setItem('granit_ioshint','1')}catch(_){return}toast('<b>Daha geniş ekran için:</b> Safari\'de <b>Paylaş → Ana Ekrana Ekle</b>. Oyun ana ekrandan adres çubuğu olmadan, tam ekran açılır.',8000)}
+setTimeout(iosHint,1500);
 const fsch=()=>{document.body.classList.toggle('fs',!!(document.fullscreenElement||document.webkitFullscreenElement));setTimeout(resize,150)};document.addEventListener('fullscreenchange',fsch);document.addEventListener('webkitfullscreenchange',fsch);
 try{if(localStorage.getItem('granit_portrait')==='1')document.body.classList.add('portraitOk')}catch(_){}
 $('#rotSkip').addEventListener('click',()=>{document.body.classList.add('portraitOk');try{localStorage.setItem('granit_portrait','1')}catch(_){}});
@@ -3104,7 +3128,7 @@ function frame(now){const dt=Math.min(.05,(now-last)/1000);last=now;
  else if(state==='ending'||state==='end'){updEnding(dt);updWorldIdle(dt)}
  if(warnT>0){warnT-=dt;if(warnT<=0)$('#warn').className=''}
  // kamera
- const port=cam.aspect<1;const oy=port?30:22,oz=port?19:14;
+ const port=cam.aspect<1,zk=port?1:innerHeight<360?.52:innerHeight<540?.62:1;const oy=(port?30:22)*zk,oz=(port?19:14)*zk;
  if(state==='title'){camA+=dt*.12;cam.position.set(Math.sin(camA)*11,5.5,Math.cos(camA)*11);const off=cam.aspect>1.15?3.4:0;cam.lookAt(-Math.cos(camA)*off,1.9,Math.sin(camA)*off);
   if(player){player.legs[0].rotation.x=player.legs[1].rotation.x=0;player.g.rotation.y=Math.sin(now/2000)*.4}}
  else{const tx=P?P.x:0,tz=P?P.z:0;let ty=0;if(state==='ending'||state==='end'){ty=PART===5?Math.min(3,endT*.4):PART===4?Math.min(4,endT*.6):PART===3?Math.min(5,endT*.5):PART===2?Math.min(3,endT*.3):Math.min(10,endT*.8)}
