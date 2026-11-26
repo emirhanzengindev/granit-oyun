@@ -30,6 +30,7 @@ Kısım II'den itibaren her kısım bir önceki kısmın özetiyle başlar. Her 
 - **Müzik:** Tarayıcıda anlık üretilir; her kısmın Türk makamlarına dayalı kendi ritmi vardır, boss gelince değişir.
 - **Yan karakterler:** Her kısmın iki yan karakteri marketten altınla alınır ve boss savaşlarında yanında savaşır; her birinin kendine özgü bir yeteneği vardır.
 - **Konuşmalar:** Bölüm başlarında, boss savaşlarında ve yan karakterlerle çizgi roman balonlarıyla konuşmalar geçer.
+- **Silah ustalığı:** Boss sonrası aynı silahı seçersen ustalığı artar (en fazla 5 kademe); ilerleme ve stat değişimi ekranda gösterilir.
 - **Mini harita:** Düşmanları, bossu, engelleri, tehlikeleri ve toplanabilir nesneleri gösterir.
 - **Kayıt:** İlerleme her kısım için ayrı ayrı tarayıcıda kaydedilir (localStorage).
 
