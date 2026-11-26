@@ -2,7 +2,7 @@
 
 Tarayıcıda çalışan, 3D, hikâyeli bir hayatta kalma ve nişancı oyunu (Three.js). Oyun beş kısımdan oluşuyor; her kısımda 30 bölüm ve 6 boss var. Toplam 150 bölüm ve 30 boss.
 
-Yüzbaşı Arda "Granit" Demir, iptal edilen bir süper asker programının hayatta kalan tek deneğidir. Önce gizli bir hapishaneden kaçar. Sonra canlı bir müzeye numune olarak kaçırılır, kanından bir asker ordusu dökülür, eski bir Osmanlı saatiyle zamanda geri gider ve sonunda Taş Devri'ne düşer.
+Yüzbaşı Arda "Granit" Demir, iptal edilen bir süper asker programının hayatta kalan tek deneğidir. Önce gizli bir hapishaneden kaçar. Sonra canlı bir müzeye numune olarak kaçırılır, kanından bir asker ordusu dökülür, eski bir Osmanlı saatiyle zamanda geri gider Taş Devri'ne düşer ve sonunda serumun kaynağını bulmak için Karadeniz'in dibindeki batık bir kente iner.
 
 ## Kısımlar
 
@@ -13,6 +13,7 @@ Yüzbaşı Arda "Granit" Demir, iptal edilen bir süper asker programının haya
 | III | Dönüş | Döküm Ustası, Granit'in kanından dökülen Kalıp ordusu, kor kılıcı |
 | IV | Yarının Gölgesi | Galata'nın altındaki Muvakkithane'nin saatiyle 2049–2026 arası zaman savaşı, Uyumcu robotlar |
 | V | Taş Devri | Dinozorlar, mağara kabileleri, parçalanmış zaman makinesi |
+| VI | Derinlerin Şehri | Karadeniz'in dibinde batık bir Anadolu kenti, oksijen, akıntılar ve serumun kaynağı Derin Ana |
 
 Kısım II'den itibaren her kısım bir önceki kısmın özetiyle başlar. Her 5 bölümün başında hikâyeyi konuşma balonlu bir çizgi roman sayfası anlatır.
 
