@@ -31,6 +31,7 @@ Kısım II'den itibaren her kısım bir önceki kısmın özetiyle başlar. Her 
 - **Yan karakterler:** Her kısmın iki yan karakteri marketten altınla alınır ve boss savaşlarında yanında savaşır; her birinin kendine özgü bir yeteneği vardır.
 - **Konuşmalar:** Bölüm başlarında, boss savaşlarında ve yan karakterlerle çizgi roman balonlarıyla konuşmalar geçer.
 - **Silah ustalığı:** Boss sonrası aynı silahı seçersen ustalığı artar (en fazla 5 kademe); ilerleme ve stat değişimi ekranda gösterilir.
+- **Mobil yan ekran:** Telefonda yan ekran için düzenlenmiş arayüz, tam ekran ve yatay kilit. Android'de Chrome'dan **Ana ekrana ekle** ile uygulama gibi tam ekran açılır.
 - **Mini harita:** Düşmanları, bossu, engelleri, tehlikeleri ve toplanabilir nesneleri gösterir.
 - **Kayıt:** İlerleme her kısım için ayrı ayrı tarayıcıda kaydedilir (localStorage).
 
