@@ -258,6 +258,11 @@ body.fs #fsBtn{opacity:.6}
 #joyhint::after{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px;border-radius:50%;background:rgba(255,255,255,.18)}
 @media not all and (pointer:coarse){#joyhint{display:none!important}}
 #hud.on~#joyhint.show{opacity:1}
+
+/* tam yükseklik (iOS ana ekran uygulamasında alt boşluk düzeltmesi) */
+#c,#hud,#ov,#rot,#comic,#sfxl{top:0!important;bottom:auto!important;height:var(--appH,100%)!important}
+html,body{min-height:var(--appH,100%)}
+@media (orientation:landscape) and (max-height:540px){#killbar{height:15px!important}#killbar span{font-size:11px;line-height:14px}.top .bar.hp span{line-height:13px}}
 </style>
 </head>
 <body>
@@ -693,7 +698,12 @@ Object.assign(sun.shadow.camera,{left:-30,right:30,top:30,bottom:-30,near:1,far:
 sun.position.set(14,34,12);scene.add(sun,sun.target);if(sun.shadow.camera.updateProjectionMatrix)sun.shadow.camera.updateProjectionMatrix();
 const plight=new THREE.PointLight(0xffe2b0,0,17,1.4);scene.add(plight);
 const alarmLight=new THREE.PointLight(0xff2020,0,60,1);alarmLight.position.set(0,12,0);scene.add(alarmLight);
-function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+function appH(){let h=innerHeight;const vv=window.visualViewport;if(vv&&vv.height>h)h=vv.height;
+ const sa=navigator.standalone||matchMedia('(display-mode: standalone),(display-mode: fullscreen)').matches;
+ if(sa&&screen&&screen.width&&screen.height){const land=innerWidth>innerHeight,short=Math.min(screen.width,screen.height),long=Math.max(screen.width,screen.height),full=land?short:long;if(h<full-2&&h>full*.75)h=full}
+ return Math.round(h)}
+function resize(){const w=innerWidth,h=appH();document.documentElement.style.setProperty('--appH',h+'px');renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+addEventListener('orientationchange',()=>{setTimeout(resize,250);setTimeout(resize,700)});if(window.visualViewport)visualViewport.addEventListener('resize',()=>setTimeout(resize,60));
 addEventListener('resize',resize);resize();
 
 const GC={},MC={};
